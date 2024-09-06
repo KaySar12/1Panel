@@ -8,7 +8,7 @@ before:
     - ./script.sh
     - sed -i 's@ORIGINAL_VERSION=.*@ORIGINAL_VERSION=v{{ .Version }}@g' 1pctl
     - go mod tidy
-    
+
 builds:
   - main: ./cmd/server/main.go
     binary: 1panel
@@ -40,9 +40,9 @@ archives:
       - install.sh
       - README.md
       - LICENSE
-    
+
 checksum:
-  name_template: 'checksums.txt'
+  name_template: "checksums.txt"
 snapshot:
   version_template: "{{ incpatch .Version }}-next"
 release:
@@ -52,7 +52,6 @@ release:
     - glob: dist/*.tar.gz
     - glob: dist/checksums.txt
   name_template: "Release {{.Tag}}"
-
 # The lines beneath this are called `modelines`. See `:help modeline`
 # Feel free to remove those if you don't want/use them.
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
