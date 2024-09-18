@@ -9,7 +9,6 @@ import (
 	"encoding/pem"
 	"errors"
 	"fmt"
-	"github.com/1Panel-dev/1Panel/backend/utils/docker"
 	"os"
 	"path"
 	"reflect"
@@ -18,6 +17,8 @@ import (
 	"strings"
 	"syscall"
 	"time"
+
+	"github.com/1Panel-dev/1Panel/backend/utils/docker"
 
 	"github.com/1Panel-dev/1Panel/backend/utils/common"
 	"github.com/jinzhu/copier"
@@ -76,7 +77,9 @@ type IWebsiteService interface {
 	OpWebsiteLog(req request.WebsiteLogReq) (*response.WebsiteLog, error)
 	ChangeDefaultServer(id uint) error
 	PreInstallCheck(req request.WebsiteInstallCheckReq) ([]response.WebsitePreInstallCheck, error)
-
+	GetWafConfig(req request.WebsiteWafReq) (response.WebsiteWafConfig, error)
+	UpdateWafConfig(req request.WebsiteWafUpdate) error
+	UpdateWafFile(req request.WebsiteWafFileUpdate) (err error)
 	GetPHPConfig(id uint) (*response.PHPConfig, error)
 	UpdatePHPConfig(req request.WebsitePHPConfigUpdate) error
 	UpdatePHPConfigFile(req request.WebsitePHPFileUpdate) error
@@ -105,7 +108,70 @@ type IWebsiteService interface {
 func NewIWebsiteService() IWebsiteService {
 	return &WebsiteService{}
 }
+func (w WebsiteService) GetWafConfig(req request.WebsiteWafReq) (response.WebsiteWafConfig, error) {
+	var res response.WebsiteWafConfig
+	website, err := websiteRepo.GetFirst(commonRepo.WithByID(req.WebsiteID))
+	if err != nil {
+		return res, nil
+	}
 
+	res.Enable = true
+	if req.Key != "" {
+		params, err := getNginxParamsByKeys(constant.NginxScopeServer, []string{"set"}, &website)
+		if err != nil {
+			return res, nil
+		}
+		for _, param := range params {
+			if param.Params[0] == req.Key {
+				res.Enable = len(param.Params) > 1 && param.Params[1] == "on"
+				break
+			}
+		}
+	}
+
+	nginxFull, err := getNginxFull(&website)
+	if err != nil {
+		return res, nil
+	}
+
+	filePath := path.Join(nginxFull.SiteDir, "sites", website.Alias, "waf", "rules", req.Rule+".json")
+	content, err := os.ReadFile(filePath)
+	if err != nil {
+		return res, nil
+	}
+	res.Content = string(content)
+
+	return res, nil
+}
+func (w WebsiteService) UpdateWafFile(req request.WebsiteWafFileUpdate) (err error) {
+	var (
+		website      model.Website
+		nginxInstall model.AppInstall
+	)
+	website, err = websiteRepo.GetFirst(commonRepo.WithByID(req.WebsiteID))
+	if err != nil {
+		return err
+	}
+	nginxInstall, err = getAppInstallByKey(constant.AppOpenresty)
+	if err != nil {
+		return
+	}
+	rulePath := path.Join(nginxInstall.GetPath(), "www", "sites", website.Alias, "waf", "rules", fmt.Sprintf("%s.json", req.Type))
+	return files.NewFileOp().WriteFile(rulePath, strings.NewReader(req.Content), 0755)
+}
+func (w WebsiteService) UpdateWafConfig(req request.WebsiteWafUpdate) error {
+	website, err := websiteRepo.GetFirst(commonRepo.WithByID(req.WebsiteID))
+	if err != nil {
+		return err
+	}
+	updateValue := "on"
+	if !req.Enable {
+		updateValue = "off"
+	}
+	return updateNginxConfig(constant.NginxScopeServer, []dto.NginxParam{
+		{Name: "set", Params: []string{req.Key, updateValue}},
+	}, &website)
+}
 func (w WebsiteService) PageWebsite(req request.WebsiteSearch) (int64, []response.WebsiteRes, error) {
 	var (
 		websiteDTOs []response.WebsiteRes

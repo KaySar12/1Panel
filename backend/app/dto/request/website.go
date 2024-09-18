@@ -11,7 +11,21 @@ type WebsiteSearch struct {
 	Order          string `json:"order" validate:"required,oneof=null ascending descending"`
 	WebsiteGroupID uint   `json:"websiteGroupId"`
 }
-
+type WebsiteWafUpdate struct {
+	WebsiteID uint   `json:"websiteId" validate:"required"`
+	Key       string `json:"key" validate:"required"`
+	Enable    bool   `json:"enable"`
+}
+type WebsiteWafFileUpdate struct {
+	WebsiteID uint   `json:"websiteID" validate:"required"`
+	Content   string `json:"content" validate:"required"`
+	Type      string `json:"type" validate:"required,oneof=cc ip_white ip_block url_white url_block cookie_block args_check post_check ua_check file_ext_block user_agent"`
+}
+type WebsiteWafReq struct {
+	WebsiteID uint   `json:"websiteId" validate:"required"`
+	Key       string `json:"key" validate:"required"`
+	Rule      string `json:"rule" validate:"required"`
+}
 type WebsiteCreate struct {
 	PrimaryDomain  string `json:"primaryDomain" validate:"required"`
 	Type           string `json:"type" validate:"required"`

@@ -229,7 +229,17 @@ export const UpdateRedirectConfigFile = (req: Website.RedirectFileUpdate) => {
 export const ChangePHPVersion = (req: Website.PHPVersionChange) => {
     return http.post<any>(`/websites/php/version`, req);
 };
+export const GetWafConfig = (req: Website.WafReq) => {
+    return http.post<Website.WafRes>(`/websites/waf/config`, req);
+};
 
+export const UpdateWafEnable = (req: Website.WafUpdate) => {
+    return http.post<any>(`/websites/waf/update`, req);
+};
+
+export const UpdateWafFile = (req: Website.WafFileUpdate) => {
+    return http.post<any>(`/websites/waf/file/update`, req);
+};
 export const GetDirConfig = (req: Website.ProxyReq) => {
     return http.post<Website.DirConfig>(`/websites/dir`, req);
 };

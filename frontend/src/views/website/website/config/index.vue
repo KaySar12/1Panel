@@ -21,6 +21,9 @@
                 <el-button type="primary" :plain="index !== 'basic'" @click="changeTab('basic')">
                     {{ $t('website.basic') }}
                 </el-button>
+                <el-button type="primary" :plain="index !== 'safety'" @click="changeTab('safety')">
+                    {{ $t('website.security') }}
+                </el-button>
                 <el-button type="primary" :plain="index !== 'log'" @click="changeTab('log')">
                     {{ $t('website.log') }}
                 </el-button>
@@ -33,6 +36,7 @@
             </template>
             <template #main>
                 <Basic :id="id" v-if="index === 'basic'"></Basic>
+                <Safety :id="id" v-if="index === 'safety'"></Safety>
                 <Log :id="id" v-if="index === 'log'"></Log>
                 <Resource :id="id" v-if="index === 'resource'"></Resource>
                 <PHP :id="id" v-if="index === 'php'"></PHP>
@@ -44,6 +48,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
 import Basic from './basic/index.vue';
+import Safety from './safety/index.vue';
 import Resource from './resource/index.vue';
 import Log from './log/index.vue';
 import PHP from './php/index.vue';

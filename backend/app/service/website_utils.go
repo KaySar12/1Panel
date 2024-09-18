@@ -3,7 +3,6 @@ package service
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/1Panel-dev/1Panel/backend/utils/xpack"
 	"log"
 	"os"
 	"path"
@@ -12,6 +11,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/1Panel-dev/1Panel/backend/utils/xpack"
 
 	"github.com/1Panel-dev/1Panel/backend/buserr"
 	"github.com/1Panel-dev/1Panel/backend/global"
@@ -211,7 +212,7 @@ func createWebsiteFolder(nginxInstall model.AppInstall, website *model.Website, 
 			}
 		}
 	}
-	return nil
+	return fileOp.CopyDir(path.Join(nginxFolder, "www", "common", "waf", "rules"), path.Join(siteFolder, "waf"))
 }
 
 func configDefaultNginx(website *model.Website, domains []model.WebsiteDomain, appInstall *model.AppInstall, runtime *model.Runtime) error {
@@ -247,9 +248,12 @@ func configDefaultNginx(website *model.Website, domains []model.WebsiteDomain, a
 	server.UpdateServerName(serverNames)
 
 	siteFolder := path.Join("/www", "sites", website.Alias)
+	commonFolder := path.Join("/www", "common")
 	server.UpdateDirective("access_log", []string{path.Join(siteFolder, "log", "access.log"), "main"})
 	server.UpdateDirective("error_log", []string{path.Join(siteFolder, "log", "error.log")})
-
+	server.UpdateDirective("access_by_lua_file", []string{path.Join(commonFolder, "waf", "access.lua")})
+	server.UpdateDirective("set", []string{"$RulePath", path.Join(siteFolder, "waf", "rules")})
+	server.UpdateDirective("set", []string{"$logdir", path.Join(siteFolder, "log")})
 	rootIndex := path.Join("/www/sites", website.Alias, "index")
 	switch website.Type {
 	case constant.Deployment:

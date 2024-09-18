@@ -1,8 +1,9 @@
 package response
 
 import (
-	"github.com/1Panel-dev/1Panel/backend/app/model"
 	"time"
+
+	"github.com/1Panel-dev/1Panel/backend/app/model"
 )
 
 type WebsiteDTO struct {
@@ -14,7 +15,10 @@ type WebsiteDTO struct {
 	RuntimeName   string `json:"runtimeName"`
 	SiteDir       string `gorm:"type:varchar;" json:"siteDir"`
 }
-
+type WebsiteWafConfig struct {
+	Enable  bool   `json:"enable"`
+	Content string `json:"content"`
+}
 type WebsiteRes struct {
 	ID            uint      `json:"id"`
 	CreatedAt     time.Time `json:"createdAt"`
