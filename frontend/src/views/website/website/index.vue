@@ -146,7 +146,7 @@
                                     :clearable="false"
                                     @change="submitDate(row)"
                                     :ref="(el) => setdateRefs(el)"
-                                    @visible-change="(visibility:boolean) => pickerVisibility(visibility, row)"
+                                    @visible-change="(visibility: boolean) => pickerVisibility(visibility, row)"
                                     size="small"
                                     :mounted="initDatePicker(row)"
                                 ></el-date-picker>
@@ -323,7 +323,9 @@ const setting = () => {
 const openConfig = (id: number) => {
     router.push({ name: 'WebsiteConfig', params: { id: id, tab: 'basic' } });
 };
-
+const openWAF = (id: number) => {
+    router.push({ name: 'WebsiteConfig', params: { id: id, tab: 'safety' } });
+};
 const isEver = (time: string) => {
     const expireDate = new Date(time);
     return expireDate < new Date('1970-01-02');
@@ -402,6 +404,12 @@ const buttons = [
         label: i18n.global.t('website.config'),
         click: function (row: Website.Website) {
             openConfig(row.id);
+        },
+    },
+    {
+        label: 'WAF',
+        click: function (row: Website.Website) {
+            openWAF(row.id);
         },
     },
     {

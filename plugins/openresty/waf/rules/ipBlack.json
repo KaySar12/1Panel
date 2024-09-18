@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "name": "拦截IP",
+      "state": "on",
+      "type": "ipGroup",
+      "ipGroup": "test",
+      "description": "拦截IP"
+    }
+  ]
+}

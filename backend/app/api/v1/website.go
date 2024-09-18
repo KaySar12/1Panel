@@ -820,3 +820,66 @@ func (b *BaseApi) UpdateDefaultHtml(c *gin.Context) {
 	}
 	helper.SuccessWithOutData(c)
 }
+
+// @Tags Website WAF
+// @Summary Load websit waf conf
+// @Description 获取网站 waf 配置
+// @Accept json
+// @Param request body request.WebsiteWafReq true "request"
+// @Success 200 {object} response.WebsiteWafConfig
+// @Security ApiKeyAuth
+// @Router /websites/waf/config [post]
+func (b *BaseApi) GetWebsiteWafConfig(c *gin.Context) {
+	var req request.WebsiteWafReq
+	if err := helper.CheckBindAndValidate(&req, c); err != nil {
+		return
+	}
+	data, err := websiteService.GetWafConfig(req)
+	if err != nil {
+		helper.ErrorWithDetail(c, constant.CodeErrInternalServer, constant.ErrTypeInternalServer, err)
+		return
+	}
+	helper.SuccessWithData(c, data)
+}
+
+// @Tags Website WAF
+// @Summary Update website waf conf
+// @Description 更新 网站 waf 配置
+// @Accept json
+// @Param request body request.WebsiteWafUpdate true "request"
+// @Success 200
+// @Security ApiKeyAuth
+// @Router /websites/waf/update [post]
+// @x-panel-log {"bodyKeys":["websiteId"],"paramKeys":[],"BeforeFunctions":[{"input_column":"id","input_value":"websiteId","isList":false,"db":"websites","output_column":"primary_domain","output_value":"domain"}],"formatZH":"WAF 配置修改 [domain]","formatEN":"WAF conf update [domain]"}
+func (b *BaseApi) UpdateWebsiteWafConfig(c *gin.Context) {
+	var req request.WebsiteWafUpdate
+	if err := helper.CheckBindAndValidate(&req, c); err != nil {
+		return
+	}
+	if err := websiteService.UpdateWafConfig(req); err != nil {
+		helper.ErrorWithDetail(c, constant.CodeErrInternalServer, constant.ErrTypeInternalServer, err)
+		return
+	}
+	helper.SuccessWithData(c, nil)
+}
+
+// @Tags Website WAF
+// @Summary Update website waf  file
+// @Description 更新 网站 waf 配置文件
+// @Accept json
+// @Param request body request.WebsiteWafUpdate true "request"
+// @Success 200
+// @Security ApiKeyAuth
+// @Router /websites/waf/file/update [post]
+// @x-panel-log {"bodyKeys":["websiteId"],"paramKeys":[],"BeforeFunctions":[{"input_column":"id","input_value":"websiteId","isList":false,"db":"websites","output_column":"primary_domain","output_value":"domain"}],"formatZH":"WAF 配置文件修改 [domain]","formatEN":"WAF conf file update [domain]"}
+func (b *BaseApi) UpdateWebsiteWafFile(c *gin.Context) {
+	var req request.WebsiteWafFileUpdate
+	if err := helper.CheckBindAndValidate(&req, c); err != nil {
+		return
+	}
+	if err := websiteService.UpdateWafFile(req); err != nil {
+		helper.ErrorWithDetail(c, constant.CodeErrInternalServer, constant.ErrTypeInternalServer, err)
+		return
+	}
+	helper.SuccessWithData(c, nil)
+}

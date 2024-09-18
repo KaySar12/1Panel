@@ -66,7 +66,28 @@ export namespace Website {
         deleteBackup: boolean;
         forceDelete: boolean;
     }
+    export interface WafReq {
+        websiteId: number;
+        key: string;
+        rule: string;
+    }
 
+    export interface WafRes {
+        enable: boolean;
+        content: string;
+    }
+
+    export interface WafUpdate {
+        enable: boolean;
+        websiteId: number;
+        key: string;
+    }
+
+    export interface WafFileUpdate {
+        websiteId: number;
+        type: string;
+        content: string;
+    }
     export interface WebSiteCreateReq {
         primaryDomain: string;
         type: string;

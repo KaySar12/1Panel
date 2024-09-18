@@ -27,6 +27,10 @@ func (a *WebsiteRouter) InitRouter(Router *gin.RouterGroup) {
 		websiteRouter.POST("/del", baseApi.DeleteWebsite)
 		websiteRouter.POST("/default/server", baseApi.ChangeDefaultServer)
 
+		websiteRouter.POST("/waf/config", baseApi.GetWebsiteWafConfig)
+		websiteRouter.POST("/waf/update", baseApi.UpdateWebsiteWafConfig)
+		websiteRouter.POST("/waf/file/update", baseApi.UpdateWebsiteWafFile)
+
 		websiteRouter.GET("/domains/:websiteId", baseApi.GetWebDomains)
 		websiteRouter.POST("/domains/del", baseApi.DeleteWebDomain)
 		websiteRouter.POST("/domains", baseApi.CreateWebDomain)
