@@ -14,10 +14,10 @@ func init() {
 
 var userinfoCmd = &cobra.Command{
 	Use:   "user-info",
-	Short: "获取面板信息",
+	Short: "Get panel information",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if !isRoot() {
-			fmt.Println("请使用 sudo 1pctl user-info 或者切换到 root 用户")
+			fmt.Println("Please use the Sudo 1PCTL User-Info or switch to the root user")
 			return nil
 		}
 		db, err := loadDBConn()
@@ -47,10 +47,10 @@ var userinfoCmd = &cobra.Command{
 			address = "$LOCAL_IP"
 		}
 
-		fmt.Printf("面板地址: %s://%s:%s/%s \n", protocol, address, port, entrance)
-		fmt.Println("面板用户: ", user)
-		fmt.Println("面板密码: ", pass)
-		fmt.Println("提示：修改密码可执行命令：1pctl update password")
+		fmt.Printf("Panel address: %s://%s:%s/%s \n", protocol, address, port, entrance)
+		fmt.Println("Panel user: ", user)
+		fmt.Println("Panel password: ", pass)
+		fmt.Println("Tip: Modify the password by execute: 1pctl update password")
 		return nil
 	},
 }

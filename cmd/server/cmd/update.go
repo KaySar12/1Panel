@@ -26,15 +26,15 @@ func init() {
 
 var updateCmd = &cobra.Command{
 	Use:   "update",
-	Short: "修改面板信息",
+	Short: "Modify panel information",
 }
 
 var updateUserName = &cobra.Command{
 	Use:   "username",
-	Short: "修改面板用户",
+	Short: "Modify panel users",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if !isRoot() {
-			fmt.Println("请使用 sudo 1pctl update username 或者切换到 root 用户")
+			fmt.Println("Please use sudo 1pctl update username Or switch to root user")
 			return nil
 		}
 		username()
@@ -43,10 +43,10 @@ var updateUserName = &cobra.Command{
 }
 var updatePassword = &cobra.Command{
 	Use:   "password",
-	Short: "修改面板密码",
+	Short: "Modify the panel password",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if !isRoot() {
-			fmt.Println("请使用 sudo 1pctl update password 或者切换到 root 用户")
+			fmt.Println("Please use sudo 1pctl update password Or switch to root user")
 			return nil
 		}
 		password()
@@ -55,10 +55,10 @@ var updatePassword = &cobra.Command{
 }
 var updatePort = &cobra.Command{
 	Use:   "port",
-	Short: "修改面板端口",
+	Short: "Modify the panel port",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if !isRoot() {
-			fmt.Println("请使用 sudo 1pctl update port 或者切换到 root 用户")
+			fmt.Println("Please use sudo 1pctl update port Or switch to root user")
 			return nil
 		}
 		port()
@@ -68,83 +68,83 @@ var updatePort = &cobra.Command{
 
 func username() {
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("修改面板用户: ")
+	fmt.Print("Modify panel users: ")
 	newUsername, _ := reader.ReadString('\n')
 	newUsername = strings.Trim(newUsername, "\n")
 	if len(newUsername) == 0 {
-		fmt.Println("错误：输入面板用户为空！")
+		fmt.Println("Error: Input panel users are empty！")
 		return
 	}
 	if strings.Contains(newUsername, " ") {
-		fmt.Println("错误：输入面板用户中包含空格字符！")
+		fmt.Println("Error: Input panel users include space characters！")
 		return
 	}
 	result, err := regexp.MatchString("^[a-zA-Z0-9_\u4e00-\u9fa5]{3,30}$", newUsername)
 	if !result || err != nil {
-		fmt.Println("错误：输入面板用户错误！仅支持英文、中文、数字和_,长度3-30")
+		fmt.Println("Error: Enter the panel user error!Only support English, Chinese, numbers and _, length3-30")
 		return
 	}
 
 	db, err := loadDBConn()
 	if err != nil {
-		fmt.Printf("错误：初始化数据库连接失败，%v\n", err)
+		fmt.Printf("Error: Initialized database connection failed，%v\n", err)
 		return
 	}
 	if err := setSettingByKey(db, "UserName", newUsername); err != nil {
-		fmt.Printf("错误：面板用户修改失败，%v\n", err)
+		fmt.Printf("Error: Panel user modification fails，%v\n", err)
 		return
 	}
 
-	fmt.Printf("修改成功！\n\n")
-	fmt.Printf("面板用户：%s\n", newUsername)
+	fmt.Printf("Modified success!\n\n")
+	fmt.Printf("Panel user:%s\n", newUsername)
 }
 
 func password() {
-	fmt.Print("修改面板密码：")
+	fmt.Print("Modify the panel password:")
 	bytePassword, err := term.ReadPassword(int(os.Stdin.Fd()))
 	if err != nil {
-		fmt.Printf("\n错误：面板密码信息读取错误，%v\n", err)
+		fmt.Printf("\nError: Reading error of panel password information，%v\n", err)
 		return
 	}
 	newPassword := string(bytePassword)
 	newPassword = strings.Trim(newPassword, "\n")
 
 	if len(newPassword) == 0 {
-		fmt.Println("\n错误：输入面板密码为空！")
+		fmt.Println("\nError: Enter the panel password to be empty！")
 		return
 	}
 	if strings.Contains(newPassword, " ") {
-		fmt.Println("\n错误：输入面板密码中包含空格字符！")
+		fmt.Println("\nError: Input panel password contains space characters！")
 		return
 	}
 	db, err := loadDBConn()
 	if err != nil {
-		fmt.Printf("\n错误：初始化数据库连接失败，%v\n", err)
+		fmt.Printf("\nError: Initialized database connection failed，%v\n", err)
 		return
 	}
 	complexSetting := getSettingByKey(db, "ComplexityVerification")
 	if complexSetting == "enable" {
 		if isValidPassword("newPassword") {
-			fmt.Println("\n错误：面板密码仅支持字母、数字、特殊字符（!@#$%*_,.?），长度 8-30 位！")
+			fmt.Println("\nError: The panel password only supports letters, numbers, and special characters（!@#$%*_,.?），8-30 bits in length！")
 			return
 		}
 	}
 	if len(newPassword) < 6 {
-		fmt.Println("错误：请输入 6 位以上密码！")
+		fmt.Println("Error: Please enter more than 6 digits or more passwords！")
 		return
 	}
 
-	fmt.Print("\n确认密码：")
+	fmt.Print("\nConfirm Password：")
 	byteConfirmPassword, err := term.ReadPassword(int(os.Stdin.Fd()))
 	if err != nil {
-		fmt.Printf("\n错误：面板密码信息读取错误，%v\n", err)
+		fmt.Printf("\nError: Reading error of panel password information，%v\n", err)
 		return
 	}
 	confirmPassword := string(byteConfirmPassword)
 	confirmPassword = strings.Trim(confirmPassword, "\n")
 
 	if newPassword != confirmPassword {
-		fmt.Printf("\n错误：两次密码不匹配，请检查后重试！，%v\n", err)
+		fmt.Printf("\nError: Do not match the password twice, please try it after checking！，%v\n", err)
 		return
 	}
 
@@ -157,43 +157,43 @@ func password() {
 		p = newPassword
 	}
 	if err := setSettingByKey(db, "Password", p); err != nil {
-		fmt.Printf("\n错误：面板密码修改失败，%v\n", err)
+		fmt.Printf("\nError: The modification of the panel password failed，%v\n", err)
 		return
 	}
 	username := getSettingByKey(db, "UserName")
 
-	fmt.Printf("\n修改成功！\n\n")
-	fmt.Printf("面板用户：%s\n", username)
-	fmt.Printf("面板密码：%s\n", string(newPassword))
+	fmt.Printf("\n Modified successfully!\n\n")
+	fmt.Printf("Panel user:%s\n", username)
+	fmt.Printf("Panel password:%s\n", string(newPassword))
 }
 
 func port() {
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("修改面板端口：")
+	fmt.Print("Modify the panel port:")
 
 	newPortStr, _ := reader.ReadString('\n')
 	newPortStr = strings.Trim(newPortStr, "\n")
 	newPort, err := strconv.Atoi(strings.TrimSpace(newPortStr))
 	if err != nil || newPort < 1 || newPort > 65535 {
-		fmt.Println("错误：输入的端口号必须在 1 到 65535 之间！")
+		fmt.Println("Error: The input port number must be between 1 and 65535!")
 		return
 	}
 	if common.ScanPort(newPort) {
-		fmt.Println("错误：该端口号正被占用，请检查后重试！")
+		fmt.Println("Error: This port number is being occupied, please review it after checking!")
 		return
 	}
 	db, err := loadDBConn()
 	if err != nil {
-		fmt.Printf("错误：初始化数据库连接失败，%v\n", err)
+		fmt.Printf("Error: Initialized database connection failed，%v\n", err)
 		return
 	}
 	if err := setSettingByKey(db, "ServerPort", newPortStr); err != nil {
-		fmt.Printf("错误：面板端口修改失败，%v\n", err)
+		fmt.Printf("Error: The panel port modification failed，%v\n", err)
 		return
 	}
 
-	fmt.Printf("修改成功！\n\n")
-	fmt.Printf("面板端口：%s\n", newPortStr)
+	fmt.Printf("Modified success!\n\n")
+	fmt.Printf("Panel port:%s\n", newPortStr)
 
 	std, err := cmd.Exec("1pctl restart")
 	if err != nil {

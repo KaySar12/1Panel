@@ -30,7 +30,7 @@ const app = createApp(App);
 app.use(hljsVuePlugin);
 app.component('SvgIcon', SvgIcon);
 app.use(ElementPlus);
-app.use(Fit2CloudPlus, { locale: i18n.global.messages.value[localStorage.getItem('lang') || 'zh'] });
+app.use(Fit2CloudPlus, { locale: i18n.global.messages.value[localStorage.getItem('lang') || 'en'] });
 
 Object.keys(Icons).forEach((key) => {
     app.component(key, Icons[key as keyof typeof Icons]);
