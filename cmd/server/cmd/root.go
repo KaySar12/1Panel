@@ -17,7 +17,7 @@ func init() {}
 
 var RootCmd = &cobra.Command{
 	Use:   "1panel",
-	Short: "1Panel ，一款现代化的 Linux 面板",
+	Short: "1Panel ，A modern Linux panel",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		server.Start()
 		return nil

@@ -22,13 +22,11 @@ build/1panel
 *.iml
 *.ipr
 
-
 # Test binary, built with `go test -c`
 *.test
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
-
 
 # Dependency directories
 /pkg/
@@ -52,4 +50,4 @@ quick_start.sh
 cmd/server/fileList.txt
 .fileList.txt
 1Panel.code-workspace
-build copy/1panel
+build/
