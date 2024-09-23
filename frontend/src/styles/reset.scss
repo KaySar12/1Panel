@@ -20,6 +20,7 @@ body,
     height: 12px;
 }
 
-.el-switch--small,.is-checked .el-switch__core::after {
+.el-switch--small,
+.is-checked .el-switch__core::after {
     margin-left: 12px !important;
 }
