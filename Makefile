@@ -21,14 +21,14 @@ upx_bin:
 build_frontend:
 	cd $(WEB_PATH) && npm install && npm run build:pro
 
-build_backend_on_linux:
+build_backend:
 	cd $(SERVER_PATH) \
     && GOOS=$(GOOS) GOARCH=$(GOARCH) $(GOBUILD)  -ldflags '-s -w' -gcflags=all="-N -l" -o $(BUILD_PATH)/$(APP_NAME) $(MAIN)
 
-build_backend_on_darwin:
-	cd $(SERVER_PATH) \
-    && GOOS=linux GOARCH=amd64 $(GOBUILD) -trimpath -ldflags '-s -w'  -o $(BUILD_PATH)/$(APP_NAME) $(MAIN)
+# build_backend_on_darwin:
+# 	cd $(SERVER_PATH) \
+#     && GOOS=linux GOARCH=amd64 $(GOBUILD) -trimpath -ldflags '-s -w'  -o $(BUILD_PATH)/$(APP_NAME) $(MAIN)
 
-build_all: build_frontend build_backend_on_linux
+build_all: build_frontend build_backend
 
-build_on_local: clean_assets build_frontend build_backend_on_linux upx_bin
+build_on_local: clean_assets build_frontend build_backend upx_bin
