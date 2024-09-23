@@ -24,7 +24,7 @@ func (b *BaseApi) GetUpgradeInfo(c *gin.Context) {
 
 // @Tags System Setting
 // @Summary Load release notes by version
-// @Description 获取版本 release notes
+// @Description Obtain version release notes
 // @Accept json
 // @Param request body dto.Upgrade true "request"
 // @Success 200
