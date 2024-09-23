@@ -20,7 +20,7 @@ func Init() {
 	baseDir := "/opt"
 	port := "9999"
 	mode := ""
-	version := "v1.1.0"
+	version := "v1.1.0-Beta"
 	username, password, entrance := "", "", ""
 	fileOp := files.NewFileOp()
 	v := viper.NewWithOptions()
