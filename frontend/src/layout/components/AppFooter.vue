@@ -1,6 +1,5 @@
 <template>
     <div class="footer">
-        <a href="https://fit2cloud.com/" target="_blank">Copyright © 2014-2024 FIT2CLOUD 飞致云</a>
         <SystemUpgrade :footer="true" />
     </div>
 </template>
