@@ -41,6 +41,7 @@ defineProps({
             }
         }
     }
+    // display: none;
 
     div:nth-child(2) {
         margin-top: 20px;
