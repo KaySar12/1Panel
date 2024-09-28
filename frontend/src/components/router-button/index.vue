@@ -76,6 +76,7 @@ onMounted(() => {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        box-shadow: 6px 0px 4px rgb(96 115 143 / 25%) !important;
     }
 }
 
