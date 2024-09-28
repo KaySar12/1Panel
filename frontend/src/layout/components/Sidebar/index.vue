@@ -183,7 +183,8 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: url(@/assets/images/menu-bg.png) var(--el-menu-bg-color) no-repeat top;
+    // background: url(@/assets/images/menu-bg.png) var(--el-menu-bg-color) no-repeat top;
+    background-color: var(--el-menu-bg-color);
 
     .el-scrollbar {
         flex: 1;

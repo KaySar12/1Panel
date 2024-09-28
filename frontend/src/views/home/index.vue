@@ -230,11 +230,11 @@
                     </template>
                 </CardWithHeader>
 
-                <CardWithHeader :header="$t('home.app')" style="margin-top: 20px">
+                <!-- <CardWithHeader :header="$t('home.app')" style="margin-top: 20px">
                     <template #body>
                         <App ref="appRef" />
                     </template>
-                </CardWithHeader>
+                </CardWithHeader> -->
             </el-col>
         </el-row>
 
@@ -245,7 +245,9 @@
 <script lang="ts" setup>
 import { onMounted, onBeforeUnmount, ref, reactive } from 'vue';
 import Status from '@/views/home/status/index.vue';
-import App from '@/views/home/app/index.vue';
+/* eslint-disable prettier/prettier */
+// import Status2 from '@/views/database/mysql/setting/status/index.vue';
+// import App from '@/views/home/app/index.vue';
 import VCharts from '@/components/v-charts/index.vue';
 import LicenseImport from '@/components/license-import/index.vue';
 import CardWithHeader from '@/components/card-with-header/index.vue';
@@ -260,9 +262,18 @@ import { GlobalStore } from '@/store';
 const router = useRouter();
 const globalStore = GlobalStore();
 
+// const slots = useSlots();
 const statusRef = ref();
 const appRef = ref();
 
+// const prop = defineProps({
+//     title: String,
+//     backPath: String,
+//     backName: String,
+//     backTo: Object,
+//     reload: Boolean,
+//     divider: Boolean,
+// });
 const isSafety = ref();
 
 const chartOption = ref('network');

@@ -1,6 +1,6 @@
 <template>
     <el-row :gutter="10">
-        <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
+        <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12" align="center">
             <el-popover placement="bottom" :width="loadWidth()" trigger="hover" v-if="chartsOption['cpu']">
                 <div>
                     <el-tooltip
@@ -50,7 +50,7 @@
                 ( {{ formatNumber(currentInfo.cpuUsed) }} / {{ currentInfo.cpuTotal }} ) {{ $t('commons.units.core') }}
             </span>
         </el-col>
-        <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
+        <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12" align="center">
             <el-popover placement="bottom" :width="160" trigger="hover" v-if="chartsOption['memory']">
                 <el-tag style="font-weight: 500">{{ $t('home.mem') }}:</el-tag>
                 <el-tag class="tagClass">
@@ -95,7 +95,7 @@
                 {{ formatNumber(currentInfo.memoryTotal / 1024 / 1024) }} ) MB
             </span>
         </el-col>
-        <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
+        <!-- <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
             <el-popover placement="bottom" :width="200" trigger="hover" v-if="chartsOption['load']">
                 <el-tag class="tagClass">
                     {{ $t('home.loadAverage', [1]) }}: {{ formatNumber(currentInfo.load1) }}
@@ -237,14 +237,14 @@
                 {{ $t('tabs.hide') }}
                 <el-icon><Top /></el-icon>
             </el-button>
-        </el-col>
+        </el-col> -->
     </el-row>
 </template>
 
 <script setup lang="ts">
 import { Dashboard } from '@/api/interface/dashboard';
-import { computeSize } from '@/utils/util';
-import router from '@/routers';
+// import { computeSize } from '@/utils/util';
+// import router from '@/routers';
 import i18n from '@/lang';
 import { nextTick, ref } from 'vue';
 const showMore = ref(true);
@@ -349,22 +349,22 @@ const acceptParams = (current: Dashboard.CurrentInfo, base: Dashboard.BaseInfo, 
     });
 };
 
-function loadStatus(val: number) {
-    if (val < 30) {
-        return i18n.global.t('home.runSmoothly');
-    }
-    if (val < 70) {
-        return i18n.global.t('home.runNormal');
-    }
-    if (val < 80) {
-        return i18n.global.t('home.runSlowly');
-    }
-    return i18n.global.t('home.runJam');
-}
+// function loadStatus(val: number) {
+//     if (val < 30) {
+//         return i18n.global.t('home.runSmoothly');
+//     }
+//     if (val < 70) {
+//         return i18n.global.t('home.runNormal');
+//     }
+//     if (val < 80) {
+//         return i18n.global.t('home.runSlowly');
+//     }
+//     return i18n.global.t('home.runJam');
+// }
 
-const goGPU = () => {
-    router.push({ name: 'GPU' });
-};
+// const goGPU = () => {
+//     router.push({ name: 'GPU' });
+// };
 
 const loadWidth = () => {
     if (!cpuShowAll.value || currentInfo.value.cpuPercent.length < 32) {
