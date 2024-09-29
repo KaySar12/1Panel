@@ -21,6 +21,15 @@ export const MenuStore = defineStore({
             const menus = menuList.filter((item) => {
                 return whiteList.indexOf(item.path) < 0;
             });
+            menus.forEach((menuItem, index) => {
+                if (index === 5) {
+                    menuItem.children.pop();
+                }
+                if (index === 8) {
+                    menuItem.redirect = `/logs/website`;
+                }
+            });
+            console.log(menus);
             this.menuList = menus;
         },
         closeSidebar(withoutAnimation: boolean) {

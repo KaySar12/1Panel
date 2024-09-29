@@ -4,7 +4,7 @@ const logsRouter = {
     sort: 8,
     path: '/logs',
     component: Layout,
-    redirect: '/logs/operation',
+    redirect: '/logs/website',
     meta: {
         title: 'menu.logs',
         icon: 'p-log',
@@ -13,10 +13,20 @@ const logsRouter = {
         {
             path: '/logs',
             name: 'Log',
-            redirect: '/logs/operation',
+            redirect: '/logs/website',
             component: () => import('@/views/log/index.vue'),
             meta: {},
             children: [
+                {
+                    path: 'website',
+                    name: 'WebsiteLog',
+                    component: () => import('@/views/log/website/index.vue'),
+                    hidden: true,
+                    meta: {
+                        activeMenu: '/logs',
+                        requiresAuth: false,
+                    },
+                },
                 {
                     path: 'operation',
                     name: 'OperationLog',
@@ -31,16 +41,6 @@ const logsRouter = {
                     path: 'login',
                     name: 'LoginLog',
                     component: () => import('@/views/log/login/index.vue'),
-                    hidden: true,
-                    meta: {
-                        activeMenu: '/logs',
-                        requiresAuth: false,
-                    },
-                },
-                {
-                    path: 'website',
-                    name: 'WebsiteLog',
-                    component: () => import('@/views/log/website/index.vue'),
                     hidden: true,
                     meta: {
                         activeMenu: '/logs',

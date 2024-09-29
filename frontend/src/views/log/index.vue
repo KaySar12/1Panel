@@ -12,16 +12,16 @@ import i18n from '@/lang';
 
 const buttons = [
     {
+        label: i18n.global.t('logs.websiteLog'),
+        path: '/logs/website',
+    },
+    {
         label: i18n.global.t('logs.panelLog'),
         path: '/logs/operation',
     },
     {
         label: i18n.global.t('ssh.loginLogs'),
         path: '/logs/ssh',
-    },
-    {
-        label: i18n.global.t('logs.websiteLog'),
-        path: '/logs/website',
     },
 ];
 </script>

@@ -314,7 +314,7 @@ const message = {
         database: 'Database',
         container: 'Container',
         cronjob: 'Cronjob',
-        host: 'Host',
+        host: 'Tool',
         security: 'Security',
         files: 'File',
         monitor: 'Monitor',
