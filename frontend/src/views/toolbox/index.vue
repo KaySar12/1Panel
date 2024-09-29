@@ -57,21 +57,21 @@ const buttons = [
         label: i18n.global.t('setting.diskClean'),
         path: '/toolbox/clean',
     },
-    {
-        label: i18n.global.t('menu.supervisor'),
-        path: '/toolbox/supervisor',
-    },
-    {
-        label: i18n.global.t('toolbox.clam.clam'),
-        path: '/toolbox/clam',
-    },
-    {
-        label: 'FTP',
-        path: '/toolbox/ftp',
-    },
-    {
-        label: 'Fail2ban',
-        path: '/toolbox/fail2ban',
-    },
+    // {
+    //     label: i18n.global.t('menu.supervisor'),
+    //     path: '/toolbox/supervisor',
+    // },
+    // {
+    //     label: i18n.global.t('toolbox.clam.clam'),
+    //     path: '/toolbox/clam',
+    // },
+    // {
+    //     label: 'FTP',
+    //     path: '/toolbox/ftp',
+    // },
+    // {
+    //     label: 'Fail2ban',
+    //     path: '/toolbox/fail2ban',
+    // },
 ];
 </script>

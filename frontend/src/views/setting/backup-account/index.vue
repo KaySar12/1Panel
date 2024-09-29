@@ -111,119 +111,6 @@
                     <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
                         <div class="flx-justify-between">
                             <span class="flx-align-center">
-                                <svg-icon class="card-logo" iconName="p-oss"></svg-icon>
-                                <span class="card-title">&nbsp;{{ $t('setting.OSS') }}</span>
-                            </span>
-                            <div>
-                                <el-button
-                                    round
-                                    :disabled="ossData.id === 0"
-                                    @click="onOpenDialog('edit', 'OSS', ossData)"
-                                >
-                                    {{ $t('commons.button.edit') }}
-                                </el-button>
-                                <el-button round :disabled="ossData.id === 0" @click="onDelete(ossData)">
-                                    {{ $t('commons.button.delete') }}
-                                </el-button>
-                            </div>
-                        </div>
-
-                        <el-divider class="divider" />
-                        <div v-if="ossData.id !== 0" style="margin-left: 20px">
-                            <el-form-item label="Endpoint">
-                                {{ ossData.varsJson['endpoint'] }}
-                            </el-form-item>
-                            <el-form-item label="Bucket">
-                                {{ ossData.bucket }}
-                            </el-form-item>
-                            <el-form-item :label="$t('setting.scType')">
-                                <span v-if="!ossData.varsJson['scType'] || ossData.varsJson['scType'] === 'Standard'">
-                                    {{ $t('setting.typeStandard') }}
-                                </span>
-                                <span v-if="ossData.varsJson['scType'] === 'IA'">
-                                    {{ $t('setting.typeStandard_IA') }}
-                                </span>
-                                <span v-if="ossData.varsJson['scType'] === 'Archive'">
-                                    {{ $t('setting.typeArchive') }}
-                                </span>
-                                <span v-if="ossData.varsJson['scType'] === 'ColdArchive'">
-                                    {{ $t('setting.typeDeep_Archive') }}
-                                </span>
-                            </el-form-item>
-                            <el-form-item :label="$t('setting.backupDir')">
-                                <span v-if="ossData.backupPath">{{ ossData.backupPath }}</span>
-                                <span v-else>{{ $t('setting.unSetting') }}</span>
-                            </el-form-item>
-                            <el-form-item :label="$t('commons.table.createdAt')">
-                                {{ dateFormat(0, 0, ossData.createdAt) }}
-                            </el-form-item>
-                        </div>
-                        <el-alert v-else center class="alert" style="height: 257px" :closable="false">
-                            <el-button size="large" round plain type="primary" @click="onOpenDialog('create', 'OSS')">
-                                {{ $t('setting.createBackupAccount', [$t('setting.OSS')]) }}
-                            </el-button>
-                        </el-alert>
-                    </el-col>
-                </el-row>
-                <el-row :gutter="20" class="common-div">
-                    <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-                        <div class="flx-justify-between">
-                            <span class="flx-align-center">
-                                <svg-icon class="card-logo" iconName="p-tengxunyun1"></svg-icon>
-                                <span class="card-title">&nbsp;{{ $t('setting.COS') }}</span>
-                            </span>
-                            <div>
-                                <el-button
-                                    round
-                                    :disabled="cosData.id === 0"
-                                    @click="onOpenDialog('edit', 'COS', cosData)"
-                                >
-                                    {{ $t('commons.button.edit') }}
-                                </el-button>
-                                <el-button round :disabled="cosData.id === 0" @click="onDelete(cosData)">
-                                    {{ $t('commons.button.delete') }}
-                                </el-button>
-                            </div>
-                        </div>
-                        <el-divider class="divider" />
-                        <div v-if="cosData.id !== 0" style="margin-left: 20px">
-                            <el-form-item label="Region">
-                                {{ cosData.varsJson['region'] }}
-                            </el-form-item>
-                            <el-form-item label="Bucket">
-                                {{ cosData.bucket }}
-                            </el-form-item>
-                            <el-form-item :label="$t('setting.scType')">
-                                <span v-if="!cosData.varsJson['scType'] || cosData.varsJson['scType'] === 'Standard'">
-                                    {{ $t('setting.typeStandard') }}
-                                </span>
-                                <span v-if="cosData.varsJson['scType'] === 'Standard_IA'">
-                                    {{ $t('setting.typeStandard_IA') }}
-                                </span>
-                                <span v-if="cosData.varsJson['scType'] === 'Archive'">
-                                    {{ $t('setting.typeArchive') }}
-                                </span>
-                                <span v-if="cosData.varsJson['scType'] === 'Deep_Archive'">
-                                    {{ $t('setting.typeDeep_Archive') }}
-                                </span>
-                            </el-form-item>
-                            <el-form-item :label="$t('setting.backupDir')">
-                                <span v-if="cosData.backupPath">{{ cosData.backupPath }}</span>
-                                <span v-else>{{ $t('setting.unSetting') }}</span>
-                            </el-form-item>
-                            <el-form-item :label="$t('commons.table.createdAt')">
-                                {{ dateFormat(0, 0, cosData.createdAt) }}
-                            </el-form-item>
-                        </div>
-                        <el-alert v-else center class="alert" style="height: 257px" :closable="false">
-                            <el-button size="large" round plain type="primary" @click="onOpenDialog('create', 'COS')">
-                                {{ $t('setting.createBackupAccount', [$t('setting.COS')]) }}
-                            </el-button>
-                        </el-alert>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-                        <div class="flx-justify-between">
-                            <span class="flx-align-center">
                                 <svg-icon class="card-logo" iconName="p-onedrive"></svg-icon>
                                 <span class="card-title">&nbsp;{{ $t('setting.OneDrive') }}</span>
                             </span>
@@ -283,91 +170,62 @@
                             </el-button>
                         </el-alert>
                     </el-col>
-                </el-row>
-                <el-row :gutter="20" style="margin-top: 20px">
-                    <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+                    <!-- <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
                         <div class="flx-justify-between">
                             <span class="flx-align-center">
-                                <svg-icon class="card-logo" iconName="p-qiniuyun"></svg-icon>
-                                <span class="card-title">&nbsp;{{ $t('setting.KODO') }}</span>
+                                <svg-icon class="card-logo" iconName="p-oss"></svg-icon>
+                                <span class="card-title">&nbsp;{{ $t('setting.OSS') }}</span>
                             </span>
                             <div>
                                 <el-button
                                     round
-                                    :disabled="kodoData.id === 0"
-                                    @click="onOpenDialog('edit', 'KODO', kodoData)"
+                                    :disabled="ossData.id === 0"
+                                    @click="onOpenDialog('edit', 'OSS', ossData)"
                                 >
                                     {{ $t('commons.button.edit') }}
                                 </el-button>
-                                <el-button round :disabled="kodoData.id === 0" @click="onDelete(kodoData)">
+                                <el-button round :disabled="ossData.id === 0" @click="onDelete(ossData)">
                                     {{ $t('commons.button.delete') }}
                                 </el-button>
                             </div>
                         </div>
 
                         <el-divider class="divider" />
-                        <div v-if="kodoData.id !== 0" style="margin-left: 20px">
-                            <el-form-item :label="$t('setting.domain')">
-                                {{ kodoData.varsJson['domain'] }}
-                            </el-form-item>
-                            <el-form-item label="Bucket">
-                                {{ kodoData.bucket }}
-                            </el-form-item>
-                            <el-form-item :label="$t('setting.backupDir')">
-                                <span v-if="kodoData.backupPath">{{ kodoData.backupPath }}</span>
-                                <span v-else>{{ $t('setting.unSetting') }}</span>
-                            </el-form-item>
-                            <el-form-item :label="$t('commons.table.createdAt')">
-                                {{ dateFormat(0, 0, kodoData.createdAt) }}
-                            </el-form-item>
-                        </div>
-                        <el-alert v-else center class="alert" style="height: 257px" :closable="false">
-                            <el-button size="large" round plain type="primary" @click="onOpenDialog('create', 'KODO')">
-                                {{ $t('setting.createBackupAccount', [$t('setting.KODO')]) }}
-                            </el-button>
-                        </el-alert>
-                    </el-col>
-                    <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-                        <div class="flx-justify-between">
-                            <span class="flx-align-center">
-                                <svg-icon class="card-logo" iconName="p-minio"></svg-icon>
-                                <span class="card-title">&nbsp;MINIO</span>
-                            </span>
-                            <div>
-                                <el-button
-                                    round
-                                    :disabled="minioData.id === 0"
-                                    @click="onOpenDialog('edit', 'MINIO', minioData)"
-                                >
-                                    {{ $t('commons.button.edit') }}
-                                </el-button>
-                                <el-button :disabled="minioData.id === 0" round @click="onDelete(minioData)">
-                                    {{ $t('commons.button.delete') }}
-                                </el-button>
-                            </div>
-                        </div>
-                        <el-divider class="divider" />
-                        <div v-if="minioData.id !== 0" style="margin-left: 20px">
+                        <div v-if="ossData.id !== 0" style="margin-left: 20px">
                             <el-form-item label="Endpoint">
-                                {{ minioData.varsJson['endpoint'] }}
+                                {{ ossData.varsJson['endpoint'] }}
                             </el-form-item>
                             <el-form-item label="Bucket">
-                                {{ minioData.bucket }}
+                                {{ ossData.bucket }}
+                            </el-form-item>
+                            <el-form-item :label="$t('setting.scType')">
+                                <span v-if="!ossData.varsJson['scType'] || ossData.varsJson['scType'] === 'Standard'">
+                                    {{ $t('setting.typeStandard') }}
+                                </span>
+                                <span v-if="ossData.varsJson['scType'] === 'IA'">
+                                    {{ $t('setting.typeStandard_IA') }}
+                                </span>
+                                <span v-if="ossData.varsJson['scType'] === 'Archive'">
+                                    {{ $t('setting.typeArchive') }}
+                                </span>
+                                <span v-if="ossData.varsJson['scType'] === 'ColdArchive'">
+                                    {{ $t('setting.typeDeep_Archive') }}
+                                </span>
                             </el-form-item>
                             <el-form-item :label="$t('setting.backupDir')">
-                                <span v-if="minioData.backupPath">{{ minioData.backupPath }}</span>
+                                <span v-if="ossData.backupPath">{{ ossData.backupPath }}</span>
                                 <span v-else>{{ $t('setting.unSetting') }}</span>
                             </el-form-item>
                             <el-form-item :label="$t('commons.table.createdAt')">
-                                {{ dateFormat(0, 0, minioData.createdAt) }}
+                                {{ dateFormat(0, 0, ossData.createdAt) }}
                             </el-form-item>
                         </div>
                         <el-alert v-else center class="alert" style="height: 257px" :closable="false">
-                            <el-button size="large" round plain type="primary" @click="onOpenDialog('create', 'MINIO')">
-                                {{ $t('setting.createBackupAccount', [$t('setting.MINIO')]) }}
+                            <el-button size="large" round plain type="primary" @click="onOpenDialog('create', 'OSS')">
+                                {{ $t('setting.createBackupAccount', [$t('setting.OSS')]) }}
                             </el-button>
                         </el-alert>
-                    </el-col>
+                    </el-col> -->
                 </el-row>
                 <el-row :gutter="20" style="margin-top: 20px">
                     <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
