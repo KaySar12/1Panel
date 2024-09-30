@@ -47,13 +47,13 @@ func (u *AuthService) Login(c *gin.Context, info dto.Login, entrance string) (*d
 	if !hmac.Equal([]byte(info.Password), []byte(pass)) || nameSetting.Value != info.Name {
 		return nil, constant.ErrAuth
 	}
-	entranceSetting, err := settingRepo.Get(settingRepo.WithByKey("SecurityEntrance"))
-	if err != nil {
-		return nil, err
-	}
-	if len(entranceSetting.Value) != 0 && entranceSetting.Value != entrance {
-		return nil, buserr.New(constant.ErrEntrance)
-	}
+	// entranceSetting, err := settingRepo.Get(settingRepo.WithByKey("SecurityEntrance"))
+	// if err != nil {
+	// 	return nil, err
+	// }
+	// if len(entranceSetting.Value) != 0 && entranceSetting.Value != entrance {
+	// 	return nil, buserr.New(constant.ErrEntrance)
+	// }
 	mfa, err := settingRepo.Get(settingRepo.WithByKey("MFAStatus"))
 	if err != nil {
 		return nil, err
