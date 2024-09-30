@@ -2,8 +2,9 @@ package i18n
 
 import (
 	"embed"
-	"github.com/1Panel-dev/1Panel/backend/global"
 	"strings"
+
+	"github.com/1Panel-dev/1Panel/backend/global"
 
 	"github.com/gin-gonic/gin"
 	"github.com/nicksnyder/go-i18n/v2/i18n"
@@ -82,7 +83,7 @@ func UseI18n() gin.HandlerFunc {
 	return func(context *gin.Context) {
 		lang := context.GetHeader("Accept-Language")
 		if lang == "" {
-			lang = "zh"
+			lang = "en"
 		}
 		global.I18n = i18n.NewLocalizer(bundle, lang)
 	}
