@@ -1020,7 +1020,7 @@ const message = {
             hostsHelper: 'Hostname Resolution',
             hosts: 'Domain',
             hostAlert: 'Hidden commented records, please click the All configuration button to view or set',
-            toolbox: 'Quick Setup 2',
+            toolbox: 'Quick Setup',
             hostname: 'Hostname',
             passwd: 'System Password',
             passwdHelper: 'Input characters cannot include $ and &',

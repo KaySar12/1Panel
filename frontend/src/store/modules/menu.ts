@@ -24,12 +24,17 @@ export const MenuStore = defineStore({
             menus.forEach((menuItem, index) => {
                 if (index === 5) {
                     menuItem.children.pop();
-                }
-                if (index === 8) {
-                    menuItem.redirect = `/logs/website`;
+                    menuItem.children.splice(2, 2);
+                    const newData = {
+                        meta: { title: 'Toolbox', requiresAuth: false },
+                        name: 'Toolbox',
+                        path: '/toolbox',
+                        props: true,
+                    };
+                    menus[5].children.push(newData);
                 }
             });
-            console.log(menus);
+            menus.splice(6, 1);
             this.menuList = menus;
         },
         closeSidebar(withoutAnimation: boolean) {

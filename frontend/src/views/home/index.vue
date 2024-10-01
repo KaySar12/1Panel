@@ -8,7 +8,7 @@
                 },
             ]"
         >
-            <template #route-button>
+            <!-- <template #route-button>
                 <div class="router-button">
                     <template v-if="!isProductPro">
                         <el-button link type="primary" @click="toUpload">
@@ -16,7 +16,7 @@
                         </el-button>
                     </template>
                 </div>
-            </template>
+            </template> -->
         </RouterButton>
 
         <el-alert
@@ -576,9 +576,9 @@ const onBlur = () => {
     isActive.value = false;
 };
 
-const toUpload = () => {
-    licenseRef.value.acceptParams();
-};
+// const toUpload = () => {
+//     licenseRef.value.acceptParams();
+// };
 
 onMounted(() => {
     isProductPro.value = globalStore.isProductPro;
