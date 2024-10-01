@@ -189,8 +189,8 @@ onMounted(() => {
     .el-scrollbar {
         flex: 1;
         .el-menu {
-            overflow: auto;
-            overflow-x: hidden;
+            // overflow: auto;
+            // overflow-x: hidden;
             border-right: none;
         }
     }

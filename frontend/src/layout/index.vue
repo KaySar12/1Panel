@@ -154,6 +154,8 @@ onMounted(() => {
     bottom: 0;
     left: 0;
     overflow: hidden;
+    box-shadow: 2px 0px 2px rgb(96 115 143 / 15%) !important;
+    z-index: 99;
 }
 
 .hideSidebar {
