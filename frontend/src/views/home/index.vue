@@ -78,9 +78,9 @@
                         </div>
                     </template>
                 </CardWithHeader>
-                <CardWithHeader :header="$t('commons.table.status')" style="margin-top: 20px">
+                <CardWithHeader :header="$t('nginx.status')" style="margin-top: 20px">
                     <template #body>
-                        <Status ref="statusRef" style="margin-top: -7px" />
+                        <Status />
                     </template>
                 </CardWithHeader>
                 <CardWithHeader :header="$t('menu.monitor')" style="margin-top: 20px; margin-bottom: 20px">
@@ -230,11 +230,11 @@
                     </template>
                 </CardWithHeader>
 
-                <!-- <CardWithHeader :header="$t('home.app')" style="margin-top: 20px">
+                <CardWithHeader :header="$t('commons.table.status')" style="margin-top: 20px">
                     <template #body>
-                        <App ref="appRef" />
+                        <Status2 ref="statusRef" style="margin-top: -7px" />
                     </template>
-                </CardWithHeader> -->
+                </CardWithHeader>
             </el-col>
         </el-row>
 
@@ -244,10 +244,11 @@
 
 <script lang="ts" setup>
 import { onMounted, onBeforeUnmount, ref, reactive } from 'vue';
-import Status from '@/views/home/status/index.vue';
+import Status2 from '@/views/home/status/index.vue';
 /* eslint-disable prettier/prettier */
 // import Status2 from '@/views/database/mysql/setting/status/index.vue';
 // import App from '@/views/home/app/index.vue';
+import Status from '@/views/website/website/nginx/status/index.vue';
 import VCharts from '@/components/v-charts/index.vue';
 import LicenseImport from '@/components/license-import/index.vue';
 import CardWithHeader from '@/components/card-with-header/index.vue';
