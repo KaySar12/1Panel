@@ -1727,6 +1727,7 @@ const message = {
     },
     website: {
         website: '網站',
+        advance: '先进的',
         primaryDomain: '主域名',
         otherDomains: '其他域名',
         static: '靜態網站',
