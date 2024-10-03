@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-form label-position="top">
-            <el-row type="flex" style="margin-left: 50px" justify="center">
+            <el-row type="flex" style="margin-left: 10px" justify="center">
                 <el-form-item style="width: 25%">
                     <template #label>
                         <span class="status-label">{{ $t('nginx.connections') }}</span>
