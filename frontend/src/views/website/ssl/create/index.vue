@@ -112,7 +112,11 @@
                     <div>
                         <el-button type="primary" plain @click="isModalVisible = true">Nâng cao</el-button>
                         <!-- Sử dụng el-dialog -->
-                        <el-dialog v-model="isModalVisible" width="50%">
+                        <el-dialog
+                            v-model="isModalVisible"
+                            width="60%"
+                            style="top: -5%; overflow-y: scroll; height: -webkit-fill-available"
+                        >
                             <el-form-item :label="$t('website.otherDomains')" prop="otherDomains">
                                 <el-input type="textarea" :rows="3" v-model="ssl.otherDomains"></el-input>
                             </el-form-item>
