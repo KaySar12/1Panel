@@ -1728,6 +1728,7 @@ const message = {
     },
     website: {
         website: '网站',
+        advance: '先進的',
         primaryDomain: '主域名',
         otherDomains: '其他域名',
         static: '静态网站',

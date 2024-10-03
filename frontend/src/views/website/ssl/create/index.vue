@@ -66,9 +66,9 @@
                                 v-if="ssl.provider != 'selfSigned'"
                             >
                                 <el-radio-group v-model="ssl.provider" @change="changeProvider()">
+                                    <el-radio value="http">HTTP</el-radio>
                                     <el-radio value="dnsAccount">{{ $t('website.dnsAccount') }}</el-radio>
                                     <el-radio value="dnsManual">{{ $t('website.dnsManual') }}</el-radio>
-                                    <el-radio value="http">HTTP</el-radio>
                                 </el-radio-group>
                                 <span class="input-help" v-if="ssl.provider === 'dnsManual'">
                                     {{ $t('ssl.dnsMauanlHelper') }}
@@ -110,7 +110,9 @@
                         </el-col>
                     </el-row>
                     <div>
-                        <el-button type="primary" plain @click="isModalVisible = true">Nâng cao</el-button>
+                        <el-button type="primary" plain @click="isModalVisible = true">
+                            {{ $t('website.advance') }}
+                        </el-button>
                         <!-- Sử dụng el-dialog -->
                         <el-dialog
                             v-model="isModalVisible"
@@ -175,8 +177,10 @@
                                 </el-form-item>
                             </div>
                             <span class="dialog-footer">
-                                <el-button @click="isModalVisible = false">Đóng</el-button>
-                                <el-button type="primary" @click="isModalVisible = false">Xác nhận</el-button>
+                                <el-button @click="isModalVisible = false">{{ $t('commons.button.cancel') }}</el-button>
+                                <el-button type="primary" @click="isModalVisible = false">
+                                    {{ $t('commons.button.confirm') }}
+                                </el-button>
                             </span>
                         </el-dialog>
                     </div>
