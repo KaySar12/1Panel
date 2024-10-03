@@ -30,131 +30,151 @@
                                 </el-select>
                             </el-form-item>
                         </el-col>
+                        <el-col>
+                            <el-form-item
+                                :label="$t('website.acmeAccount')"
+                                prop="acmeAccountId"
+                                v-if="ssl.provider != 'selfSigned'"
+                            >
+                                <el-select v-model="ssl.acmeAccountId">
+                                    <el-option
+                                        v-for="(acme, index) in acmeAccounts"
+                                        :key="index"
+                                        :label="acme.email + ' [' + getAccountName(acme.type) + '] '"
+                                        :value="acme.id"
+                                    >
+                                        <span>{{ acme.email }}</span>
+                                        <el-tag type="success" class="ml-2">{{ getAccountName(acme.type) }}</el-tag>
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                        </el-col>
+                        <el-col>
+                            <el-form-item :label="$t('website.keyType')" prop="keyType">
+                                <el-select v-model="ssl.keyType" :disabled="operate == 'edit'">
+                                    <el-option
+                                        v-for="(keyType, index) in KeyTypes"
+                                        :key="index"
+                                        :label="keyType.label"
+                                        :value="keyType.value"
+                                    ></el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item
+                                :label="$t('website.provider')"
+                                prop="provider"
+                                v-if="ssl.provider != 'selfSigned'"
+                            >
+                                <el-radio-group v-model="ssl.provider" @change="changeProvider()">
+                                    <el-radio value="dnsAccount">{{ $t('website.dnsAccount') }}</el-radio>
+                                    <el-radio value="dnsManual">{{ $t('website.dnsManual') }}</el-radio>
+                                    <el-radio value="http">HTTP</el-radio>
+                                </el-radio-group>
+                                <span class="input-help" v-if="ssl.provider === 'dnsManual'">
+                                    {{ $t('ssl.dnsMauanlHelper') }}
+                                </span>
+                                <span class="input-help" v-if="ssl.provider === 'http'">
+                                    {{ $t('ssl.httpHelper') }}
+                                </span>
+                                <span class="input-help text-red-500" v-if="ssl.provider === 'http'">
+                                    {{ $t('ssl.httpHelper2') }}
+                                </span>
+                            </el-form-item>
+                        </el-col>
+                        <el-col>
+                            <el-form-item
+                                :label="$t('website.dnsAccount')"
+                                prop="dnsAccountId"
+                                v-if="ssl.provider === 'dnsAccount'"
+                            >
+                                <el-select v-model="ssl.dnsAccountId">
+                                    <el-option
+                                        v-for="(dns, index) in dnsAccounts"
+                                        :key="index"
+                                        :label="dns.name + ' [' + getDNSName(dns.type) + '] '"
+                                        :value="dns.id"
+                                    >
+                                        <el-row>
+                                            <el-col :span="6">
+                                                <span>{{ dns.name }}</span>
+                                            </el-col>
+                                            <el-col :span="11">
+                                                <span>
+                                                    <el-tag type="success">{{ getDNSName(dns.type) }}</el-tag>
+                                                </span>
+                                            </el-col>
+                                        </el-row>
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                        </el-col>
                     </el-row>
-                    <el-form-item :label="$t('website.otherDomains')" prop="otherDomains">
-                        <el-input type="textarea" :rows="3" v-model="ssl.otherDomains"></el-input>
-                    </el-form-item>
-                    <el-form-item :label="$t('website.remark')" prop="description">
-                        <el-input v-model="ssl.description"></el-input>
-                    </el-form-item>
-                    <el-form-item
-                        :label="$t('website.acmeAccount')"
-                        prop="acmeAccountId"
-                        v-if="ssl.provider != 'selfSigned'"
-                    >
-                        <el-select v-model="ssl.acmeAccountId">
-                            <el-option
-                                v-for="(acme, index) in acmeAccounts"
-                                :key="index"
-                                :label="acme.email + ' [' + getAccountName(acme.type) + '] '"
-                                :value="acme.id"
-                            >
-                                <span>{{ acme.email }}</span>
-                                <el-tag type="success" class="ml-2">{{ getAccountName(acme.type) }}</el-tag>
-                            </el-option>
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item :label="$t('website.keyType')" prop="keyType">
-                        <el-select v-model="ssl.keyType" :disabled="operate == 'edit'">
-                            <el-option
-                                v-for="(keyType, index) in KeyTypes"
-                                :key="index"
-                                :label="keyType.label"
-                                :value="keyType.value"
-                            ></el-option>
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item :label="$t('website.provider')" prop="provider" v-if="ssl.provider != 'selfSigned'">
-                        <el-radio-group v-model="ssl.provider" @change="changeProvider()">
-                            <el-radio value="dnsAccount">{{ $t('website.dnsAccount') }}</el-radio>
-                            <el-radio value="dnsManual">{{ $t('website.dnsManual') }}</el-radio>
-                            <el-radio value="http">HTTP</el-radio>
-                        </el-radio-group>
-                        <span class="input-help" v-if="ssl.provider === 'dnsManual'">
-                            {{ $t('ssl.dnsMauanlHelper') }}
-                        </span>
-                        <span class="input-help" v-if="ssl.provider === 'http'">
-                            {{ $t('ssl.httpHelper') }}
-                        </span>
-                        <span class="input-help text-red-500" v-if="ssl.provider === 'http'">
-                            {{ $t('ssl.httpHelper2') }}
-                        </span>
-                    </el-form-item>
-                    <el-form-item
-                        :label="$t('website.dnsAccount')"
-                        prop="dnsAccountId"
-                        v-if="ssl.provider === 'dnsAccount'"
-                    >
-                        <el-select v-model="ssl.dnsAccountId">
-                            <el-option
-                                v-for="(dns, index) in dnsAccounts"
-                                :key="index"
-                                :label="dns.name + ' [' + getDNSName(dns.type) + '] '"
-                                :value="dns.id"
-                            >
-                                <el-row>
-                                    <el-col :span="6">
-                                        <span>{{ dns.name }}</span>
-                                    </el-col>
-                                    <el-col :span="11">
-                                        <span>
-                                            <el-tag type="success">{{ getDNSName(dns.type) }}</el-tag>
-                                        </span>
-                                    </el-col>
-                                </el-row>
-                            </el-option>
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item :label="''" prop="autoRenew" v-if="ssl.provider !== 'dnsManual'">
-                        <el-checkbox v-model="ssl.autoRenew" :label="$t('ssl.autoRenew')" />
-                    </el-form-item>
-                    <el-form-item :label="''" prop="pushDir">
-                        <el-checkbox v-model="ssl.pushDir" :label="$t('ssl.pushDir')" />
-                    </el-form-item>
-                    <el-form-item :label="$t('ssl.dir')" prop="dir" v-if="ssl.pushDir">
-                        <el-input v-model.trim="ssl.dir">
-                            <template #prepend>
-                                <FileList :path="ssl.dir" @choose="getPath" :dir="true"></FileList>
-                            </template>
-                        </el-input>
-                        <span class="input-help">
-                            {{ $t('ssl.pushDirHelper') }}
-                        </span>
-                    </el-form-item>
-                    <el-form-item :label="''" prop="execShell">
-                        <el-checkbox v-model="ssl.execShell" :label="$t('ssl.execShell')" />
-                    </el-form-item>
-                    <el-form-item :label="$t('ssl.shell')" prop="shell" v-if="ssl.execShell">
-                        <el-input type="textarea" :rows="4" v-model="ssl.shell" />
-                        <span class="input-help">
-                            {{ $t('ssl.shellHelper') }}
-                        </span>
-                    </el-form-item>
-                    <div v-if="ssl.provider != 'selfSigned'">
-                        <el-form-item :label="''" prop="disableCNAME">
-                            <el-checkbox v-model="ssl.disableCNAME" :label="$t('ssl.disableCNAME')" />
-                            <span class="input-help">
-                                {{ $t('ssl.disableCNAMEHelper') }}
+                    <div>
+                        <el-button type="primary" plain @click="isModalVisible = true">Nâng cao</el-button>
+                        <!-- Sử dụng el-dialog -->
+                        <el-dialog v-model="isModalVisible" width="50%">
+                            <el-form-item :label="$t('website.otherDomains')" prop="otherDomains">
+                                <el-input type="textarea" :rows="3" v-model="ssl.otherDomains"></el-input>
+                            </el-form-item>
+                            <el-form-item :label="$t('website.remark')" prop="description">
+                                <el-input v-model="ssl.description"></el-input>
+                            </el-form-item>
+                            <el-form-item :label="''" prop="autoRenew" v-if="ssl.provider !== 'dnsManual'">
+                                <el-checkbox v-model="ssl.autoRenew" :label="$t('ssl.autoRenew')" />
+                            </el-form-item>
+                            <el-form-item :label="''" prop="pushDir">
+                                <el-checkbox v-model="ssl.pushDir" :label="$t('ssl.pushDir')" />
+                            </el-form-item>
+                            <el-form-item :label="$t('ssl.dir')" prop="dir" v-if="ssl.pushDir">
+                                <el-input v-model.trim="ssl.dir">
+                                    <template #prepend>
+                                        <FileList :path="ssl.dir" @choose="getPath" :dir="true"></FileList>
+                                    </template>
+                                </el-input>
+                                <span class="input-help">
+                                    {{ $t('ssl.pushDirHelper') }}
+                                </span>
+                            </el-form-item>
+                            <el-form-item :label="''" prop="execShell">
+                                <el-checkbox v-model="ssl.execShell" :label="$t('ssl.execShell')" />
+                            </el-form-item>
+                            <el-form-item :label="$t('ssl.shell')" prop="shell" v-if="ssl.execShell">
+                                <el-input type="textarea" :rows="4" v-model="ssl.shell" />
+                                <span class="input-help">
+                                    {{ $t('ssl.shellHelper') }}
+                                </span>
+                            </el-form-item>
+                            <div v-if="ssl.provider != 'selfSigned'">
+                                <el-form-item :label="''" prop="disableCNAME">
+                                    <el-checkbox v-model="ssl.disableCNAME" :label="$t('ssl.disableCNAME')" />
+                                    <span class="input-help">
+                                        {{ $t('ssl.disableCNAMEHelper') }}
+                                    </span>
+                                </el-form-item>
+                                <el-form-item :label="''" prop="skipDNS">
+                                    <el-checkbox v-model="ssl.skipDNS" :label="$t('ssl.skipDNSCheck')" />
+                                    <span class="input-help">
+                                        {{ $t('ssl.skipDNSCheckHelper') }}
+                                    </span>
+                                </el-form-item>
+                                <el-form-item :label="$t('ssl.nameserver') + '1'" prop="nameserver1">
+                                    <el-input v-model.trim="ssl.nameserver1"></el-input>
+                                    <span class="input-help">
+                                        {{ $t('ssl.nameserverHelper') }}
+                                    </span>
+                                </el-form-item>
+                                <el-form-item :label="$t('ssl.nameserver') + '2'" prop="nameserver1">
+                                    <el-input v-model.trim="ssl.nameserver2"></el-input>
+                                    <span class="input-help">
+                                        {{ $t('ssl.nameserverHelper') }}
+                                    </span>
+                                </el-form-item>
+                            </div>
+                            <span class="dialog-footer">
+                                <el-button @click="isModalVisible = false">Đóng</el-button>
+                                <el-button type="primary" @click="isModalVisible = false">Xác nhận</el-button>
                             </span>
-                        </el-form-item>
-                        <el-form-item :label="''" prop="skipDNS">
-                            <el-checkbox v-model="ssl.skipDNS" :label="$t('ssl.skipDNSCheck')" />
-                            <span class="input-help">
-                                {{ $t('ssl.skipDNSCheckHelper') }}
-                            </span>
-                        </el-form-item>
-                        <el-form-item :label="$t('ssl.nameserver') + '1'" prop="nameserver1">
-                            <el-input v-model.trim="ssl.nameserver1"></el-input>
-                            <span class="input-help">
-                                {{ $t('ssl.nameserverHelper') }}
-                            </span>
-                        </el-form-item>
-                        <el-form-item :label="$t('ssl.nameserver') + '2'" prop="nameserver1">
-                            <el-input v-model.trim="ssl.nameserver2"></el-input>
-                            <span class="input-help">
-                                {{ $t('ssl.nameserverHelper') }}
-                            </span>
-                        </el-form-item>
+                        </el-dialog>
                     </div>
                 </el-form>
             </el-col>
@@ -181,6 +201,8 @@ import { computed, reactive, ref } from 'vue';
 import { MsgSuccess } from '@/utils/message';
 import { KeyTypes } from '@/global/mimetype';
 import { getDNSName, getAccountName } from '@/utils/util';
+
+const isModalVisible = ref(false); // Trạng thái dialog
 
 const props = defineProps({
     id: {
@@ -225,7 +247,7 @@ const initData = () => ({
     id: 0,
     primaryDomain: '',
     otherDomains: '',
-    provider: 'dnsAccount',
+    provider: 'http',
     websiteId: 0,
     acmeAccountId: undefined,
     dnsAccountId: undefined,
