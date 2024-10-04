@@ -31,25 +31,6 @@
                             </el-form-item>
                         </el-col>
                         <el-col>
-                            <el-form-item
-                                :label="$t('website.acmeAccount')"
-                                prop="acmeAccountId"
-                                v-if="ssl.provider != 'selfSigned'"
-                            >
-                                <el-select v-model="ssl.acmeAccountId">
-                                    <el-option
-                                        v-for="(acme, index) in acmeAccounts"
-                                        :key="index"
-                                        :label="acme.email + ' [' + getAccountName(acme.type) + '] '"
-                                        :value="acme.id"
-                                    >
-                                        <span>{{ acme.email }}</span>
-                                        <el-tag type="success" class="ml-2">{{ getAccountName(acme.type) }}</el-tag>
-                                    </el-option>
-                                </el-select>
-                            </el-form-item>
-                        </el-col>
-                        <el-col>
                             <el-form-item :label="$t('website.keyType')" prop="keyType">
                                 <el-select v-model="ssl.keyType" :disabled="operate == 'edit'">
                                     <el-option
@@ -59,26 +40,6 @@
                                         :value="keyType.value"
                                     ></el-option>
                                 </el-select>
-                            </el-form-item>
-                            <el-form-item
-                                :label="$t('website.provider')"
-                                prop="provider"
-                                v-if="ssl.provider != 'selfSigned'"
-                            >
-                                <el-radio-group v-model="ssl.provider" @change="changeProvider()">
-                                    <el-radio value="http">HTTP</el-radio>
-                                    <el-radio value="dnsAccount">{{ $t('website.dnsAccount') }}</el-radio>
-                                    <el-radio value="dnsManual">{{ $t('website.dnsManual') }}</el-radio>
-                                </el-radio-group>
-                                <span class="input-help" v-if="ssl.provider === 'dnsManual'">
-                                    {{ $t('ssl.dnsMauanlHelper') }}
-                                </span>
-                                <span class="input-help" v-if="ssl.provider === 'http'">
-                                    {{ $t('ssl.httpHelper') }}
-                                </span>
-                                <span class="input-help text-red-500" v-if="ssl.provider === 'http'">
-                                    {{ $t('ssl.httpHelper2') }}
-                                </span>
                             </el-form-item>
                         </el-col>
                         <el-col>
@@ -124,6 +85,43 @@
                             </el-form-item>
                             <el-form-item :label="$t('website.remark')" prop="description">
                                 <el-input v-model="ssl.description"></el-input>
+                            </el-form-item>
+                            <el-form-item
+                                :label="$t('website.acmeAccount')"
+                                prop="acmeAccountId"
+                                v-if="ssl.provider != 'selfSigned'"
+                            >
+                                <el-select v-model="ssl.acmeAccountId">
+                                    <el-option
+                                        v-for="(acme, index) in acmeAccounts"
+                                        :key="index"
+                                        :label="acme.email + ' [' + getAccountName(acme.type) + '] '"
+                                        :value="acme.id"
+                                    >
+                                        <span>{{ acme.email }}</span>
+                                        <el-tag type="success" class="ml-2">{{ getAccountName(acme.type) }}</el-tag>
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item
+                                :label="$t('website.provider')"
+                                prop="provider"
+                                v-if="ssl.provider != 'selfSigned'"
+                            >
+                                <el-radio-group v-model="ssl.provider" @change="changeProvider()">
+                                    <el-radio value="http">HTTP</el-radio>
+                                    <el-radio value="dnsAccount">{{ $t('website.dnsAccount') }}</el-radio>
+                                    <el-radio value="dnsManual">{{ $t('website.dnsManual') }}</el-radio>
+                                </el-radio-group>
+                                <span class="input-help" v-if="ssl.provider === 'dnsManual'">
+                                    {{ $t('ssl.dnsMauanlHelper') }}
+                                </span>
+                                <span class="input-help" v-if="ssl.provider === 'http'">
+                                    {{ $t('ssl.httpHelper') }}
+                                </span>
+                                <span class="input-help text-red-500" v-if="ssl.provider === 'http'">
+                                    {{ $t('ssl.httpHelper2') }}
+                                </span>
                             </el-form-item>
                             <el-form-item :label="''" prop="autoRenew" v-if="ssl.provider !== 'dnsManual'">
                                 <el-checkbox v-model="ssl.autoRenew" :label="$t('ssl.autoRenew')" />
