@@ -54,7 +54,7 @@
 <script lang="ts" setup>
 import { Nginx } from '@/api/interface/nginx';
 import { GetNginxStatus } from '@/api/modules/nginx';
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 const props = defineProps({
     status: {
@@ -81,7 +81,17 @@ const get = async () => {
     data.value = res.data;
 };
 
+// Tạo một interval để refresh dữ liệu mỗi 3 giây
+let intervalId: number | undefined;
+
 onMounted(() => {
     get();
+    intervalId = setInterval(get, 3000); // Lặp lại việc lấy dữ liệu mỗi 3 giây
+});
+
+onUnmounted(() => {
+    if (intervalId) {
+        clearInterval(intervalId); // Xóa interval khi component bị unmount để tránh rò rỉ bộ nhớ
+    }
 });
 </script>

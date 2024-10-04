@@ -61,6 +61,11 @@
                     @search="search()"
                     :class="{ mask: nginxStatus != 'Running' }"
                 >
+                    <el-table-column :label="$t('SSL')" min-width="100px" :width="mobile ? 220 : 'auto'">
+                        <template #default="{ row }">
+                            <el-switch v-model="row.id" style="--el-switch-on-color: #13ce66" />
+                        </template>
+                    </el-table-column>
                     <el-table-column
                         :label="$t('commons.table.name')"
                         fix
