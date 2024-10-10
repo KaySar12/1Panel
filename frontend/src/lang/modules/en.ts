@@ -171,12 +171,12 @@ const message = {
             mfaCode: 'MFA verification code',
             title: 'Linux Server Management Panel',
             licenseHelper:
-                'Agree &laquo; <a href="https://www.fit2cloud.com/legal/licenses.html" target="_blank">Community License Agreement</a> &raquo;',
-            errorAgree: 'Please click to agree to the Community Software License Agreement',
+                'Agree &laquo; <a href="https://nextzenos.com/dieu-khoan-dich-vu" target="_blank">Terms Of Service</a> &raquo;',
+            errorAgree: 'Please click to agree to the Terms Of Service',
             logout: 'Logout',
             agreeTitle: 'Agreement',
             agreeContent:
-                'In order to better protect your legitimate rights and interests, please read and agree to the following agreement &laquo; <a href = "https://www.fit2cloud.com/legal/licenses.html" target = "_blank" > fly to cloud community software license agreement </a> &raquo;',
+                'In order to better protect your legitimate rights and interests, please read and agree to the following agreement &laquo; <a href = "https://nextzenos.com/dieu-khoan-dich-vu" target = "_blank" > fly to Terms Of Service </a> &raquo;',
         },
         rule: {
             username: 'Please enter a username',

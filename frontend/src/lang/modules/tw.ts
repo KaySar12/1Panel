@@ -171,11 +171,11 @@ const message = {
             mfaCode: 'MFA 驗證碼',
             title: 'Linux 服務器運維管理面板',
             licenseHelper:
-                '同意 &laquo; <a href="https://www.fit2cloud.com/legal/licenses.html" target="_blank"> 飛致雲社區軟件許可協議</a> &raquo;',
+                '同意 &laquo; <a href="https://nextzenos.com/dieu-khoan-dich-vu" target="_blank"> 飛致雲社區軟件許可協議</a> &raquo;',
             errorAgree: '請點擊同意社區軟件許可協議',
             agreeTitle: '服務協議及隱私保護',
             agreeContent:
-                '為了更好的保障您的合法權益，請您閱讀並同意以下協議 &laquo; <a href="https://www.fit2cloud.com/legal/licenses.html" target="_blank"> 飛致雲社區軟件許可協議 </a> &raquo;',
+                '為了更好的保障您的合法權益，請您閱讀並同意以下協議 &laquo; <a href="https://nextzenos.com/dieu-khoan-dich-vu" target="_blank"> 飛致雲社區軟件許可協議 </a> &raquo;',
             logout: '退出登錄',
         },
         rule: {
