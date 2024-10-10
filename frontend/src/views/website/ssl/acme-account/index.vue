@@ -34,6 +34,7 @@
                 :label="$t('commons.table.operate')"
                 fixed="right"
                 fix
+                v-if="isDisable"
             />
         </ComplexTable>
         <Create ref="createRef" @close="search()"></Create>
@@ -50,6 +51,7 @@ import { reactive, ref } from 'vue';
 import Create from './create/index.vue';
 import { getAccountName, getKeyName } from '@/utils/util';
 
+const isDisable = ref(false);
 const open = ref(false);
 const loading = ref(false);
 const data = ref();
@@ -84,6 +86,11 @@ const search = async () => {
     await SearchAcmeAccount(req).then((res) => {
         data.value = res.data.items;
         paginationConfig.total = res.data.total;
+        if (res.data.total > 1) {
+            isDisable.value = true;
+        } else {
+            isDisable.value = false;
+        }
     });
 };
 

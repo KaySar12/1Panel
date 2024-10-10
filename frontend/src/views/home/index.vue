@@ -239,6 +239,7 @@
         </el-row>
 
         <LicenseImport ref="licenseRef" />
+        <Create :isLogOutVisible="logOutVisible" ref="createRef"></Create>
     </div>
 </template>
 
@@ -260,8 +261,34 @@ import { loadBaseInfo, loadCurrentInfo } from '@/api/modules/dashboard';
 import { getIOOptions, getNetworkOptions } from '@/api/modules/host';
 import { getSettingInfo, loadUpgradeInfo } from '@/api/modules/setting';
 import { GlobalStore } from '@/store';
+import { SearchAcmeAccount } from '@/api/modules/website';
+// import type { FormRules } from 'element-plus';
+import Create from '@/views/website/ssl/acme-account/create/index.vue';
 const router = useRouter();
 const globalStore = GlobalStore();
+
+const logOutVisible = true;
+
+const dialogFormVisible = ref(false);
+// const form = reactive({
+//   name: '',
+// });
+
+const createRef = ref();
+
+// interface RuleForm {
+//     name: string
+// };
+
+// const ruleForm = reactive<RuleForm>({
+//     name: 'helo',
+// })
+
+// const rules = reactive<FormRules<RuleForm>>({
+//     name: [
+//     { required: true, message: 'Please input Activity name', trigger: 'blur' },
+//   ],
+// })
 
 // const slots = useSlots();
 const statusRef = ref();
@@ -576,6 +603,34 @@ const onFocus = () => {
 const onBlur = () => {
     isActive.value = false;
 };
+
+// check email
+const acmeReq = reactive({
+    page: 1,
+    pageSize: 20,
+});
+
+const openCreate = () => {
+    createRef.value.acceptParams();
+};
+
+import { Website } from '@/api/interface/website';
+const acmeAccounts = ref<Website.AcmeAccount[]>();
+
+const getAcmeAccounts = async () => {
+    const res = await SearchAcmeAccount(acmeReq);
+    acmeAccounts.value = res.data.items || [];
+    console.log(res);
+    if (res.data.total === 0) {
+        dialogFormVisible.value = true;
+        openCreate();
+    }
+    // if (acmeAccounts.value.length > 0 && ssl.value.acmeAccountId == undefined) {
+    //     ssl.value.acmeAccountId = res.data.items[0].id;
+    // }
+}
+
+getAcmeAccounts();
 
 // const toUpload = () => {
 //     licenseRef.value.acceptParams();

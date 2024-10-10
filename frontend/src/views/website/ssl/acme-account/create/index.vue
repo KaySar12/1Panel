@@ -5,6 +5,8 @@
         :close-on-click-modal="false"
         width="30%"
         :before-close="handleClose"
+        :show-close="false"
+        :close-on-press-escape="false"
     >
         <el-row v-loading="loading">
             <el-col :span="22" :offset="1">
@@ -12,32 +14,35 @@
                     <el-form-item :label="$t('website.email')" prop="email">
                         <el-input v-model.trim="account.email"></el-input>
                     </el-form-item>
-                    <el-form-item :label="$t('website.acmeAccountType')" prop="type">
-                        <el-select v-model="account.type">
-                            <el-option
-                                v-for="(acme, index) in AcmeAccountTypes"
-                                :key="index"
-                                :label="acme.label"
-                                :value="acme.value"
-                            ></el-option>
-                        </el-select>
-                        <span class="input-help" v-if="account.type === 'buypass'">
-                            {{ $t('ssl.buypassHelper') }}
-                        </span>
-                        <span class="input-help" v-if="account.type == 'google'">
-                            {{ $t('ssl.googleCloudHelper') }}
-                        </span>
-                    </el-form-item>
-                    <el-form-item :label="$t('website.keyType')" prop="keyType">
-                        <el-select v-model="account.keyType">
-                            <el-option
-                                v-for="(keyType, index) in KeyTypes"
-                                :key="index"
-                                :label="keyType.label"
-                                :value="keyType.value"
-                            ></el-option>
-                        </el-select>
-                    </el-form-item>
+                    <div v-if="props.isLogOutVisible"></div>
+                    <div v-else>
+                        <el-form-item :label="$t('website.acmeAccountType')" prop="type">
+                            <el-select v-model="account.type">
+                                <el-option
+                                    v-for="(acme, index) in AcmeAccountTypes"
+                                    :key="index"
+                                    :label="acme.label"
+                                    :value="acme.value"
+                                ></el-option>
+                            </el-select>
+                            <span class="input-help" v-if="account.type === 'buypass'">
+                                {{ $t('ssl.buypassHelper') }}
+                            </span>
+                            <span class="input-help" v-if="account.type == 'google'">
+                                {{ $t('ssl.googleCloudHelper') }}
+                            </span>
+                        </el-form-item>
+                        <el-form-item :label="$t('website.keyType')" prop="keyType">
+                            <el-select v-model="account.keyType">
+                                <el-option
+                                    v-for="(keyType, index) in KeyTypes"
+                                    :key="index"
+                                    :label="keyType.label"
+                                    :value="keyType.value"
+                                ></el-option>
+                            </el-select>
+                        </el-form-item>
+                    </div>
                     <div v-if="account.type == 'google'">
                         <el-form-item label="EAB kid" prop="eabKid">
                             <el-input v-model.trim="account.eabKid"></el-input>
@@ -59,7 +64,8 @@
         </el-row>
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="handleClose" :disabled="loading">{{ $t('commons.button.cancel') }}</el-button>
+                <el-button v-if="props.isLogOutVisible" @click="logout">Log Out</el-button>
+                <el-button v-else @click="handleClose" :disabled="loading">{{ $t('commons.button.cancel') }}</el-button>
                 <el-button type="primary" @click="submit(accountForm)" :disabled="loading">
                     {{ $t('commons.button.confirm') }}
                 </el-button>
@@ -75,6 +81,36 @@ import { CreateAcmeAccount } from '@/api/modules/website';
 import i18n from '@/lang';
 import { MsgSuccess } from '@/utils/message';
 import { AcmeAccountTypes, KeyTypes } from '@/global/mimetype';
+import { logOutApi } from '@/api/modules/auth';
+import router from '@/routers/router';
+import { GlobalStore } from '@/store';
+const globalStore = GlobalStore();
+
+interface Props {
+    isLogOutVisible: boolean;
+}
+
+const logout = () => {
+    ElMessageBox.confirm(i18n.global.t('commons.msg.sureLogOut'), i18n.global.t('commons.msg.infoTitle'), {
+        confirmButtonText: i18n.global.t('commons.button.confirm'),
+        cancelButtonText: i18n.global.t('commons.button.cancel'),
+        type: 'warning',
+    })
+        .then(() => {
+            systemLogOut();
+            router.push({ name: 'entrance', params: { code: globalStore.entrance } });
+            globalStore.setLogStatus(false);
+            MsgSuccess(i18n.global.t('commons.msg.operationSuccess'));
+        })
+        .catch(() => {});
+};
+
+const systemLogOut = async () => {
+    await logOutApi();
+};
+
+// Sử dụng defineProps để khai báo props
+const props = defineProps<Props>();
 
 const open = ref();
 const loading = ref(false);

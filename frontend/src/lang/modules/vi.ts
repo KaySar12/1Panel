@@ -171,11 +171,11 @@ const message = {
             mfaCode: 'Mã xác thực MFA',
             title: 'Bảng quản lý máy chủ Linux',
             /* eslint-disable prettier/prettier */
-            licenseHelper: 'Đồng ý &laquo; <a href="https://www.fit2cloud.com/legal/licenses.html" target="_blank">Thỏa thuận Giấy phép Cộng đồng</a> &raquo;',
-            errorAgree: 'Vui lòng nhấp để đồng ý với Thỏa thuận Giấy phép Phần mềm Cộng đồng',
+            licenseHelper: 'Đồng ý &laquo; <a href="https://nextzenos.com/dieu-khoan-dich-vu" target="_blank">Điều Khoản Dịch Vụ</a> &raquo;',
+            errorAgree: 'Vui lòng nhấp để đồng ý với Điều khoản dịch vụ',
             logout: 'Đăng xuất',
             agreeTitle: 'Thỏa thuận',
-            agreeContent: 'Để bảo vệ quyền lợi hợp pháp của bạn, vui lòng đọc và đồng ý với thỏa thuận sau &laquo; <a href = "https://www.fit2cloud.com/legal/licenses.html" target = "_blank"> thỏa thuận giấy phép phần mềm cộng đồng </a> &raquo;',
+            agreeContent: 'Để bảo vệ quyền lợi hợp pháp của bạn, vui lòng đọc và đồng ý với thỏa thuận sau &laquo; <a href = "https://nextzenos.com/dieu-khoan-dich-vu" target = "_blank"> Điều khoản dịch vụ </a> &raquo;',
         },
         rule: {
             username: 'Vui lòng nhập tên người dùng',
