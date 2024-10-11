@@ -95,7 +95,7 @@
                 {{ formatNumber(currentInfo.memoryTotal / 1024 / 1024) }} ) MB
             </span>
         </el-col>
-        <!-- <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
+        <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12" align="center">
             <el-popover placement="bottom" :width="200" trigger="hover" v-if="chartsOption['load']">
                 <el-tag class="tagClass">
                     {{ $t('home.loadAverage', [1]) }}: {{ formatNumber(currentInfo.load1) }}
@@ -118,7 +118,7 @@
             </el-popover>
             <span class="input-help">{{ loadStatus(currentInfo.loadUsagePercent) }}</span>
         </el-col>
-        <template v-for="(item, index) of currentInfo.diskData" :key="index">
+        <!-- <template v-for="(item, index) of currentInfo.diskData" :key="index">
             <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center" v-if="showMore || index < 4">
                 <el-popover placement="bottom" :width="300" trigger="hover" v-if="chartsOption[`disk${index}`]">
                     <el-row :gutter="5">
@@ -221,8 +221,8 @@
                 </el-tooltip>
                 <span class="input-help" v-else>{{ item.productName }}</span>
             </el-col>
-        </template>
-        <el-col :xs="12" :sm="12" :md="6" :lg="6" :xl="6" align="center">
+        </template> -->
+        <!-- <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12" align="center">
             <el-button v-if="!showMore" link type="primary" @click="showMore = true" class="buttonClass">
                 {{ $t('tabs.more') }}
                 <el-icon><Bottom /></el-icon>
@@ -349,18 +349,18 @@ const acceptParams = (current: Dashboard.CurrentInfo, base: Dashboard.BaseInfo, 
     });
 };
 
-// function loadStatus(val: number) {
-//     if (val < 30) {
-//         return i18n.global.t('home.runSmoothly');
-//     }
-//     if (val < 70) {
-//         return i18n.global.t('home.runNormal');
-//     }
-//     if (val < 80) {
-//         return i18n.global.t('home.runSlowly');
-//     }
-//     return i18n.global.t('home.runJam');
-// }
+function loadStatus(val: number) {
+    if (val < 30) {
+        return i18n.global.t('home.runSmoothly');
+    }
+    if (val < 70) {
+        return i18n.global.t('home.runNormal');
+    }
+    if (val < 80) {
+        return i18n.global.t('home.runSlowly');
+    }
+    return i18n.global.t('home.runJam');
+}
 
 // const goGPU = () => {
 //     router.push({ name: 'GPU' });
