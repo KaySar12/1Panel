@@ -304,7 +304,7 @@ const message = {
     },
     menu: {
         home: 'Overview',
-        apps: 'App Store',
+        apps: 'Plugins',
         website: 'Website',
         project: 'Project',
         config: 'Config',
