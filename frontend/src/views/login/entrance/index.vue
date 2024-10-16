@@ -4,9 +4,9 @@
             <div class="login-background" v-if="errStatus === ''">
                 <div class="login-wrapper">
                     <div :class="screenWidth > 1110 ? 'left inline-block' : ''">
-                        <div class="login-title">
+                        <!-- <div class="login-title">
                             <span>{{ globalStore.themeConfig.title || $t('setting.description') }}</span>
-                        </div>
+                        </div> -->
                         <img src="@/assets/images/nextweb-login.png" alt="" v-if="screenWidth > 1110" />
                     </div>
                     <div :class="screenWidth > 1110 ? 'right inline-block' : ''">
