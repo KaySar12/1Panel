@@ -67,7 +67,7 @@ onMounted(() => {
 
 .login-background {
     height: 100vh;
-    background: url(@/assets/images/1panel-login-bg.png) no-repeat,
+    background: url(@/assets/images/nextweb-login-bg.png) no-repeat,
         radial-gradient(153.25% 257.2% at 118.99% 181.67%, rgba(50, 132, 255, 0.2) 0%, rgba(82, 120, 255, 0) 100%)
             /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
         radial-gradient(123.54% 204.83% at 25.87% 195.17%, rgba(111, 76, 253, 0.15) 0%, rgba(122, 76, 253, 0) 78.85%)

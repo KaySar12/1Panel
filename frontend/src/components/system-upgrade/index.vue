@@ -114,19 +114,19 @@ const handleClose = () => {
 };
 
 const toHalo = () => {
-    window.open('https://www.lxware.cn/1panel' + '', '_blank', 'noopener,noreferrer');
+    window.open('https://nextzenos.com' + '', '_blank', 'noopener,noreferrer');
 };
 
 const toDoc = () => {
-    window.open('https://1panel.cn/docs/', '_blank', 'noopener,noreferrer');
+    window.open('https://nextzenos.com', '_blank', 'noopener,noreferrer');
 };
 
 const toForum = () => {
-    window.open('https://bbs.fit2cloud.com/c/1p/7', '_blank');
+    window.open('https://nextzenos.com', '_blank');
 };
 
 const toGithub = () => {
-    window.open('https://github.com/1Panel-dev/1Panel', '_blank', 'noopener,noreferrer');
+    window.open('https://nextzenos.com', '_blank', 'noopener,noreferrer');
 };
 
 const onLoadUpgradeInfo = async () => {

@@ -74,7 +74,7 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
 };
 
 const toHalo = () => {
-    window.open('https://www.lxware.cn/1panel' + '', '_blank', 'noopener,noreferrer');
+    window.open('https://nextzenos.com' + '', '_blank', 'noopener,noreferrer');
 };
 
 const submit = async () => {
