@@ -19,8 +19,8 @@
 <script setup lang="ts">
 import router from '@/routers';
 import { GlobalStore } from '@/store';
-import PrimaryLogo from '@/assets/images/1panel-logo.svg?component';
-import MenuLogo from '@/assets/images/1panel-menu-logo.svg?component';
+import PrimaryLogo from '@/assets/images/nextweb-logo.svg?component';
+import MenuLogo from '@/assets/images/nextweb.svg?component';
 
 defineProps<{ isCollapse: boolean }>();
 

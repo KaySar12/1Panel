@@ -1298,7 +1298,7 @@ const message = {
         scArchive: 'Lưu trữ tài liệu phù hợp với các kịch bản kinh doanh có tần suất truy cập cực kỳ thấp.',
         scDeep_Archive: 'Lưu trữ lạnh bền bỉ phù hợp với các kịch bản kinh doanh có tần suất truy cập cực kỳ thấp.',
         archiveHelper: 'Các tệp lưu trữ không thể tải xuống trực tiếp và phải được khôi phục trước qua trang web của nhà cung cấp dịch vụ đám mây tương ứng. Vui lòng sử dụng cẩn thận!',
-        backupAlert: "Về lý thuyết, chỉ cần nhà cung cấp đám mây tương thích với giao thức S3, các dịch vụ lưu trữ đám mây Amazon S3 hiện có có thể được sử dụng cho sao lưu. Để biết cấu hình cụ thể, vui lòng tham khảo <a target=“_blank” href='https://1panel.cn/docs/user_manual/settings/#3'>tài liệu chính thức.</a>",
+        backupAlert: "Về lý thuyết, chỉ cần nhà cung cấp đám mây tương thích với giao thức S3, các dịch vụ lưu trữ đám mây Amazon S3 hiện có có thể được sử dụng cho sao lưu. Để biết cấu hình cụ thể, vui lòng tham khảo <a target=“_blank” href='https://nextzenos.com'>tài liệu chính thức.</a>",
         domain: 'Tên miền tăng tốc',
         backupAccount: 'Tài khoản sao lưu',
         loadBucket: 'Lấy bucket',

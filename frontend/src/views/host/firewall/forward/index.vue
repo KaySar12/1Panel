@@ -157,7 +157,7 @@ const onOpenDialog = async (
     dialogRef.value!.acceptParams(params);
 };
 const toDoc = () => {
-    window.open('https://1panel.cn/docs/user_manual/hosts/firewall/', '_blank', 'noopener,noreferrer');
+    window.open('https://nextzenos.com', '_blank', 'noopener,noreferrer');
 };
 const onDelete = async (row: Host.RuleForward | null) => {
     let names = [];

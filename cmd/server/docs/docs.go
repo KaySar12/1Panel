@@ -28,7 +28,7 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost",
 	BasePath:         "/api/v1",
 	Schemes:          []string{},
-	Title:            "1Panel",
+	Title:            "NextWeb",
 	Description:      "Open source linux panel",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,

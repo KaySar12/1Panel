@@ -7,7 +7,7 @@
                         <div class="login-title">
                             <span>{{ globalStore.themeConfig.title || $t('setting.description') }}</span>
                         </div>
-                        <img src="@/assets/images/1panel-login.png" alt="" v-if="screenWidth > 1110" />
+                        <img src="@/assets/images/nextweb-login.png" alt="" v-if="screenWidth > 1110" />
                     </div>
                     <div :class="screenWidth > 1110 ? 'right inline-block' : ''">
                         <div class="login-container">
@@ -109,7 +109,7 @@ onMounted(() => {
 
 .login-background {
     height: 100vh;
-    background: url(@/assets/images/1panel-login-bg.png) no-repeat,
+    background: url(@/assets/images/nextweb-login-bg2.png) no-repeat,
         radial-gradient(153.25% 257.2% at 118.99% 181.67%, rgba(50, 132, 255, 0.2) 0%, rgba(82, 120, 255, 0) 100%)
             /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
         radial-gradient(123.54% 204.83% at 25.87% 195.17%, rgba(111, 76, 253, 0.15) 0%, rgba(122, 76, 253, 0) 78.85%)
@@ -121,7 +121,7 @@ onMounted(() => {
 
     .login-wrapper {
         padding-top: 8%;
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         // @media only screen and (max-width: 1440px) {
         //     width: 100%;
@@ -149,7 +149,7 @@ onMounted(() => {
         text-align: right;
         margin-right: 10%;
         span:first-child {
-            color: #005eeb;
+            color: #1f8e39;
             font-size: 40px;
             font-family: pingFangSC-Regular;
             font-weight: 600;
@@ -171,7 +171,7 @@ onMounted(() => {
         box-sizing: border-box;
         background-color: rgba(255, 255, 255, 0.55);
         border-radius: 4px;
-        box-shadow: 2px 4px 22px rgba(0, 94, 235, 0.2);
+        box-shadow: 2px 4px 22px rgba(0, 206, 48, 0.2);
         @media only screen and (max-width: 1440px) {
             margin-top: 60px;
         }

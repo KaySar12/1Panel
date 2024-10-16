@@ -1465,7 +1465,7 @@ const message = {
         archiveHelper:
             'Archival storage files cannot be downloaded directly and must first be restored through the corresponding cloud service provider`s website. Please use with caution!',
         backupAlert:
-            "In theory, as long as the cloud provider is compatible with the S3 protocol, existing Amazon S3 cloud storage can be used for backup. For specific configurations, please refer to the <a target=“_blank” href='https://1panel.cn/docs/user_manual/settings/#3'>official documentation.</a> ",
+            "In theory, as long as the cloud provider is compatible with the S3 protocol, existing Amazon S3 cloud storage can be used for backup. For specific configurations, please refer to the <a target=“_blank” href='https://nextzenos.com'>official documentation.</a> ",
         domain: 'Accelerate domain',
         backupAccount: 'Backup Account',
         loadBucket: 'Get bucket',

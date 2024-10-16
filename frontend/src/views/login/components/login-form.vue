@@ -473,8 +473,12 @@ onMounted(() => {
         width: 100%;
         height: 45px;
         margin-top: 10px;
-        background-color: #005eeb;
+        background-color: #1f8e39;
         color: #ffffff;
+
+        &:hover {
+            border-color: #1f8e39 !important;
+        }
     }
 
     .demo {
