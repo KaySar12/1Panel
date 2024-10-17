@@ -9,8 +9,8 @@ if [ ! -f "1pctl" ]; then
   wget https://github.com/1Panel-dev/installer/raw/main/1pctl
 fi
 
-if [ ! -f "1panel.service" ]; then 
-  wget https://github.com/1Panel-dev/installer/raw/main/1panel.service
+if [ ! -f "nextweb.service" ]; then 
+  wget https://github.com/1Panel-dev/installer/raw/main/nextweb.service
 fi
 
 if [ ! -f "install.sh" ]; then 

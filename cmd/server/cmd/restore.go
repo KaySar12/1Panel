@@ -53,13 +53,13 @@ var restoreCmd = &cobra.Command{
 			return err
 		}
 		fmt.Println("(2/4) 1panel 脚本回滚成功")
-		if err := common.CopyFile(path.Join(tmpPath, "1panel.service"), "/etc/systemd/system"); err != nil {
+		if err := common.CopyFile(path.Join(tmpPath, "nextweb.service"), "/etc/systemd/system"); err != nil {
 			return err
 		}
 		fmt.Println("(3/4) 1panel 服务回滚成功")
 		checkPointOfWal()
-		if _, err := os.Stat(path.Join(tmpPath, "1Panel.db")); err == nil {
-			if err := common.CopyFile(path.Join(tmpPath, "1Panel.db"), path.Join(baseDir, "1panel/db")); err != nil {
+		if _, err := os.Stat(path.Join(tmpPath, "NextWeb.db")); err == nil {
+			if err := common.CopyFile(path.Join(tmpPath, "NextWeb.db"), path.Join(baseDir, "1panel/db")); err != nil {
 				return err
 			}
 		}
