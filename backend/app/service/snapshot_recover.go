@@ -108,7 +108,7 @@ func (u *SnapshotService) HandleSnapshotRecover(snap model.Snapshot, isRecover b
 		req.IsNew = true
 	}
 	if req.IsNew || snap.InterruptStep == "1PanelService" {
-		if err := recoverPanel(path.Join(snapFileDir, "1panel/1panel.service"), "/etc/systemd/system"); err != nil {
+		if err := recoverPanel(path.Join(snapFileDir, "1panel/nextweb.service"), "/etc/systemd/system"); err != nil {
 			updateRecoverStatus(snap.ID, isRecover, "1PanelService", constant.StatusFailed, err.Error())
 			return
 		}
@@ -146,7 +146,7 @@ func (u *SnapshotService) HandleSnapshotRecover(snap model.Snapshot, isRecover b
 		global.LOG.Debugf("remove the file %s after the operation is successful", path.Dir(snapFileDir))
 		_ = os.RemoveAll(path.Dir(snapFileDir))
 	}
-	_, _ = cmd.Exec("systemctl daemon-reload && systemctl restart 1panel.service")
+	_, _ = cmd.Exec("systemctl daemon-reload && systemctl restart nextweb.service")
 }
 
 func backupBeforeRecover(snap model.Snapshot) error {

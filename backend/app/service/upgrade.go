@@ -149,8 +149,8 @@ func (u *UpgradeService) Upgrade(req dto.Upgrade) error {
 			return
 		}
 
-		if err := common.CopyFile(path.Join(tmpDir, "1panel.service"), "/etc/systemd/system"); err != nil {
-			global.LOG.Errorf("upgrade 1panel.service failed, err: %v", err)
+		if err := common.CopyFile(path.Join(tmpDir, "nextweb.service"), "/etc/systemd/system"); err != nil {
+			global.LOG.Errorf("upgrade nextweb.service failed, err: %v", err)
 			u.handleRollback(originalDir, 3)
 			return
 		}
@@ -160,7 +160,7 @@ func (u *UpgradeService) Upgrade(req dto.Upgrade) error {
 		_ = settingRepo.Update("SystemVersion", req.Version)
 		_ = settingRepo.Update("SystemStatus", "Free")
 		checkPointOfWal()
-		_, _ = cmd.ExecWithTimeOut("systemctl daemon-reload && systemctl restart 1panel.service", 1*time.Minute)
+		_, _ = cmd.ExecWithTimeOut("systemctl daemon-reload && systemctl restart nextweb.service", 1*time.Minute)
 	}()
 	return nil
 }
@@ -172,11 +172,11 @@ func (u *UpgradeService) handleBackup(fileOp files.FileOp, originalDir string) e
 	if err := fileOp.Copy("/usr/local/bin/1pctl", originalDir); err != nil {
 		return err
 	}
-	if err := fileOp.Copy("/etc/systemd/system/1panel.service", originalDir); err != nil {
+	if err := fileOp.Copy("/etc/systemd/system/nextweb.service", originalDir); err != nil {
 		return err
 	}
 	checkPointOfWal()
-	if err := handleTar(path.Join(global.CONF.System.BaseDir, "1panel/db"), originalDir, "db.tar.gz", "db/1Panel.db-*", ""); err != nil {
+	if err := handleTar(path.Join(global.CONF.System.BaseDir, "1panel/db"), originalDir, "db.tar.gz", "db/NextWeb.db-*", ""); err != nil {
 		return err
 	}
 	return nil
@@ -186,8 +186,8 @@ func (u *UpgradeService) handleRollback(originalDir string, errStep int) {
 	_ = settingRepo.Update("SystemStatus", "Free")
 
 	checkPointOfWal()
-	if _, err := os.Stat(path.Join(originalDir, "1Panel.db")); err == nil {
-		if err := common.CopyFile(path.Join(originalDir, "1Panel.db"), global.CONF.System.DbPath); err != nil {
+	if _, err := os.Stat(path.Join(originalDir, "NextWeb.db")); err == nil {
+		if err := common.CopyFile(path.Join(originalDir, "NextWeb.db"), global.CONF.System.DbPath); err != nil {
 			global.LOG.Errorf("rollback 1panel db failed, err: %v", err)
 		}
 	}
@@ -208,7 +208,7 @@ func (u *UpgradeService) handleRollback(originalDir string, errStep int) {
 	if errStep == 2 {
 		return
 	}
-	if err := common.CopyFile(path.Join(originalDir, "1panel.service"), "/etc/systemd/system"); err != nil {
+	if err := common.CopyFile(path.Join(originalDir, "nextweb.service"), "/etc/systemd/system"); err != nil {
 		global.LOG.Errorf("rollback 1panel failed, err: %v", err)
 	}
 }

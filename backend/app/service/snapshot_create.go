@@ -51,7 +51,7 @@ func snapPanel(snap snapHelper, targetDir string) {
 		status = err.Error()
 	}
 
-	if err := common.CopyFile("/etc/systemd/system/1panel.service", targetDir); err != nil {
+	if err := common.CopyFile("/etc/systemd/system/nextweb.service", targetDir); err != nil {
 		status = err.Error()
 	}
 	snap.Status.Panel = status
@@ -142,7 +142,7 @@ func snapPanelData(snap snapHelper, localDir, targetDir string) {
 	_ = snapshotRepo.UpdateStatus(snap.Status.ID, map[string]interface{}{"panel_data": constant.Running})
 	status := constant.StatusDone
 	dataDir := path.Join(global.CONF.System.BaseDir, "1panel")
-	exclusionRules := "./tmp;./log;./cache;./db/1Panel.db-*;"
+	exclusionRules := "./tmp;./log;./cache;./db/NextWeb.db-*;"
 	if strings.Contains(localDir, dataDir) {
 		exclusionRules += ("." + strings.ReplaceAll(localDir, dataDir, "") + ";")
 	}

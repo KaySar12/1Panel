@@ -44,7 +44,7 @@ backend/xpack
 .history/
 dist/
 1pctl
-1panel.service
+nextweb.service
 install.sh
 quick_start.sh
 cmd/server/fileList.txt

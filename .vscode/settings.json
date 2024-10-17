@@ -1,4 +1,7 @@
 {
     "ansible.python.interpreterPath": "/opt/homebrew/bin/python3",
-    "makefile.configureOnOpen": true
+    "makefile.configureOnOpen": true,
+    "cSpell.words": [
+        "gitea"
+    ]
 }
