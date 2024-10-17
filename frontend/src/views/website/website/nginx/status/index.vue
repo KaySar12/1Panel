@@ -82,13 +82,13 @@ const props = defineProps({
 });
 
 let data = ref<Nginx.NginxStatus>({
-    accepts: '0',
-    handled: '0',
-    requests: '0',
-    reading: '0',
-    waiting: '0',
-    writing: '0',
-    active: '0',
+    accepts: '',
+    handled: '',
+    requests: '',
+    reading: '',
+    waiting: '',
+    writing: '',
+    active: '',
 });
 
 const get = async () => {
@@ -96,9 +96,7 @@ const get = async () => {
         return;
     }
     const res = await GetNginxStatus();
-    if (isOpenRestry.value) {
-        data.value = res.data;
-    }
+    data.value = res.data;
 };
 
 // Tạo interval
