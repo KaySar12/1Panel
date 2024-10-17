@@ -66,9 +66,15 @@ const checkOpenRestry = async () => {
         pageSize: 100,
         update: true,
     });
-    const openRes = res.data.items.find((item) => item.appID === 29);
-    if (openRes) {
-        isOpenRestry.value = true;
+    // console.log(res.data);
+    if (res.data.total != 0) {
+        const openRes = res.data.items.find((item) => item.appID === 29);
+        // console.log(openRes);
+        if (openRes) {
+            isOpenRestry.value = true;
+        } else {
+            console.log('err');
+        }
     }
 };
 
@@ -82,21 +88,23 @@ const props = defineProps({
 });
 
 let data = ref<Nginx.NginxStatus>({
-    accepts: '',
-    handled: '',
-    requests: '',
-    reading: '',
-    waiting: '',
-    writing: '',
-    active: '',
+    accepts: '0',
+    handled: '0',
+    requests: '0',
+    reading: '0',
+    waiting: '0',
+    writing: '0',
+    active: '0',
 });
 
 const get = async () => {
     if (props.status != 'Running') {
         return;
     }
-    const res = await GetNginxStatus();
-    data.value = res.data;
+    if (isOpenRestry.value) {
+        const res = await GetNginxStatus();
+        data.value = res.data;
+    }
 };
 
 // Tạo interval
