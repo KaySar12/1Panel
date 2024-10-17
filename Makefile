@@ -23,7 +23,10 @@ ASSERT_PATH= $(BASE_PATH)/cmd/server/web/assets
 DETACH ?= false
 clean_assets:
 	rm -rf $(ASSERT_PATH) &&\
-	rm $(DEPLOY_PATH)/$(APP_NAME)
+    if [ -f "$(DEPLOY_PATH)/$(APP_NAME)" ]; then \
+        rm $(DEPLOY_PATH)/$(APP_NAME); \
+    fi
+	
 
 upx_bin:
 	upx $(BUILD_PATH)/$(APP_NAME)

@@ -43,7 +43,6 @@ backend/xpack
 
 .history/
 dist/
-install.sh
 quick_start.sh
 cmd/server/fileList.txt
 .fileList.txt
