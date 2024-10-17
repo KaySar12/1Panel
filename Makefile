@@ -2,6 +2,7 @@ GOCMD=go
 DOCKERCMD=docker
 GOBUILD=$(GOCMD) build
 DOCKERBUILD=$(DOCKERCMD) build
+DOCKERCOMPOSE = $(DOCKERCMD) compose
 DOCKERPUSH=$(DOCKERCMD) push
 DOCKERIMAGE=$(DOCKERCMD) image
 GOCLEAN=$(GOCMD) clean
@@ -19,7 +20,7 @@ APP_VERSION=V1.1.0-beta
 IMAGE_TAG=1.1
 DOCKER_USERNAME=kaysar12
 ASSERT_PATH= $(BASE_PATH)/cmd/server/web/assets
-
+DETACH ?= false
 clean_assets:
 	rm -rf $(ASSERT_PATH)
 
@@ -47,8 +48,18 @@ build_image:
 	cd $(DEPLOY_PATH) && \
 	$(DOCKERBUILD) --build-arg PANELVER=$(APP_VERSION) -t ${DOCKER_USERNAME}/$(APP_NAME):$(IMAGE_TAG) .
 remove_image:
-	$(DOCKERIMAGE) rm ${DOCKER_USERNAME}/$(APP_NAME):$(IMAGE_TAG)
+	@if [ -n "$(shell $(DOCKERIMAGE) ls -q "${DOCKER_USERNAME}/${APP_NAME}:${IMAGE_TAG}")" ]; then \
+		$(DOCKERIMAGE) rm ${DOCKER_USERNAME}/$(APP_NAME):$(IMAGE_TAG); \
+	else \
+		echo "Image ${DOCKER_USERNAME}/${APP_NAME}:${IMAGE_TAG} does not exist."; \
+	fi
 push_image:
 	$(DOCKERPUSH) ${DOCKER_USERNAME}/$(APP_NAME):$(IMAGE_TAG)
+quick_run:
+	cd $(DEPLOY_PATH)  && \
+	$(DOCKERCOMPOSE) up $(if $(DETACH),--detach)
+deploy: build_all remove_image build_image push_image
+deploy_and_run: build_all remove_image build_image push_image quick_run
+
 
 
