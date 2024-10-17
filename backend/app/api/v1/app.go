@@ -36,7 +36,7 @@ func (b *BaseApi) SearchApp(c *gin.Context) {
 // @Success 200
 // @Security ApiKeyAuth
 // @Router /apps/sync [post]
-// @x-panel-log {"bodyKeys":[],"paramKeys":[],"BeforeFunctions":[],"formatZH":"应用商店同步","formatEN":"App store synchronization"}
+// @x-panel-log {"bodyKeys":[],"paramKeys":[],"BeforeFunctions":[],"formatZH":"Application store synchronization","formatEN":"App store synchronization"}
 func (b *BaseApi) SyncApp(c *gin.Context) {
 	go appService.SyncAppListFromLocal()
 	res, err := appService.GetAppUpdate()

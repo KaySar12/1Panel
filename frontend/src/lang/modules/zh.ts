@@ -1390,7 +1390,7 @@ const message = {
         deleteHelper: '将删除该快照的所有备份文件，包括第三方备份账号中的文件。',
         ignoreRule: '排除规则',
         ignoreHelper: '快照时将使用该规则对 1Panel 数据目录进行压缩备份，请谨慎修改。',
-        ignoreHelper1: '一行一个，例： \n*.log\n/opt/1panel/cache',
+        ignoreHelper1: '一行一个，例： \n*.log\n/opt/nextweb/cache',
         status: '快照状态',
         panelInfo: '写入 1Panel 基础信息',
         panelBin: '备份 1Panel 系统文件',

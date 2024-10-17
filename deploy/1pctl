@@ -1,0 +1,222 @@
+#!/bin/bash
+action=$1
+target=$2
+args=$@
+
+BASE_DIR=/opt
+ORIGINAL_PORT=9999
+ORIGINAL_VERSION=v1.1.0-beta
+ORIGINAL_ENTRANCE=entrance
+ORIGINAL_USERNAME=username
+ORIGINAL_PASSWORD=password
+
+function usage() {
+    echo "NextWeb Control script"
+    echo
+    echo "Usage: "
+    echo "  ./1pctl [COMMAND] [ARGS...]"
+    echo "  ./1pctl --help"
+    echo
+    echo "Commands: "
+    echo "  status              View nextweb service running status"
+    echo "  start               Start the nextweb service"
+    echo "  stop                Stop nextweb service"
+    echo "  restart             Restart nextweb service"
+    echo "  uninstall           Uninstalled nextweb service"
+    echo "  user-info           Get nextweb user information"
+    echo "  listen-ip           Switch nextweb monitoring IP"
+    echo "  version             View nextweb version information"
+    echo "  update              Modify nextweb system information"
+    echo "  reset               Reset nextweb system information"
+    echo "  restore             Restore nextweb service and data"
+}
+function status() {
+    systemctl status nextweb.service
+}
+function start() {
+    systemctl start nextweb.service
+    status
+}
+function stop() {
+    systemctl stop nextweb.service
+    status
+}
+function restart() {
+    systemctl restart nextweb.service
+    status
+}
+function uninstall() {
+    read -p "Uninstalling will be completely cleared NextWEB Service and data directory, whether to continue [y/n] : " yn
+    if [ "$yn" == "Y" ] || [ "$yn" == "y" ]; then
+        echo -e "================== Start unload NextWEB Linux Server operation and maintenance management panel =================="
+        echo -e ""
+        echo -e "1)Stop the NextWEB service process..."
+        systemctl stop nextweb.service
+        systemctl disable nextweb.service >/dev/null 2>&1
+    else
+        exit 0
+    fi
+
+    echo -e "2) Delete nextweb service and data directory..."
+    rm -rf $BASE_DIR/nextweb /usr/local/bin/{1pctl,nextweb} /etc/systemd/system/nextweb.service
+
+    echo -e "3) Re -load the service configuration file..."
+    systemctl daemon-reload
+    systemctl reset-failed
+
+    echo -e ""
+    echo -e "================================== Uninstall =================================="
+}
+function user-info() {
+    nextweb user-info
+}
+function listen-ip() {
+    nextweb listen-ip
+}
+function listen_ipv4() {
+    nextweb listen-ip ipv4
+    restart
+}
+function listen_ipv6() {
+    nextweb listen-ip ipv6
+    restart
+}
+function restore() {
+    read -p "NextWEB Will return to the previous stable version, whether to continue [y/n] : " yn
+    if [ "$yn" == "Y" ] || [ "$yn" == "y" ]; then
+        echo -e ""
+        nextweb restore
+        systemctl daemon-reload
+        restart
+        echo -e ""
+        nextweb version
+    else
+        exit 0
+    fi
+}
+function version() {
+    nextweb version
+}
+function reset() {
+    nextweb reset
+}
+function reset_domain() {
+    nextweb reset domain
+}
+function reset_entrance() {
+    nextweb reset entrance
+}
+function reset_https() {
+    nextweb reset https
+    restart
+}
+function reset_ips() {
+    nextweb reset ips
+}
+function reset_mfa() {
+    nextweb reset mfa
+}
+function update() {
+    nextweb update
+}
+function update_username() {
+    nextweb update username
+}
+function update_password() {
+    nextweb update password
+}
+function update_port() {
+    nextweb update port
+}
+
+function main() {
+    case "${action}" in
+        status)
+            status
+            ;;
+        start)
+            start
+            ;;
+        stop)
+            stop
+            ;;
+        restart)
+            restart
+            ;;
+        restore)
+            restore
+            ;;
+        uninstall)
+            uninstall
+            ;;
+        user-info)
+            user-info
+            ;;
+        listen-ip)
+            case "${target}" in
+                ipv4)
+                    listen_ipv4
+                    ;;
+                ipv6)
+                    listen_ipv6
+                    ;;
+                *)
+                    listen-ip
+                    ;;
+            esac
+            ;;
+        version)
+            version
+            ;;
+        reset)
+            case "${target}" in
+                domain)
+                    reset_domain
+                    ;;
+                entrance)
+                    reset_entrance
+                    ;;
+                https)
+                    reset_https
+                    ;;
+                ips)
+                    reset_ips
+                    ;;
+                mfa)
+                    reset_mfa
+                    ;;
+                *)
+                    reset
+                    ;;
+            esac
+            ;;
+        update)
+            case "${target}" in
+                username)
+                    update_username
+                    ;;
+                password)
+                    update_password
+                    ;;
+                port)
+                    update_port
+                    ;;
+                *)
+                    update
+                    ;;
+            esac
+            ;;
+        help)
+            usage
+            ;;
+        --help)
+            usage
+            ;;
+        "")
+            usage
+            ;;
+        *)
+        echo "Without support parameters, please use Help or -Help parameters to get help"
+    esac
+}
+main

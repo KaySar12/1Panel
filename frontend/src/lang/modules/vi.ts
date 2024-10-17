@@ -1383,7 +1383,7 @@ const message = {
         status: 'Trạng thái ảnh chụp',
         ignoreRule: 'Bỏ qua quy tắc',
         ignoreHelper: 'Quy tắc này sẽ được sử dụng để nén và sao lưu thư mục dữ liệu 1Panel trong quá trình ảnh chụp, vui lòng chỉnh sửa cẩn thận.',
-        ignoreHelper1: 'Một mục trên mỗi dòng, ví dụ: \n*.log\n/opt/1panel/cache',
+        ignoreHelper1: 'Một mục trên mỗi dòng, ví dụ: \n*.log\n/opt/nextweb/cache',
         panelInfo: 'Viết thông tin cơ bản về 1Panel',
         panelBin: 'Sao lưu tệp hệ thống 1Panel',
         daemonJson: 'Sao lưu tệp cấu hình Docker',
