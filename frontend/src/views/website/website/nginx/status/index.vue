@@ -54,7 +54,25 @@
 <script lang="ts" setup>
 import { Nginx } from '@/api/interface/nginx';
 import { GetNginxStatus } from '@/api/modules/nginx';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { SearchAppInstalled } from '@/api/modules/app';
+
+const isOpenRestry = ref(false);
+
+// check OpenRestry
+const checkOpenRestry = async () => {
+    const res = await SearchAppInstalled({
+        page: 1,
+        pageSize: 100,
+        update: true,
+    });
+    const openRes = res.data.items.find((item) => item.appID === 29);
+    if (openRes) {
+        isOpenRestry.value = true;
+    }
+};
+
+checkOpenRestry();
 
 const props = defineProps({
     status: {
@@ -81,12 +99,26 @@ const get = async () => {
     data.value = res.data;
 };
 
-// Tạo một interval để refresh dữ liệu mỗi 3 giây
-let intervalId: number | undefined;
+// Tạo interval
+let intervalId: ReturnType<typeof setInterval> | undefined;
 
 onMounted(() => {
     get();
-    intervalId = setInterval(get, 3000); // Lặp lại việc lấy dữ liệu mỗi 3 giây
+    if (isOpenRestry.value) {
+        intervalId = setInterval(get, 3000); // Lặp lại việc lấy dữ liệu mỗi 3 giây
+    }
+});
+
+watch(isOpenRestry, (newValue) => {
+    if (newValue) {
+        console.log('isOpenRestry changed to true, starting interval...');
+        if (!intervalId) {
+            intervalId = setInterval(get, 3000); // Lặp lại việc lấy dữ liệu mỗi 3 giây
+        }
+    } else if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = undefined;
+    }
 });
 
 onUnmounted(() => {
