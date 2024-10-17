@@ -28,7 +28,7 @@ var versionCmd = &cobra.Command{
 		}
 		version := getSettingByKey(db, "SystemVersion")
 
-		fmt.Printf("1panel version: %s\n", version)
+		fmt.Printf("nextweb version: %s\n", version)
 		config := configs.ServerConfig{}
 		if err := yaml.Unmarshal(conf.AppYaml, &config); err != nil {
 			return fmt.Errorf("unmarshal conf.App.Yaml failed, errL %v", err)

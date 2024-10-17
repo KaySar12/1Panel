@@ -21,10 +21,10 @@ func init() {
 
 var restoreCmd = &cobra.Command{
 	Use:   "restore",
-	Short: "回滚 1Panel 服务及数据",
+	Short: "Roll back the NextWeb service and data",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if !isRoot() {
-			fmt.Println("请使用 sudo 1pctl restore 或者切换到 root 用户")
+			fmt.Println("Please use sudo")
 			return nil
 		}
 		stdout, err := cmdUtils.Exec("grep '^BASE_DIR=' /usr/local/bin/1pctl | cut -d'=' -f2")
@@ -32,45 +32,45 @@ var restoreCmd = &cobra.Command{
 			return fmt.Errorf("handle load `BASE_DIR` failed, err: %v", err)
 		}
 		baseDir := strings.ReplaceAll(stdout, "\n", "")
-		upgradeDir := path.Join(baseDir, "1panel", "tmp", "upgrade")
+		upgradeDir := path.Join(baseDir, "nextweb", "tmp", "upgrade")
 
 		tmpPath, err := loadRestorePath(upgradeDir)
 		if err != nil {
 			return err
 		}
-		if tmpPath == "暂无可回滚文件" {
-			fmt.Println("暂无可回滚文件")
+		if tmpPath == "There is no recovery file" {
+			fmt.Println("There is no recovery file")
 			return nil
 		}
 		tmpPath = path.Join(upgradeDir, tmpPath, "original")
-		fmt.Printf("(0/4) 开始从 %s 目录回滚 1Panel 服务及数据... \n", tmpPath)
+		fmt.Printf("(0/4) Start Catalog rollback%s Catalog rollback NextWeb Service and data... \n", tmpPath)
 
-		if err := common.CopyFile(path.Join(tmpPath, "1panel"), "/usr/local/bin"); err != nil {
+		if err := common.CopyFile(path.Join(tmpPath, "nextweb"), "/usr/local/bin"); err != nil {
 			return err
 		}
-		fmt.Println("(1/4) 1panel 二进制回滚成功")
+		fmt.Println("(1/4) nextweb binary rollback successfully")
 		if err := common.CopyFile(path.Join(tmpPath, "1pctl"), "/usr/local/bin"); err != nil {
 			return err
 		}
-		fmt.Println("(2/4) 1panel 脚本回滚成功")
+		fmt.Println("(2/4) nextweb Roll back successfully")
 		if err := common.CopyFile(path.Join(tmpPath, "nextweb.service"), "/etc/systemd/system"); err != nil {
 			return err
 		}
-		fmt.Println("(3/4) 1panel 服务回滚成功")
+		fmt.Println("(3/4) nextweb The service return is successful")
 		checkPointOfWal()
 		if _, err := os.Stat(path.Join(tmpPath, "NextWeb.db")); err == nil {
-			if err := common.CopyFile(path.Join(tmpPath, "NextWeb.db"), path.Join(baseDir, "1panel/db")); err != nil {
+			if err := common.CopyFile(path.Join(tmpPath, "NextWeb.db"), path.Join(baseDir, "nextweb/db")); err != nil {
 				return err
 			}
 		}
 		if _, err := os.Stat(path.Join(tmpPath, "db.tar.gz")); err == nil {
-			if err := handleUnTar(path.Join(tmpPath, "db.tar.gz"), path.Join(baseDir, "1panel")); err != nil {
+			if err := handleUnTar(path.Join(tmpPath, "db.tar.gz"), path.Join(baseDir, "nextweb")); err != nil {
 				return err
 			}
 		}
-		fmt.Printf("(4/4) 1panel 数据回滚成功 \n\n")
+		fmt.Printf("(4/4) NextWeb Data rollback success \n\n")
 
-		fmt.Println("回滚成功！正在重启服务，请稍候...")
+		fmt.Println("Roll back success!Repeat the service, please wait ...")
 		return nil
 	},
 }

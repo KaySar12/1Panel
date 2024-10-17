@@ -85,7 +85,7 @@ func Init() {
 	global.CONF = serverConfig
 	global.CONF.System.BaseDir = baseDir
 	global.CONF.System.IsDemo = v.GetBool("system.is_demo")
-	global.CONF.System.DataDir = path.Join(global.CONF.System.BaseDir, "1panel")
+	global.CONF.System.DataDir = path.Join(global.CONF.System.BaseDir, "nextweb")
 	global.CONF.System.Cache = path.Join(global.CONF.System.DataDir, "cache")
 	global.CONF.System.Backup = path.Join(global.CONF.System.DataDir, "backup")
 	global.CONF.System.DbPath = path.Join(global.CONF.System.DataDir, "db")

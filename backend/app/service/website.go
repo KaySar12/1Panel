@@ -564,7 +564,7 @@ func (w WebsiteService) DeleteWebsite(req request.WebsiteDelete) error {
 	}
 	tx.Commit()
 
-	uploadDir := path.Join(global.CONF.System.BaseDir, fmt.Sprintf("1panel/uploads/website/%s", website.Alias))
+	uploadDir := path.Join(global.CONF.System.BaseDir, fmt.Sprintf("nextweb/uploads/website/%s", website.Alias))
 	if _, err := os.Stat(uploadDir); err == nil {
 		_ = os.RemoveAll(uploadDir)
 	}

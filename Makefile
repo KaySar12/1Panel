@@ -22,7 +22,8 @@ DOCKER_USERNAME=kaysar12
 ASSERT_PATH= $(BASE_PATH)/cmd/server/web/assets
 DETACH ?= false
 clean_assets:
-	rm -rf $(ASSERT_PATH)
+	rm -rf $(ASSERT_PATH) &&\
+	rm $(DEPLOY_PATH)/$(APP_NAME)
 
 upx_bin:
 	upx $(BUILD_PATH)/$(APP_NAME)
@@ -58,8 +59,14 @@ push_image:
 quick_run:
 	cd $(DEPLOY_PATH)  && \
 	$(DOCKERCOMPOSE) up $(if $(DETACH),--detach)
-deploy: build_all remove_image build_image push_image
-deploy_and_run: build_all remove_image build_image push_image quick_run
+stop_clean:
+	cd $(DEPLOY_PATH)  && \
+	$(DOCKERCOMPOSE) down --rmi all --volumes 
+stop:
+	cd $(DEPLOY_PATH)  && \
+	$(DOCKERCOMPOSE) down 
+deploy:clean_assets build_all remove_image build_image push_image
+deploy_and_run: clean_assets build_all remove_image build_image push_image quick_run
 
 
 

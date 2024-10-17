@@ -6,6 +6,13 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"fmt"
+	"log"
+	"os"
+	"path"
+	"strconv"
+	"strings"
+	"time"
+
 	"github.com/1Panel-dev/1Panel/backend/app/dto/request"
 	"github.com/1Panel-dev/1Panel/backend/app/dto/response"
 	"github.com/1Panel-dev/1Panel/backend/app/model"
@@ -21,12 +28,6 @@ import (
 	"github.com/go-acme/lego/v4/certcrypto"
 	legoLogger "github.com/go-acme/lego/v4/log"
 	"github.com/jinzhu/gorm"
-	"log"
-	"os"
-	"path"
-	"strconv"
-	"strings"
-	"time"
 )
 
 type WebsiteSSLService struct {
@@ -586,7 +587,7 @@ func (w WebsiteSSLService) DownloadFile(id uint) (*os.File, error) {
 		return nil, err
 	}
 	fileOp := files.NewFileOp()
-	dir := path.Join(global.CONF.System.BaseDir, "1panel/tmp/ssl", websiteSSL.PrimaryDomain)
+	dir := path.Join(global.CONF.System.BaseDir, "nextweb/tmp/ssl", websiteSSL.PrimaryDomain)
 	if fileOp.Stat(dir) {
 		if err = fileOp.DeleteDir(dir); err != nil {
 			return nil, err

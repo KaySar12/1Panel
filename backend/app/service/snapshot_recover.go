@@ -59,7 +59,7 @@ func (u *SnapshotService) HandleSnapshotRecover(snap model.Snapshot, isRecover b
 			snapFileDir = baseDir
 		}
 	} else {
-		snapFileDir = fmt.Sprintf("%s/1panel_original/original_%s", global.CONF.System.BaseDir, snap.Name)
+		snapFileDir = fmt.Sprintf("%s/nextweb_original/original_%s", global.CONF.System.BaseDir, snap.Name)
 		if _, err := os.Stat(snapFileDir); err != nil {
 			updateRecoverStatus(snap.ID, isRecover, "", constant.StatusFailed, fmt.Sprintf("cannot find the backup file %s, please try to recover again.", snapFileDir))
 			return
@@ -91,66 +91,66 @@ func (u *SnapshotService) HandleSnapshotRecover(snap model.Snapshot, isRecover b
 		req.IsNew = true
 	}
 
-	if req.IsNew || snap.InterruptStep == "1PanelBinary" {
-		if err := recoverPanel(path.Join(snapFileDir, "1panel/1panel"), "/usr/local/bin"); err != nil {
-			updateRecoverStatus(snap.ID, isRecover, "1PanelBinary", constant.StatusFailed, err.Error())
+	if req.IsNew || snap.InterruptStep == "NextWebBinary" {
+		if err := recoverPanel(path.Join(snapFileDir, "nextweb/nextweb"), "/usr/local/bin"); err != nil {
+			updateRecoverStatus(snap.ID, isRecover, "NextWebBinary", constant.StatusFailed, err.Error())
 			return
 		}
-		global.LOG.Debug("recover 1panel binary from snapshot file successful!")
+		global.LOG.Debug("recover nextweb binary from snapshot file successful!")
 		req.IsNew = true
 	}
 	if req.IsNew || snap.InterruptStep == "1PctlBinary" {
-		if err := recoverPanel(path.Join(snapFileDir, "1panel/1pctl"), "/usr/local/bin"); err != nil {
+		if err := recoverPanel(path.Join(snapFileDir, "nextweb/1pctl"), "/usr/local/bin"); err != nil {
 			updateRecoverStatus(snap.ID, isRecover, "1PctlBinary", constant.StatusFailed, err.Error())
 			return
 		}
 		global.LOG.Debug("recover 1pctl from snapshot file successful!")
 		req.IsNew = true
 	}
-	if req.IsNew || snap.InterruptStep == "1PanelService" {
-		if err := recoverPanel(path.Join(snapFileDir, "1panel/nextweb.service"), "/etc/systemd/system"); err != nil {
-			updateRecoverStatus(snap.ID, isRecover, "1PanelService", constant.StatusFailed, err.Error())
+	if req.IsNew || snap.InterruptStep == "NextWebService" {
+		if err := recoverPanel(path.Join(snapFileDir, "nextweb/nextweb.service"), "/etc/systemd/system"); err != nil {
+			updateRecoverStatus(snap.ID, isRecover, "NextWebService", constant.StatusFailed, err.Error())
 			return
 		}
 		global.LOG.Debug("recover 1panel service from snapshot file successful!")
 		req.IsNew = true
 	}
 
-	if req.IsNew || snap.InterruptStep == "1PanelBackups" {
-		if err := u.handleUnTar(path.Join(snapFileDir, "/1panel/1panel_backup.tar.gz"), snapJson.BackupDataDir, ""); err != nil {
-			updateRecoverStatus(snap.ID, isRecover, "1PanelBackups", constant.StatusFailed, err.Error())
+	if req.IsNew || snap.InterruptStep == "NextWebBackups" {
+		if err := u.handleUnTar(path.Join(snapFileDir, "/nextweb/nextweb_backup.tar.gz"), snapJson.BackupDataDir, ""); err != nil {
+			updateRecoverStatus(snap.ID, isRecover, "NextWebBackups", constant.StatusFailed, err.Error())
 			return
 		}
-		global.LOG.Debug("recover 1panel backups from snapshot file successful!")
+		global.LOG.Debug("recover nextweb backups from snapshot file successful!")
 		req.IsNew = true
 	}
 
-	if req.IsNew || snap.InterruptStep == "1PanelData" {
+	if req.IsNew || snap.InterruptStep == "NextWebData" {
 		checkPointOfWal()
-		if err := u.handleUnTar(path.Join(snapFileDir, "/1panel/1panel_data.tar.gz"), path.Join(snapJson.BaseDir, "1panel"), ""); err != nil {
-			updateRecoverStatus(snap.ID, isRecover, "1PanelData", constant.StatusFailed, err.Error())
+		if err := u.handleUnTar(path.Join(snapFileDir, "/nextweb/nextweb_data.tar.gz"), path.Join(snapJson.BaseDir, "nextweb"), ""); err != nil {
+			updateRecoverStatus(snap.ID, isRecover, "NextWebData", constant.StatusFailed, err.Error())
 			return
 		}
-		global.LOG.Debug("recover 1panel data from snapshot file successful!")
+		global.LOG.Debug("recover nextweb data from snapshot file successful!")
 		req.IsNew = true
 	}
 	_ = rebuildAllAppInstall()
-	restartCompose(path.Join(snapJson.BaseDir, "1panel/docker/compose"))
+	restartCompose(path.Join(snapJson.BaseDir, "nextweb/docker/compose"))
 
 	global.LOG.Info("recover successful")
 	if !isRecover {
-		oriPath := fmt.Sprintf("%s/1panel_original/original_%s", global.CONF.System.BaseDir, snap.Name)
+		oriPath := fmt.Sprintf("%s/nextweb_original/original_%s", global.CONF.System.BaseDir, snap.Name)
 		global.LOG.Debugf("remove the file %s after the operation is successful", oriPath)
 		_ = os.RemoveAll(oriPath)
 	} else {
 		global.LOG.Debugf("remove the file %s after the operation is successful", path.Dir(snapFileDir))
 		_ = os.RemoveAll(path.Dir(snapFileDir))
 	}
-			_, _ = cmd.Exec("systemctl daemon-reload && systemctl restart nextweb.service")
+	_, _ = cmd.Exec("systemctl daemon-reload && systemctl restart nextweb.service")
 }
 
 func backupBeforeRecover(snap model.Snapshot) error {
-	baseDir := fmt.Sprintf("%s/1panel_original/original_%s", global.CONF.System.BaseDir, snap.Name)
+	baseDir := fmt.Sprintf("%s/nextweb_original/original_%s", global.CONF.System.BaseDir, snap.Name)
 	var wg sync.WaitGroup
 	var status model.SnapshotStatus
 	itemHelper := snapHelper{SnapID: 0, Status: &status, Wg: &wg, FileOp: files.NewFileOp(), Ctx: context.Background()}
@@ -158,17 +158,17 @@ func backupBeforeRecover(snap model.Snapshot) error {
 	jsonItem := SnapshotJson{
 		BaseDir:       global.CONF.System.BaseDir,
 		BackupDataDir: global.CONF.System.Backup,
-		PanelDataDir:  path.Join(global.CONF.System.BaseDir, "1panel"),
+		PanelDataDir:  path.Join(global.CONF.System.BaseDir, "nextweb"),
 	}
-	_ = os.MkdirAll(path.Join(baseDir, "1panel"), os.ModePerm)
+	_ = os.MkdirAll(path.Join(baseDir, "nextweb"), os.ModePerm)
 	_ = os.MkdirAll(path.Join(baseDir, "docker"), os.ModePerm)
 
 	wg.Add(4)
 	itemHelper.Wg = &wg
 	go snapJson(itemHelper, jsonItem, baseDir)
-	go snapPanel(itemHelper, path.Join(baseDir, "1panel"))
+	go snapPanel(itemHelper, path.Join(baseDir, "nextweb"))
 	go snapDaemonJson(itemHelper, path.Join(baseDir, "docker"))
-	go snapBackup(itemHelper, global.CONF.System.Backup, path.Join(baseDir, "1panel"))
+	go snapBackup(itemHelper, global.CONF.System.Backup, path.Join(baseDir, "nextweb"))
 	wg.Wait()
 	itemHelper.Status.AppData = constant.StatusDone
 
@@ -176,7 +176,7 @@ func backupBeforeRecover(snap model.Snapshot) error {
 	if !allDone {
 		return errors.New(msg)
 	}
-	snapPanelData(itemHelper, global.CONF.System.BaseDir, path.Join(baseDir, "1panel"))
+	snapPanelData(itemHelper, global.CONF.System.BaseDir, path.Join(baseDir, "nextweb"))
 	if status.PanelData != constant.StatusDone {
 		return errors.New(status.PanelData)
 	}

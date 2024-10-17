@@ -60,7 +60,7 @@ func (ssl *ssl) Run() {
 			if systemSSLEnable && sslID == s.ID {
 				websiteSSL, _ := sslRepo.GetFirst(repo.NewCommonRepo().WithByID(s.ID))
 				fileOp := files.NewFileOp()
-				secretDir := path.Join(global.CONF.System.BaseDir, "1panel/secret")
+				secretDir := path.Join(global.CONF.System.BaseDir, "nextweb/secret")
 				if err := fileOp.WriteFile(path.Join(secretDir, "server.crt"), strings.NewReader(websiteSSL.Pem), 0600); err != nil {
 					global.LOG.Errorf("Failed to update the SSL certificate File for 1Panel System domain [%s] , err:%s", s.PrimaryDomain, err.Error())
 					continue

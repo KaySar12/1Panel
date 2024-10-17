@@ -218,7 +218,7 @@ func (u *SettingService) UpdatePort(port uint) error {
 }
 
 func (u *SettingService) UpdateSSL(c *gin.Context, req dto.SSLUpdate) error {
-	secretDir := path.Join(global.CONF.System.BaseDir, "1panel/secret")
+	secretDir := path.Join(global.CONF.System.BaseDir, "nextweb/secret")
 	if req.SSL == "disable" {
 		if err := settingRepo.Update("SSL", "disable"); err != nil {
 			return err
@@ -359,16 +359,16 @@ func (u *SettingService) LoadFromCert() (*dto.SSLInfo, error) {
 		if err != nil {
 			return nil, err
 		}
-		if _, err := os.Stat(path.Join(global.CONF.System.BaseDir, "1panel/secret/server.crt")); err != nil {
+		if _, err := os.Stat(path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.crt")); err != nil {
 			return nil, fmt.Errorf("load server.crt file failed, err: %v", err)
 		}
-		certFile, _ := os.ReadFile(path.Join(global.CONF.System.BaseDir, "1panel/secret/server.crt"))
+		certFile, _ := os.ReadFile(path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.crt"))
 		data.Cert = string(certFile)
 
-		if _, err := os.Stat(path.Join(global.CONF.System.BaseDir, "1panel/secret/server.key")); err != nil {
+		if _, err := os.Stat(path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.key")); err != nil {
 			return nil, fmt.Errorf("load server.key file failed, err: %v", err)
 		}
-		keyFile, _ := os.ReadFile(path.Join(global.CONF.System.BaseDir, "1panel/secret/server.key"))
+		keyFile, _ := os.ReadFile(path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.key"))
 		data.Key = string(keyFile)
 	case "select":
 		sslID, err := settingRepo.Get(settingRepo.WithByKey("SSLID"))
@@ -428,7 +428,7 @@ func (u *SettingService) UpdatePassword(c *gin.Context, old, new string) error {
 
 func loadInfoFromCert() (dto.SSLInfo, error) {
 	var info dto.SSLInfo
-	certFile := path.Join(global.CONF.System.BaseDir, "1panel/secret/server.crt")
+	certFile := path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.crt")
 	if _, err := os.Stat(certFile); err != nil {
 		return info, err
 	}
@@ -456,16 +456,16 @@ func loadInfoFromCert() (dto.SSLInfo, error) {
 	return dto.SSLInfo{
 		Domain:   strings.Join(domains, ","),
 		Timeout:  certObj.NotAfter.Format(constant.DateTimeLayout),
-		RootPath: path.Join(global.CONF.System.BaseDir, "1panel/secret/server.crt"),
+		RootPath: path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.crt"),
 	}, nil
 }
 
 func checkCertValid() error {
-	certificate, err := os.ReadFile(path.Join(global.CONF.System.BaseDir, "1panel/secret/server.crt.tmp"))
+	certificate, err := os.ReadFile(path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.crt.tmp"))
 	if err != nil {
 		return err
 	}
-	key, err := os.ReadFile(path.Join(global.CONF.System.BaseDir, "1panel/secret/server.key.tmp"))
+	key, err := os.ReadFile(path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.key.tmp"))
 	if err != nil {
 		return err
 	}

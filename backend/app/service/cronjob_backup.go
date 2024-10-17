@@ -354,7 +354,7 @@ func handleBackupLogs(targetDir, fileName string, secret string) error {
 		global.LOG.Debug("backup website log successful!")
 	}
 
-	systemLogDir := path.Join(global.CONF.System.BaseDir, "1panel/log")
+	systemLogDir := path.Join(global.CONF.System.BaseDir, "nextweb/log")
 	systemDir := path.Join(targetDir, "system")
 	if _, err := os.Stat(systemDir); err != nil && os.IsNotExist(err) {
 		if err = os.MkdirAll(systemDir, os.ModePerm); err != nil {

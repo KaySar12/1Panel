@@ -10,6 +10,14 @@ import (
 	"crypto/x509/pkix"
 	"encoding/pem"
 	"fmt"
+	"log"
+	"math/big"
+	"net"
+	"os"
+	"path"
+	"strings"
+	"time"
+
 	"github.com/1Panel-dev/1Panel/backend/app/dto/request"
 	"github.com/1Panel-dev/1Panel/backend/app/dto/response"
 	"github.com/1Panel-dev/1Panel/backend/app/model"
@@ -22,13 +30,6 @@ import (
 	"github.com/1Panel-dev/1Panel/backend/utils/files"
 	"github.com/1Panel-dev/1Panel/backend/utils/ssl"
 	"github.com/go-acme/lego/v4/certcrypto"
-	"log"
-	"math/big"
-	"net"
-	"os"
-	"path"
-	"strings"
-	"time"
 )
 
 type WebsiteCAService struct {
@@ -423,7 +424,7 @@ func (w WebsiteCAService) DownloadFile(id uint) (*os.File, error) {
 		return nil, err
 	}
 	fileOp := files.NewFileOp()
-	dir := path.Join(global.CONF.System.BaseDir, "1panel/tmp/ssl", ca.Name)
+	dir := path.Join(global.CONF.System.BaseDir, "nextweb/tmp/ssl", ca.Name)
 	if fileOp.Stat(dir) {
 		if err = fileOp.DeleteDir(dir); err != nil {
 			return nil, err

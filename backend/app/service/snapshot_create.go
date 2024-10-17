@@ -43,7 +43,7 @@ func snapPanel(snap snapHelper, targetDir string) {
 	defer snap.Wg.Done()
 	_ = snapshotRepo.UpdateStatus(snap.Status.ID, map[string]interface{}{"panel": constant.Running})
 	status := constant.StatusDone
-	if err := common.CopyFile("/usr/local/bin/1panel", path.Join(targetDir, "1panel")); err != nil {
+	if err := common.CopyFile("/usr/local/bin/nextweb", path.Join(targetDir, "nextweb")); err != nil {
 		status = err.Error()
 	}
 
@@ -55,7 +55,7 @@ func snapPanel(snap snapHelper, targetDir string) {
 		status = err.Error()
 	}
 	snap.Status.Panel = status
-	_ = snapshotRepo.UpdateStatus(snap.Status.ID, map[string]interface{}{"panel": status})
+	_ = snapshotRepo.UpdateStatus(snap.Status.ID, map[string]interface{}{"nextweb": status})
 }
 
 func snapDaemonJson(snap snapHelper, targetDir string) {
@@ -131,7 +131,7 @@ func snapBackup(snap snapHelper, localDir, targetDir string) {
 	defer snap.Wg.Done()
 	_ = snapshotRepo.UpdateStatus(snap.Status.ID, map[string]interface{}{"backup_data": constant.Running})
 	status := constant.StatusDone
-	if err := handleSnapTar(localDir, targetDir, "1panel_backup.tar.gz", "./system;./system_snapshot;", ""); err != nil {
+	if err := handleSnapTar(localDir, targetDir, "nextweb_backup.tar.gz", "./system;./system_snapshot;", ""); err != nil {
 		status = err.Error()
 	}
 	snap.Status.BackupData = status
@@ -141,7 +141,7 @@ func snapBackup(snap snapHelper, localDir, targetDir string) {
 func snapPanelData(snap snapHelper, localDir, targetDir string) {
 	_ = snapshotRepo.UpdateStatus(snap.Status.ID, map[string]interface{}{"panel_data": constant.Running})
 	status := constant.StatusDone
-	dataDir := path.Join(global.CONF.System.BaseDir, "1panel")
+	dataDir := path.Join(global.CONF.System.BaseDir, "nextweb")
 	exclusionRules := "./tmp;./log;./cache;./db/NextWeb.db-*;"
 	if strings.Contains(localDir, dataDir) {
 		exclusionRules += ("." + strings.ReplaceAll(localDir, dataDir, "") + ";")
@@ -158,7 +158,7 @@ func snapPanelData(snap snapHelper, localDir, targetDir string) {
 	sysIP, _ := settingRepo.Get(settingRepo.WithByKey("SystemIP"))
 	_ = settingRepo.Update("SystemIP", "")
 	checkPointOfWal()
-	if err := handleSnapTar(dataDir, targetDir, "1panel_data.tar.gz", exclusionRules, ""); err != nil {
+	if err := handleSnapTar(dataDir, targetDir, "nextweb_data.tar.gz", exclusionRules, ""); err != nil {
 		status = err.Error()
 	}
 	_ = snapshotRepo.Update(snap.SnapID, map[string]interface{}{"status": constant.StatusWaiting})

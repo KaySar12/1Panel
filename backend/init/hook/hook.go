@@ -202,7 +202,7 @@ func handleUserInfo(tags string, settingRepo repo.ISettingRepo) {
 }
 
 func initDir() {
-	composePath := path.Join(global.CONF.System.BaseDir, "1panel/docker/compose/")
+	composePath := path.Join(global.CONF.System.BaseDir, "nextweb/docker/compose/")
 	if _, err := os.Stat(composePath); err != nil && os.IsNotExist(err) {
 		if err = os.MkdirAll(composePath, os.ModePerm); err != nil {
 			global.LOG.Errorf("mkdir %s failed, err: %v", composePath, err)

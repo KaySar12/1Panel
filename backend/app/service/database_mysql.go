@@ -280,7 +280,7 @@ func (u *MysqlService) Delete(ctx context.Context, req dto.MysqlDBDelete) error 
 	}
 
 	if req.DeleteBackup {
-		uploadDir := path.Join(global.CONF.System.BaseDir, fmt.Sprintf("1panel/uploads/database/%s/%s/%s", req.Type, req.Database, db.Name))
+		uploadDir := path.Join(global.CONF.System.BaseDir, fmt.Sprintf("nextweb/uploads/database/%s/%s/%s", req.Type, req.Database, db.Name))
 		if _, err := os.Stat(uploadDir); err == nil {
 			_ = os.RemoveAll(uploadDir)
 		}

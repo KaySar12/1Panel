@@ -23,20 +23,20 @@ import (
 )
 
 const (
-	upgradePath      = "1panel/tmp/upgrade"
-	snapshotTmpPath  = "1panel/tmp/system"
-	rollbackPath     = "1panel/tmp"
-	cachePath        = "1panel/cache"
+	upgradePath      = "nextweb/tmp/upgrade"
+	snapshotTmpPath  = "nextweb/tmp/system"
+	rollbackPath     = "nextweb/tmp"
+	cachePath        = "nextweb/cache"
 	oldOriginalPath  = "original"
-	oldAppBackupPath = "1panel/resource/apps_bak"
-	oldDownloadPath  = "1panel/tmp/download"
-	oldUpgradePath   = "1panel/tmp"
-	tmpUploadPath    = "1panel/tmp/upload"
-	uploadPath       = "1panel/uploads"
-	downloadPath     = "1panel/download"
-	logPath          = "1panel/log"
-	dockerLogPath    = "1panel/tmp/docker_logs"
-	taskPath         = "1panel/task"
+	oldAppBackupPath = "nextweb/resource/apps_bak"
+	oldDownloadPath  = "nextweb/tmp/download"
+	oldUpgradePath   = "nextweb/tmp"
+	tmpUploadPath    = "nextweb/tmp/upload"
+	uploadPath       = "nextweb/uploads"
+	downloadPath     = "nextweb/download"
+	logPath          = "nextweb/log"
+	dockerLogPath    = "nextweb/tmp/docker_logs"
+	taskPath         = "nextweb/task"
 )
 
 func (u *DeviceService) Scan() dto.CleanData {
@@ -46,16 +46,16 @@ func (u *DeviceService) Scan() dto.CleanData {
 	)
 	fileOp := fileUtils.NewFileOp()
 
-	originalPath := path.Join(global.CONF.System.BaseDir, "1panel_original")
+	originalPath := path.Join(global.CONF.System.BaseDir, "nextweb_original")
 	originalSize, _ := fileOp.GetDirSize(originalPath)
 	treeData = append(treeData, dto.CleanTree{
 		ID:          uuid.NewString(),
-		Label:       "1panel_original",
+		Label:       "nextweb_original",
 		Size:        uint64(originalSize),
 		IsCheck:     true,
 		IsRecommend: true,
-		Type:        "1panel_original",
-		Children:    loadTreeWithDir(true, "1panel_original", originalPath, fileOp),
+		Type:        "nextweb_original",
+		Children:    loadTreeWithDir(true, "nextweb_original", originalPath, fileOp),
 	})
 
 	upgradePath := path.Join(global.CONF.System.BaseDir, upgradePath)
@@ -148,8 +148,8 @@ func (u *DeviceService) Clean(req []dto.Clean) {
 	for _, item := range req {
 		size += item.Size
 		switch item.TreeType {
-		case "1panel_original":
-			dropFileOrDir(path.Join(global.CONF.System.BaseDir, "1panel_original", item.Name))
+		case "nextweb_original":
+			dropFileOrDir(path.Join(global.CONF.System.BaseDir, "nextweb_original", item.Name))
 
 		case "upgrade":
 			dropFileOrDir(path.Join(global.CONF.System.BaseDir, upgradePath, item.Name))
@@ -244,7 +244,7 @@ func (u *DeviceService) Clean(req []dto.Clean) {
 					continue
 				}
 				for _, file := range files {
-					if file.Name() == "1Panel.log" || file.IsDir() {
+					if file.Name() == "NextWeb.log" || file.IsDir() {
 						continue
 					}
 					dropFileOrDir(path.Join(global.CONF.System.BaseDir, logPath, file.Name()))
@@ -297,7 +297,7 @@ func (u *DeviceService) CleanForCronjob() (string, error) {
 	logs := ""
 	size := int64(0)
 	fileCount := 0
-	dropFileOrDirWithLog(path.Join(global.CONF.System.BaseDir, "1panel_original"), &logs, &size, &fileCount)
+	dropFileOrDirWithLog(path.Join(global.CONF.System.BaseDir, "nextweb_original"), &logs, &size, &fileCount)
 
 	upgradePath := path.Join(global.CONF.System.BaseDir, upgradePath)
 	upgradeFiles, _ := os.ReadDir(upgradePath)
@@ -338,7 +338,7 @@ func (u *DeviceService) CleanForCronjob() (string, error) {
 	logFiles, _ := os.ReadDir(logPath)
 	if len(logFiles) != 0 {
 		for i := 0; i < len(logFiles); i++ {
-			if logFiles[i].Name() != "1Panel.log" {
+			if logFiles[i].Name() != "NextWeb.log" {
 				dropFileOrDirWithLog(path.Join(logPath, logFiles[i].Name()), &logs, &size, &fileCount)
 			}
 		}
@@ -602,7 +602,7 @@ func loadTreeWithAllFile(isCheck bool, originalPath, treeType, pathItem string, 
 		return lists
 	}
 	for _, file := range files {
-		if treeType == "system_log" && (file.Name() == "1Panel.log" || file.IsDir()) {
+		if treeType == "system_log" && (file.Name() == "NextWeb.log" || file.IsDir()) {
 			continue
 		}
 		if (treeType == "upload" || treeType == "download") && file.IsDir() && (file.Name() == "app" || file.Name() == "database" || file.Name() == "website" || file.Name() == "directory") {

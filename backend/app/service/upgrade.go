@@ -132,7 +132,7 @@ func (u *UpgradeService) Upgrade(req dto.Upgrade) error {
 		}
 		global.LOG.Info("backup original data successful, now start to upgrade!")
 
-		if err := common.CopyFile(path.Join(tmpDir, "1panel"), "/usr/local/bin"); err != nil {
+		if err := common.CopyFile(path.Join(tmpDir, "nextweb"), "/usr/local/bin"); err != nil {
 			global.LOG.Errorf("upgrade 1panel failed, err: %v", err)
 			u.handleRollback(originalDir, 1)
 			return
@@ -166,7 +166,7 @@ func (u *UpgradeService) Upgrade(req dto.Upgrade) error {
 }
 
 func (u *UpgradeService) handleBackup(fileOp files.FileOp, originalDir string) error {
-	if err := fileOp.Copy("/usr/local/bin/1panel", originalDir); err != nil {
+	if err := fileOp.Copy("/usr/local/bin/nextweb", originalDir); err != nil {
 		return err
 	}
 	if err := fileOp.Copy("/usr/local/bin/1pctl", originalDir); err != nil {
@@ -176,7 +176,7 @@ func (u *UpgradeService) handleBackup(fileOp files.FileOp, originalDir string) e
 		return err
 	}
 	checkPointOfWal()
-	if err := handleTar(path.Join(global.CONF.System.BaseDir, "1panel/db"), originalDir, "db.tar.gz", "db/NextWeb.db-*", ""); err != nil {
+	if err := handleTar(path.Join(global.CONF.System.BaseDir, "nextweb/db"), originalDir, "db.tar.gz", "db/NextWeb.db-*", ""); err != nil {
 		return err
 	}
 	return nil
@@ -188,28 +188,28 @@ func (u *UpgradeService) handleRollback(originalDir string, errStep int) {
 	checkPointOfWal()
 	if _, err := os.Stat(path.Join(originalDir, "NextWeb.db")); err == nil {
 		if err := common.CopyFile(path.Join(originalDir, "NextWeb.db"), global.CONF.System.DbPath); err != nil {
-			global.LOG.Errorf("rollback 1panel db failed, err: %v", err)
+			global.LOG.Errorf("rollback nextweb db failed, err: %v", err)
 		}
 	}
 	if _, err := os.Stat(path.Join(originalDir, "db.tar.gz")); err == nil {
 		if err := handleUnTar(path.Join(originalDir, "db.tar.gz"), global.CONF.System.DbPath, ""); err != nil {
-			global.LOG.Errorf("rollback 1panel db failed, err: %v", err)
+			global.LOG.Errorf("rollback nextweb db failed, err: %v", err)
 		}
 	}
-	if err := common.CopyFile(path.Join(originalDir, "1panel"), "/usr/local/bin"); err != nil {
+	if err := common.CopyFile(path.Join(originalDir, "nextweb"), "/usr/local/bin"); err != nil {
 		global.LOG.Errorf("rollback 1pctl failed, err: %v", err)
 	}
 	if errStep == 1 {
 		return
 	}
 	if err := common.CopyFile(path.Join(originalDir, "1pctl"), "/usr/local/bin"); err != nil {
-		global.LOG.Errorf("rollback 1panel failed, err: %v", err)
+		global.LOG.Errorf("rollback nextweb failed, err: %v", err)
 	}
 	if errStep == 2 {
 		return
 	}
 	if err := common.CopyFile(path.Join(originalDir, "nextweb.service"), "/etc/systemd/system"); err != nil {
-		global.LOG.Errorf("rollback 1panel failed, err: %v", err)
+		global.LOG.Errorf("rollback nextweb failed, err: %v", err)
 	}
 }
 

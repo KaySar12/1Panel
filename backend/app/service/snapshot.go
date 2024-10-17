@@ -71,7 +71,7 @@ func (u *SnapshotService) SnapshotImport(req dto.SnapshotImport) error {
 	for _, snap := range req.Names {
 		shortName := strings.TrimPrefix(snap, "snapshot_")
 		nameItems := strings.Split(shortName, "_")
-		if !strings.HasPrefix(shortName, "1panel_v") || !strings.HasSuffix(shortName, ".tar.gz") || len(nameItems) < 3 {
+		if !strings.HasSuffix(shortName, ".tar.gz") || len(nameItems) < 3 {
 			return fmt.Errorf("incorrect snapshot name format of %s", shortName)
 		}
 		if strings.HasSuffix(snap, ".tar.gz") {
@@ -193,9 +193,9 @@ func (u *SnapshotService) HandleSnapshot(isCronjob bool, logPath string, req dto
 	if req.ID == 0 {
 		versionItem, _ := settingRepo.Get(settingRepo.WithByKey("SystemVersion"))
 
-		name := fmt.Sprintf("1panel_%s_%s_%s", versionItem.Value, loadOs(), timeNow)
+		name := fmt.Sprintf("nextweb_%s_%s_%s", versionItem.Value, loadOs(), timeNow)
 		if isCronjob {
-			name = fmt.Sprintf("snapshot_1panel_%s_%s_%s", versionItem.Value, loadOs(), timeNow)
+			name = fmt.Sprintf("snapshot_nextweb_%s_%s_%s", versionItem.Value, loadOs(), timeNow)
 		}
 		rootDir = path.Join(localDir, "system", name)
 
@@ -226,7 +226,7 @@ func (u *SnapshotService) HandleSnapshot(isCronjob bool, logPath string, req dto
 
 	var wg sync.WaitGroup
 	itemHelper := snapHelper{SnapID: snap.ID, Status: &snapStatus, Wg: &wg, FileOp: files.NewFileOp(), Ctx: context.Background()}
-	backupPanelDir := path.Join(rootDir, "1panel")
+	backupPanelDir := path.Join(rootDir, "nextweb")
 	_ = os.MkdirAll(backupPanelDir, os.ModePerm)
 	backupDockerDir := path.Join(rootDir, "docker")
 	_ = os.MkdirAll(backupDockerDir, os.ModePerm)
@@ -234,7 +234,7 @@ func (u *SnapshotService) HandleSnapshot(isCronjob bool, logPath string, req dto
 	jsonItem := SnapshotJson{
 		BaseDir:       global.CONF.System.BaseDir,
 		BackupDataDir: localDir,
-		PanelDataDir:  path.Join(global.CONF.System.BaseDir, "1panel"),
+		PanelDataDir:  path.Join(global.CONF.System.BaseDir, "nextweb"),
 	}
 	loadLogByStatus(snapStatus, logPath)
 	if snapStatus.PanelInfo != constant.StatusDone {
@@ -472,12 +472,12 @@ func checkAllDone(status model.SnapshotStatus) (bool, string) {
 
 func loadLogByStatus(status model.SnapshotStatus, logPath string) {
 	logs := ""
-	logs += fmt.Sprintf("Write 1Panel basic information: %s \n", status.PanelInfo)
-	logs += fmt.Sprintf("Backup 1Panel system files: %s \n", status.Panel)
+	logs += fmt.Sprintf("Write NextWeb basic information: %s \n", status.PanelInfo)
+	logs += fmt.Sprintf("Backup NextWeb system files: %s \n", status.Panel)
 	logs += fmt.Sprintf("Backup Docker configuration file: %s \n", status.DaemonJson)
-	logs += fmt.Sprintf("Backup installed apps from 1Panel: %s \n", status.AppData)
-	logs += fmt.Sprintf("Backup 1Panel data directory: %s \n", status.PanelData)
-	logs += fmt.Sprintf("Backup local backup directory for 1Panel: %s \n", status.BackupData)
+	logs += fmt.Sprintf("Backup installed apps from NextWeb: %s \n", status.AppData)
+	logs += fmt.Sprintf("Backup NextWeb data directory: %s \n", status.PanelData)
+	logs += fmt.Sprintf("Backup local backup directory for NextWeb: %s \n", status.BackupData)
 	logs += fmt.Sprintf("Create snapshot file: %s \n", status.Compress)
 	logs += fmt.Sprintf("Snapshot size: %s \n", status.Size)
 	logs += fmt.Sprintf("Upload snapshot file: %s \n", status.Upload)

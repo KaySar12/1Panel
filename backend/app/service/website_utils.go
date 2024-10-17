@@ -1040,13 +1040,13 @@ func UpdateSSLConfig(websiteSSL model.WebsiteSSL) error {
 	enable, sslID := GetSystemSSL()
 	if enable && sslID == websiteSSL.ID {
 		fileOp := files.NewFileOp()
-		secretDir := path.Join(global.CONF.System.BaseDir, "1panel/secret")
+		secretDir := path.Join(global.CONF.System.BaseDir, "nextweb/secret")
 		if err := fileOp.WriteFile(path.Join(secretDir, "server.crt"), strings.NewReader(websiteSSL.Pem), 0600); err != nil {
-			global.LOG.Errorf("Failed to update the SSL certificate File for 1Panel System domain [%s] , err:%s", websiteSSL.PrimaryDomain, err.Error())
+			global.LOG.Errorf("Failed to update the SSL certificate File for NextWeb System domain [%s] , err:%s", websiteSSL.PrimaryDomain, err.Error())
 			return err
 		}
 		if err := fileOp.WriteFile(path.Join(secretDir, "server.key"), strings.NewReader(websiteSSL.PrivateKey), 0600); err != nil {
-			global.LOG.Errorf("Failed to update the SSL certificate for 1Panel System domain [%s] , err:%s", websiteSSL.PrimaryDomain, err.Error())
+			global.LOG.Errorf("Failed to update the SSL certificate for NextWeb System domain [%s] , err:%s", websiteSSL.PrimaryDomain, err.Error())
 			return err
 		}
 	}

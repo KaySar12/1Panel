@@ -67,8 +67,8 @@ func Start() {
 		*net.TCPListener
 	}
 	if global.CONF.System.SSL == "enable" {
-		certPath := path.Join(global.CONF.System.BaseDir, "1panel/secret/server.crt")
-		keyPath := path.Join(global.CONF.System.BaseDir, "1panel/secret/server.key")
+		certPath := path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.crt")
+		keyPath := path.Join(global.CONF.System.BaseDir, "nextweb/secret/server.key")
 		certificate, err := os.ReadFile(certPath)
 		if err != nil {
 			panic(err)
