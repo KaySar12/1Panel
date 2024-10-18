@@ -102,7 +102,7 @@ func (u *UpgradeService) Upgrade(req dto.Upgrade) error {
 		mode = "beta"
 	}
 	downloadPath := fmt.Sprintf("%s/%s/%s/release", global.CONF.System.RepoUrl, mode, req.Version)
-	fileName := fmt.Sprintf("1panel-%s-%s-%s.tar.gz", req.Version, "linux", itemArch)
+	fileName := fmt.Sprintf("nextweb-%s-%s-%s.tar.gz", req.Version, "linux", itemArch)
 	_ = settingRepo.Update("SystemStatus", "Upgrading")
 	go func() {
 		_ = global.Cron.Stop()

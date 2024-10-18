@@ -628,7 +628,7 @@ const getAcmeAccounts = async () => {
     // if (acmeAccounts.value.length > 0 && ssl.value.acmeAccountId == undefined) {
     //     ssl.value.acmeAccountId = res.data.items[0].id;
     // }
-}
+};
 
 getAcmeAccounts();
 

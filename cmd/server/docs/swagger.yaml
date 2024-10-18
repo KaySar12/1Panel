@@ -5691,7 +5691,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: 通过 key 获取应用默认配置
+      description: Get the default configuration through the key
       parameters:
       - description: request
         in: body
@@ -13956,7 +13956,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: 获取默认 html
+      description: Get the default HTML
       responses:
         "200":
           description: OK

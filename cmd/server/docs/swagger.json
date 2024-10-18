@@ -262,7 +262,7 @@
                         "ApiKeyAuth": []
                     }
                 ],
-                "description": "通过 key 获取应用默认配置",
+                "description": "Get the default configuration through the key ",
                 "consumes": [
                     "application/json"
                 ],

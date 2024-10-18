@@ -135,7 +135,7 @@ const search = async () => {
     await loadBaseDir()
         .then((res) => {
             loading.value = false;
-            loadData(res.data.substring(0, res.data.lastIndexOf('/1panel')));
+            loadData(res.data.substring(0, res.data.lastIndexOf('/nextweb')));
         })
         .catch(() => {
             loading.value = false;

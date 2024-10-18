@@ -781,7 +781,7 @@ func (b *BaseApi) GetDirConfig(c *gin.Context) {
 
 // @Tags Website
 // @Summary Get default html
-// @Description 获取默认 html
+// @Description Get the default HTML
 // @Accept json
 // @Success 200 {object} response.FileInfo
 // @Security ApiKeyAuth

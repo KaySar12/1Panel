@@ -171,11 +171,13 @@ const message = {
             mfaCode: 'Mã xác thực MFA',
             title: 'Bảng quản lý máy chủ Linux',
             /* eslint-disable prettier/prettier */
-            licenseHelper: 'Đồng ý &laquo; <a href="https://nextzenos.com/dieu-khoan-dich-vu" target="_blank">Điều Khoản Dịch Vụ</a> &raquo;',
+            licenseHelper:
+                'Đồng ý &laquo; <a href="https://nextzenos.com/dieu-khoan-dich-vu" target="_blank">Điều Khoản Dịch Vụ</a> &raquo;',
             errorAgree: 'Vui lòng nhấp để đồng ý với Điều khoản dịch vụ',
             logout: 'Đăng xuất',
             agreeTitle: 'Thỏa thuận',
-            agreeContent: 'Để bảo vệ quyền lợi hợp pháp của bạn, vui lòng đọc và đồng ý với thỏa thuận sau &laquo; <a href = "https://nextzenos.com/dieu-khoan-dich-vu" target = "_blank"> Điều khoản dịch vụ </a> &raquo;',
+            agreeContent:
+                'Để bảo vệ quyền lợi hợp pháp của bạn, vui lòng đọc và đồng ý với thỏa thuận sau &laquo; <a href = "https://nextzenos.com/dieu-khoan-dich-vu" target = "_blank"> Điều khoản dịch vụ </a> &raquo;',
         },
         rule: {
             username: 'Vui lòng nhập tên người dùng',
@@ -270,7 +272,7 @@ const message = {
             install: 'Cài đặt',
             uninstall: 'Gỡ cài đặt',
             update: 'Cập nhật',
-        },        
+        },
     },
     menu: {
         home: 'Tổng quan',
@@ -388,8 +390,7 @@ const message = {
         confChange: 'Cấu hình',
         confNotFound:
             'Không tìm thấy tệp cấu hình. Vui lòng nâng cấp ứng dụng lên phiên bản mới nhất trong cửa hàng ứng dụng và thử lại!',
-        portHelper:
-            'Cổng này là cổng đã mở của container. Bạn cần lưu thay đổi riêng biệt và khởi động lại container!',
+        portHelper: 'Cổng này là cổng đã mở của container. Bạn cần lưu thay đổi riêng biệt và khởi động lại container!',
         loadFromRemote: 'Đồng bộ từ máy chủ',
         userBind: 'Liên kết người dùng',
         pgBindHelper:
@@ -483,15 +484,17 @@ const message = {
         timeout: 'Hết giờ',
         timeoutHelper: 'Thời gian hết giờ của kết nối nhàn rỗi. 0 có nghĩa là kết nối luôn hoạt động',
         maxclients: 'Số lượng client tối đa',
-        maxclientsHelper: 'Vượt quá số client tối đa sẽ dẫn đến lỗi kết nối'
+        maxclientsHelper: 'Vượt quá số client tối đa sẽ dẫn đến lỗi kết nối',
     },
     container: {
         create: 'Tạo mới',
         edit: 'Chỉnh sửa container',
-        updateContainerHelper: 'Chỉnh sửa container yêu cầu xây dựng lại container. Mọi dữ liệu chưa được lưu sẽ bị mất. Bạn có muốn tiếp tục không?',
+        updateContainerHelper:
+            'Chỉnh sửa container yêu cầu xây dựng lại container. Mọi dữ liệu chưa được lưu sẽ bị mất. Bạn có muốn tiếp tục không?',
         containerList: 'Danh sách container',
         operatorHelper: '{0} sẽ được thực hiện trên container sau, bạn có muốn tiếp tục không?',
-        operatorAppHelper: 'Hoạt động {0} sẽ được thực hiện trên các container sau, một số trong đó đến từ App Store. Hoạt động này có thể ảnh hưởng đến việc sử dụng dịch vụ bình thường. Bạn có muốn tiếp tục không?',
+        operatorAppHelper:
+            'Hoạt động {0} sẽ được thực hiện trên các container sau, một số trong đó đến từ App Store. Hoạt động này có thể ảnh hưởng đến việc sử dụng dịch vụ bình thường. Bạn có muốn tiếp tục không?',
         start: 'Khởi động',
         stop: 'Dừng',
         restart: 'Khởi động lại',
@@ -503,7 +506,8 @@ const message = {
         removeAll: 'Xóa tất cả',
         containerPrune: 'Dọn dẹp',
         containerPruneHelper1: 'Việc dọn dẹp container sẽ xóa tất cả các container đang ở trạng thái dừng.',
-        containerPruneHelper2: 'Nếu các container đến từ cửa hàng ứng dụng, sau khi thực hiện dọn dẹp, bạn cần truy cập vào danh sách [Đã cài đặt] trong [Cửa hàng ứng dụng] và nhấp vào nút [Xây dựng lại] để cài đặt lại chúng.',
+        containerPruneHelper2:
+            'Nếu các container đến từ cửa hàng ứng dụng, sau khi thực hiện dọn dẹp, bạn cần truy cập vào danh sách [Đã cài đặt] trong [Cửa hàng ứng dụng] và nhấp vào nút [Xây dựng lại] để cài đặt lại chúng.',
         containerPruneHelper3: 'Hoạt động này không thể hoàn tác. Bạn có muốn tiếp tục không?',
         imagePrune: 'Dọn dẹp',
         imagePruneSome: 'Dọn dẹp không có nhãn',
@@ -517,7 +521,8 @@ const message = {
         volumePrune: 'Dọn dẹp',
         volumePruneHelper: 'Xóa tất cả các ổ đĩa cục bộ không sử dụng. Bạn có muốn tiếp tục không?',
         cleanSuccess: 'Hoạt động thành công, số lượng dọn dẹp lần này: {0}!',
-        cleanSuccessWithSpace: 'Hoạt động thành công. Số lượng ổ đĩa được dọn dẹp lần này là {0}. Không gian đĩa được giải phóng là {1}!',
+        cleanSuccessWithSpace:
+            'Hoạt động thành công. Số lượng ổ đĩa được dọn dẹp lần này là {0}. Không gian đĩa được giải phóng là {1}!',
         container: 'Container',
         unExposedPort: 'Địa chỉ ánh xạ cổng hiện tại là 127.0.0.1, không thể kích hoạt truy cập bên ngoài.',
         upTime: 'Thời gian hoạt động',
@@ -548,8 +553,10 @@ const message = {
             'Chia sẻ CPU mặc định cho một container là 1024, có thể tăng lên để cung cấp cho container nhiều thời gian CPU hơn.',
         inputIpv4: 'Vui lòng nhập địa chỉ IPv4',
         inputIpv6: 'Vui lòng nhập địa chỉ IPv6',
-        containerFromAppHelper: 'Phát hiện container này có nguồn gốc từ cửa hàng ứng dụng. Các thao tác trên ứng dụng có thể khiến các chỉnh sửa hiện tại bị vô hiệu hóa.',
-        containerFromAppHelper1: 'Nhấp vào nút `Cài đặt` trong danh sách ứng dụng đã cài đặt để vào trang chỉnh sửa và thay đổi tên container.',
+        containerFromAppHelper:
+            'Phát hiện container này có nguồn gốc từ cửa hàng ứng dụng. Các thao tác trên ứng dụng có thể khiến các chỉnh sửa hiện tại bị vô hiệu hóa.',
+        containerFromAppHelper1:
+            'Nhấp vào nút `Cài đặt` trong danh sách ứng dụng đã cài đặt để vào trang chỉnh sửa và thay đổi tên container.',
         command: 'Lệnh',
         console: 'Tương tác với Console',
         tty: 'TTY (-t)',
@@ -558,14 +565,16 @@ const message = {
         emptyUser: 'Khi để trống, bạn sẽ đăng nhập với người dùng mặc định',
         containerTerminal: 'Terminal',
         privileged: 'Đặc quyền',
-        privilegedHelper: 'Cho phép container thực hiện một số thao tác có đặc quyền trên máy chủ, điều này có thể làm tăng rủi ro cho container. Sử dụng cẩn thận!',
+        privilegedHelper:
+            'Cho phép container thực hiện một số thao tác có đặc quyền trên máy chủ, điều này có thể làm tăng rủi ro cho container. Sử dụng cẩn thận!',
         upgradeHelper: 'Tên kho/Tên hình ảnh: Phiên bản hình ảnh',
         upgradeWarning2:
             'Hoạt động nâng cấp yêu cầu xây dựng lại container, mọi dữ liệu chưa được lưu sẽ bị mất. Bạn có muốn tiếp tục không?',
         oldImage: 'Hình ảnh hiện tại',
         targetImage: 'Hình ảnh mục tiêu',
         imageLoadErr: 'Không phát hiện tên hình ảnh cho container',
-        appHelper: 'Container này có nguồn gốc từ cửa hàng ứng dụng; việc nâng cấp có thể khiến dịch vụ không hoạt động',
+        appHelper:
+            'Container này có nguồn gốc từ cửa hàng ứng dụng; việc nâng cấp có thể khiến dịch vụ không hoạt động',
         input: 'Đầu vào',
         forcePull: 'Kéo hình ảnh bắt buộc',
         forcePullHelper: 'Bỏ qua các hình ảnh hiện có trên máy chủ và kéo lại.',
@@ -625,7 +634,8 @@ const message = {
         tagHelper: 'mỗi dòng một thẻ, ví dụ: \nkey1=value1\nkey2=value2',
         imageNameHelper: 'Tên hình ảnh và thẻ, ví dụ: nginx:latest',
         cleanBuildCache: 'Xóa bộ nhớ đệm xây dựng',
-        delBuildCacheHelper: 'Việc xóa bộ nhớ đệm xây dựng sẽ xóa tất cả các dữ liệu đệm được tạo ra trong quá trình xây dựng. Hoạt động này không thể hoàn tác. Bạn có muốn tiếp tục không?',
+        delBuildCacheHelper:
+            'Việc xóa bộ nhớ đệm xây dựng sẽ xóa tất cả các dữ liệu đệm được tạo ra trong quá trình xây dựng. Hoạt động này không thể hoàn tác. Bạn có muốn tiếp tục không?',
         urlWarning: 'Tiền tố URL không cần bao gồm http:// hoặc https://. Vui lòng sửa đổi.',
         network: 'Mạng',
         createNetwork: 'Tạo',
@@ -654,14 +664,18 @@ const message = {
         imageRepo: 'Kho hình ảnh',
         repoHelper: 'Có bao gồm kho gương/tổ chức/dự án không?',
         auth: 'Xác thực',
-        mirrorHelper: 'Nếu có nhiều gương, mỗi gương phải được hiển thị trên một dòng mới, ví dụ:\nhttp://xxxxxx.m.daocloud.io \nhttps://xxxxxx.mirror.aliyuncs.com',
-        registrieHelper: 'Nếu có nhiều kho riêng tư, mỗi kho phải được hiển thị trên một dòng mới, ví dụ:\n172.16.10.111:8081 \n172.16.10.112:8081',
+        mirrorHelper:
+            'Nếu có nhiều gương, mỗi gương phải được hiển thị trên một dòng mới, ví dụ:\nhttp://xxxxxx.m.daocloud.io \nhttps://xxxxxx.mirror.aliyuncs.com',
+        registrieHelper:
+            'Nếu có nhiều kho riêng tư, mỗi kho phải được hiển thị trên một dòng mới, ví dụ:\n172.16.10.111:8081 \n172.16.10.112:8081',
         compose: 'Soạn thảo',
         fromChangeHelper: 'Chuyển đổi nguồn sẽ xóa nội dung chỉnh sửa hiện tại. Bạn có muốn tiếp tục không?',
         composePathHelper: 'Đường dẫn lưu tệp cấu hình: {0}',
-        composeHelper: 'Cấu hình được tạo thông qua trình soạn thảo 1Panel hoặc mẫu sẽ được lưu trong thư mục {0}/docker/compose.',
+        composeHelper:
+            'Cấu hình được tạo thông qua trình soạn thảo 1Panel hoặc mẫu sẽ được lưu trong thư mục {0}/docker/compose.',
         deleteFile: 'Xóa tệp',
-        deleteComposeHelper: 'Xóa tất cả các tệp trong thư mục {0}, bao gồm các tệp bền vững trong thư mục này. Vui lòng cẩn thận!',
+        deleteComposeHelper:
+            'Xóa tất cả các tệp trong thư mục {0}, bao gồm các tệp bền vững trong thư mục này. Vui lòng cẩn thận!',
         deleteCompose: '"Xóa cấu hình này."',
         apps: 'Ứng dụng',
         local: 'Địa phương',
@@ -682,20 +696,24 @@ const message = {
         dockerStatus: 'Dịch vụ Docker',
         daemonJsonPathHelper: 'Đảm bảo rằng đường dẫn cấu hình giống như được chỉ định trong docker.service.',
         mirrors: 'Gương đăng ký',
-        mirrorsHelper: 'URL tăng tốc được ưu tiên để thực hiện các thao tác. Nếu tham số này để trống, tăng tốc gương sẽ bị vô hiệu hóa.',
+        mirrorsHelper:
+            'URL tăng tốc được ưu tiên để thực hiện các thao tác. Nếu tham số này để trống, tăng tốc gương sẽ bị vô hiệu hóa.',
         mirrorsHelper2: 'Để biết thêm chi tiết, hãy xem tài liệu chính thức, ',
         registries: 'Kho không an toàn',
-        ipv6Helper: 'Khi kích hoạt IPv6, bạn cần thêm mạng container IPv6. Tham khảo tài liệu chính thức để biết các bước cấu hình cụ thể.',
+        ipv6Helper:
+            'Khi kích hoạt IPv6, bạn cần thêm mạng container IPv6. Tham khảo tài liệu chính thức để biết các bước cấu hình cụ thể.',
         ipv6CidrHelper: 'Phạm vi địa chỉ IPv6 cho các container',
         ipv6TablesHelper: 'Cấu hình tự động Docker IPv6 cho các quy tắc iptables',
         experimentalHelper: 'Kích hoạt ip6tables yêu cầu cấu hình này phải được bật; nếu không, ip6tables sẽ bị bỏ qua',
         cutLog: 'Tùy chọn nhật ký',
         cutLogHelper1: 'Cấu hình hiện tại chỉ ảnh hưởng đến các container được tạo mới.',
         cutLogHelper2: 'Các container hiện có cần phải được tạo lại để cấu hình có hiệu lực.',
-        cutLogHelper3: 'Vui lòng lưu ý rằng việc tạo lại các container có thể dẫn đến mất dữ liệu. Nếu các container của bạn chứa dữ liệu quan trọng, hãy chắc chắn sao lưu trước khi thực hiện thao tác tái tạo.',
+        cutLogHelper3:
+            'Vui lòng lưu ý rằng việc tạo lại các container có thể dẫn đến mất dữ liệu. Nếu các container của bạn chứa dữ liệu quan trọng, hãy chắc chắn sao lưu trước khi thực hiện thao tác tái tạo.',
         maxSize: 'Kích thước tối đa',
         maxFile: 'Tệp tối đa',
-        liveHelper: 'Cho phép trạng thái container đang chạy được bảo toàn trong trường hợp dịch vụ Docker ngừng hoạt động hoặc gặp sự cố.',
+        liveHelper:
+            'Cho phép trạng thái container đang chạy được bảo toàn trong trường hợp dịch vụ Docker ngừng hoạt động hoặc gặp sự cố.',
         liveWithSwarmHelper: 'Cấu hình daemon live-restore không tương thích với chế độ swarm.',
         iptablesDisable: 'Tắt iptables',
         iptablesHelper1: 'Cấu hình tự động các quy tắc iptables cho Docker.',
@@ -706,7 +724,8 @@ const message = {
         sockPath: 'Đường dẫn Socket',
         sockPathHelper: 'Kênh giao tiếp giữa Docker Daemon và client',
         sockPathHelper1: 'Đường dẫn mặc định: /var/run/docker-x.sock',
-        sockPathMsg: 'Lưu cài đặt Đường dẫn Socket có thể khiến dịch vụ Docker không khả dụng. Bạn có muốn tiếp tục không?',
+        sockPathMsg:
+            'Lưu cài đặt Đường dẫn Socket có thể khiến dịch vụ Docker không khả dụng. Bạn có muốn tiếp tục không?',
         sockPathErr: 'Vui lòng chọn hoặc nhập đúng đường dẫn tệp sock Docker',
         related: 'Liên quan',
         includeAppstore: 'Hiển thị container cửa hàng ứng dụng',
@@ -728,8 +747,7 @@ const message = {
         changeStatus: 'Thay đổi trạng thái',
         disableMsg:
             'Dừng tác vụ định kỳ sẽ dẫn đến việc tác vụ không còn tự động thực thi. Bạn có muốn tiếp tục không?',
-        enableMsg:
-            'Bật tác vụ định kỳ sẽ cho phép tác vụ tự động thực thi theo định kỳ. Bạn có muốn tiếp tục không?',
+        enableMsg: 'Bật tác vụ định kỳ sẽ cho phép tác vụ tự động thực thi theo định kỳ. Bạn có muốn tiếp tục không?',
         taskType: 'Loại',
         record: 'Bản ghi',
         shell: 'Shell',
@@ -758,11 +776,13 @@ const message = {
         taskName: 'Tên',
         cronSpec: 'Thời gian sống',
         cronSpecHelper: 'Nhập khoảng thời gian thực thi chính xác',
-        cleanHelper: 'Thao tác này ghi lại tất cả các bản ghi thực thi công việc, tệp sao lưu và tệp nhật ký. Bạn có muốn tiếp tục không?',
+        cleanHelper:
+            'Thao tác này ghi lại tất cả các bản ghi thực thi công việc, tệp sao lưu và tệp nhật ký. Bạn có muốn tiếp tục không?',
         directory: 'Thư mục Sao lưu',
         sourceDir: 'Thư mục Sao lưu',
         snapshot: 'Ảnh chụp Hệ thống',
-        allOptionHelper: 'Kế hoạch tác vụ hiện tại là sao lưu tất cả [{0}]. Tải xuống trực tiếp hiện không được hỗ trợ. Bạn có thể kiểm tra danh sách sao lưu của menu [{0}].',
+        allOptionHelper:
+            'Kế hoạch tác vụ hiện tại là sao lưu tất cả [{0}]. Tải xuống trực tiếp hiện không được hỗ trợ. Bạn có thể kiểm tra danh sách sao lưu của menu [{0}].',
         exclusionRules: 'Quy tắc loại trừ',
         exclusionRulesHelper: 'Các quy tắc loại trừ sẽ áp dụng cho tất cả các thao tác nén của bản sao lưu này.',
         default_download_path: 'Liên kết Tải xuống Mặc định',
@@ -801,7 +821,7 @@ const message = {
         noLogs: 'Chưa có đầu ra tác vụ nào...',
         errPath: 'Đường dẫn sao lưu [{0}] lỗi, không thể tải xuống!',
         cutWebsiteLog: 'Cắt Nhật ký Trang web',
-        cutWebsiteLogHelper: 'Các tệp nhật ký cắt sẽ được sao lưu vào thư mục sao lưu của 1Panel', 
+        cutWebsiteLogHelper: 'Các tệp nhật ký cắt sẽ được sao lưu vào thư mục sao lưu của 1Panel',
         requestExpirationTime: 'Thời gian hết hạn yêu cầu tải lên (Giờ)',
         unitHours: 'Đơn vị: Giờ',
     },
@@ -853,7 +873,8 @@ const message = {
         batchInput: 'Nhập hàng loạt',
         quickCommand: 'Lệnh nhanh',
         quickCommandHelper: 'Danh sách lệnh thường dùng để chọn nhanh ở dưới giao diện terminal',
-        groupDeleteHelper: 'Sau khi nhóm bị xóa, tất cả kết nối trong nhóm sẽ được chuyển sang nhóm mặc định. Bạn có muốn tiếp tục không?',
+        groupDeleteHelper:
+            'Sau khi nhóm bị xóa, tất cả kết nối trong nhóm sẽ được chuyển sang nhóm mặc định. Bạn có muốn tiếp tục không?',
         command: 'Lệnh',
         quickCmd: 'Lệnh nhanh',
         addHost: 'Thêm máy chủ',
@@ -870,21 +891,28 @@ const message = {
     toolbox: {
         swap: {
             swap: 'Phân vùng Swap',
-            swapHelper1: 'Kích thước của swap nên từ 1 đến 2 lần bộ nhớ vật lý, có thể điều chỉnh dựa trên yêu cầu cụ thể;',
-            swapHelper2: 'Trước khi tạo một tập tin swap, hãy đảm bảo rằng ổ đĩa hệ thống có đủ không gian trống, vì kích thước tập tin swap sẽ chiếm không gian ổ đĩa tương ứng;',
-            swapHelper3: 'Swap có thể giúp giảm áp lực bộ nhớ, nhưng nó chỉ là một giải pháp tạm thời. Sự phụ thuộc quá mức vào swap có thể dẫn đến giảm hiệu suất hệ thống. Nên ưu tiên tăng cường bộ nhớ hoặc tối ưu hóa việc sử dụng bộ nhớ của ứng dụng;',
+            swapHelper1:
+                'Kích thước của swap nên từ 1 đến 2 lần bộ nhớ vật lý, có thể điều chỉnh dựa trên yêu cầu cụ thể;',
+            swapHelper2:
+                'Trước khi tạo một tập tin swap, hãy đảm bảo rằng ổ đĩa hệ thống có đủ không gian trống, vì kích thước tập tin swap sẽ chiếm không gian ổ đĩa tương ứng;',
+            swapHelper3:
+                'Swap có thể giúp giảm áp lực bộ nhớ, nhưng nó chỉ là một giải pháp tạm thời. Sự phụ thuộc quá mức vào swap có thể dẫn đến giảm hiệu suất hệ thống. Nên ưu tiên tăng cường bộ nhớ hoặc tối ưu hóa việc sử dụng bộ nhớ của ứng dụng;',
             swapHelper4: 'Nên thường xuyên theo dõi việc sử dụng swap để đảm bảo hệ thống hoạt động bình thường.',
-            swapDeleteHelper: 'Hành động này sẽ xóa phân vùng Swap {0}. Vì lý do an ninh hệ thống, tệp tương ứng sẽ không được xóa tự động. Nếu cần xóa, vui lòng thực hiện thủ công!',
+            swapDeleteHelper:
+                'Hành động này sẽ xóa phân vùng Swap {0}. Vì lý do an ninh hệ thống, tệp tương ứng sẽ không được xóa tự động. Nếu cần xóa, vui lòng thực hiện thủ công!',
             saveHelper: 'Vui lòng lưu các cài đặt hiện tại trước!',
-            saveSwap: 'Lưu cấu hình hiện tại sẽ điều chỉnh kích thước phân vùng Swap {0} thành {1}. Bạn có muốn tiếp tục không?',
+            saveSwap:
+                'Lưu cấu hình hiện tại sẽ điều chỉnh kích thước phân vùng Swap {0} thành {1}. Bạn có muốn tiếp tục không?',
             swapMin: 'Kích thước phân vùng tối thiểu là 40 KB. Vui lòng sửa đổi và thử lại!',
             swapMax: 'Giá trị tối đa cho kích thước phân vùng là {0}. Vui lòng sửa đổi và thử lại!',
             swapOff: 'Kích thước phân vùng tối thiểu là 40 KB. Đặt nó thành 0 sẽ vô hiệu hóa phân vùng Swap.',
         },
         device: {
             dnsHelper: 'Địa chỉ máy chủ phân giải miền',
-            dnsAlert: 'Chú ý! Việc sửa đổi cấu hình của tệp /etc/resolv.conf sẽ khôi phục tệp về giá trị mặc định sau khi khởi động lại hệ thống.',
-            dnsHelper1: 'Khi có nhiều mục DNS, chúng nên được hiển thị trên các dòng mới. Ví dụ:\n114.114.114.114\n8.8.8.8',
+            dnsAlert:
+                'Chú ý! Việc sửa đổi cấu hình của tệp /etc/resolv.conf sẽ khôi phục tệp về giá trị mặc định sau khi khởi động lại hệ thống.',
+            dnsHelper1:
+                'Khi có nhiều mục DNS, chúng nên được hiển thị trên các dòng mới. Ví dụ:\n114.114.114.114\n8.8.8.8',
             hostsHelper: 'Phân giải Tên miền',
             hosts: 'Tên miền',
             hostAlert: 'Các bản ghi đã ẩn đã bị chú thích, vui lòng nhấp vào nút Cấu hình tất cả để xem hoặc thiết lập',
@@ -895,17 +923,22 @@ const message = {
             timeZone: 'Múi giờ hệ thống',
             localTime: 'Thời gian',
             timeZoneChangeHelper: 'Sửa đổi múi giờ hệ thống yêu cầu khởi động lại dịch vụ. Tiếp tục không?',
-            timeZoneHelper: 'Việc sửa đổi múi giờ phụ thuộc vào lệnh timedatectl. Nếu không được cài đặt, việc sửa đổi có thể thất bại.',
+            timeZoneHelper:
+                'Việc sửa đổi múi giờ phụ thuộc vào lệnh timedatectl. Nếu không được cài đặt, việc sửa đổi có thể thất bại.',
             timeZoneCN: 'Bắc Kinh',
             timeZoneAM: 'Los Angeles',
             timeZoneNY: 'New York',
             ntpALi: 'Alibaba',
             ntpGoogle: 'Google',
             syncSite: 'Máy chủ NTP',
-            hostnameHelper: 'Việc sửa đổi tên máy chủ phụ thuộc vào lệnh hostnamectl. Nếu không được cài đặt, việc sửa đổi có thể thất bại.',
-            userHelper: 'Tên người dùng phụ thuộc vào lệnh whoami để lấy. Nếu không được cài đặt, việc lấy có thể thất bại.',
-            passwordHelper: 'Việc sửa đổi mật khẩu phụ thuộc vào lệnh chpasswd. Nếu không được cài đặt, việc sửa đổi có thể thất bại.',
-            hostHelper: 'Có một giá trị trống trong nội dung đã cung cấp. Vui lòng kiểm tra và thử lại sau khi sửa đổi!',
+            hostnameHelper:
+                'Việc sửa đổi tên máy chủ phụ thuộc vào lệnh hostnamectl. Nếu không được cài đặt, việc sửa đổi có thể thất bại.',
+            userHelper:
+                'Tên người dùng phụ thuộc vào lệnh whoami để lấy. Nếu không được cài đặt, việc lấy có thể thất bại.',
+            passwordHelper:
+                'Việc sửa đổi mật khẩu phụ thuộc vào lệnh chpasswd. Nếu không được cài đặt, việc sửa đổi có thể thất bại.',
+            hostHelper:
+                'Có một giá trị trống trong nội dung đã cung cấp. Vui lòng kiểm tra và thử lại sau khi sửa đổi!',
             dnsCheck: 'Kiểm tra tính khả dụng',
             dnsOK: 'Thông tin cấu hình DNS có sẵn!',
             dnsTestFailed: 'Thông tin cấu hình DNS không có sẵn. Vui lòng sửa đổi và thử lại!',
@@ -938,8 +971,10 @@ const message = {
             noFtp: 'Dịch vụ FTP (pure-ftpd) không được phát hiện, vui lòng tham khảo tài liệu chính thức để cài đặt!',
             operation: 'Thực hiện thao tác [{0}] trên dịch vụ FTP, có tiếp tục không?',
             noPasswdMsg: 'Không thể lấy mật khẩu tài khoản FTP hiện tại, vui lòng thiết lập mật khẩu và thử lại!',
-            enableHelper: 'Kích hoạt tài khoản FTP đã chọn sẽ khôi phục quyền truy cập của nó. Bạn có muốn tiếp tục không?',
-            disableHelper: 'Vô hiệu hóa tài khoản FTP đã chọn sẽ thu hồi quyền truy cập của nó. Bạn có muốn tiếp tục không?',
+            enableHelper:
+                'Kích hoạt tài khoản FTP đã chọn sẽ khôi phục quyền truy cập của nó. Bạn có muốn tiếp tục không?',
+            disableHelper:
+                'Vô hiệu hóa tài khoản FTP đã chọn sẽ thu hồi quyền truy cập của nó. Bạn có muốn tiếp tục không?',
             syncHelper: 'Đồng bộ dữ liệu tài khoản FTP giữa máy chủ và cơ sở dữ liệu. Bạn có muốn tiếp tục không?',
         },
         clam: {
@@ -947,17 +982,22 @@ const message = {
             cron: 'Quét theo lịch trình',
             cronHelper: 'Phiên bản chuyên nghiệp hỗ trợ tính năng quét theo lịch trình',
             specErr: 'Lỗi định dạng lịch trình thực hiện, vui lòng kiểm tra và thử lại!',
-            disableMsg: 'Dừng thực hiện theo lịch trình sẽ ngăn cản tác vụ quét này tự động chạy. Bạn có muốn tiếp tục không?',
-            enableMsg: 'Kích hoạt thực hiện theo lịch trình sẽ cho phép tác vụ quét này tự động chạy theo các khoảng thời gian quy định. Bạn có muốn tiếp tục không?',
+            disableMsg:
+                'Dừng thực hiện theo lịch trình sẽ ngăn cản tác vụ quét này tự động chạy. Bạn có muốn tiếp tục không?',
+            enableMsg:
+                'Kích hoạt thực hiện theo lịch trình sẽ cho phép tác vụ quét này tự động chạy theo các khoảng thời gian quy định. Bạn có muốn tiếp tục không?',
             showFresh: 'Hiện dịch vụ cơ sở dữ liệu virus',
             hideFresh: 'Ẩn dịch vụ cơ sở dữ liệu virus',
-            clamHelper: 'Cấu hình tối thiểu được khuyến nghị cho ClamAV là: 3 GiB RAM trở lên, CPU đơn nhân với tốc độ 2.0 GHz hoặc cao hơn, và ít nhất 5 GiB dung lượng ổ đĩa cứng khả dụng.',
+            clamHelper:
+                'Cấu hình tối thiểu được khuyến nghị cho ClamAV là: 3 GiB RAM trở lên, CPU đơn nhân với tốc độ 2.0 GHz hoặc cao hơn, và ít nhất 5 GiB dung lượng ổ đĩa cứng khả dụng.',
             noClam: 'Dịch vụ ClamAV không được phát hiện, vui lòng tham khảo tài liệu chính thức để cài đặt!',
             notStart: 'Dịch vụ ClamAV hiện không chạy, vui lòng khởi động nó trước!',
             removeRecord: 'Xóa tệp báo cáo',
-            removeResultHelper: 'Xóa các tệp báo cáo được tạo trong quá trình thực hiện tác vụ để giải phóng dung lượng lưu trữ.',
+            removeResultHelper:
+                'Xóa các tệp báo cáo được tạo trong quá trình thực hiện tác vụ để giải phóng dung lượng lưu trữ.',
             removeInfected: 'Xóa tệp virus',
-            removeInfectedHelper: 'Xóa các tệp virus được phát hiện trong quá trình tác vụ để đảm bảo an ninh máy chủ và hoạt động bình thường.',
+            removeInfectedHelper:
+                'Xóa các tệp virus được phát hiện trong quá trình tác vụ để đảm bảo an ninh máy chủ và hoạt động bình thường.',
             clamCreate: 'Tạo quy tắc quét',
             infectedStrategy: 'Chiến lược nhiễm virus',
             remove: 'Xóa',
@@ -1080,14 +1120,17 @@ const message = {
         cancel: 'Hủy',
         changeOwner: 'Sửa đổi người dùng và nhóm người dùng',
         containSub: 'Sửa đổi thuộc tính tệp con cùng một lúc',
-        ownerHelper: 'Người dùng mặc định của môi trường PHP: nhóm người dùng là 1000:1000, điều này là bình thường khi người dùng bên trong và bên ngoài container không nhất quán',
+        ownerHelper:
+            'Người dùng mặc định của môi trường PHP: nhóm người dùng là 1000:1000, điều này là bình thường khi người dùng bên trong và bên ngoài container không nhất quán',
         searchHelper: 'Hỗ trợ ký tự đại diện như *',
         uploadFailed: '[{0}] Tệp tải lên không thành công',
         fileUploadStart: 'Đang tải lên [{0}]....',
         currentSelect: 'Chọn hiện tại: ',
         unsupportedType: 'Loại tệp không được hỗ trợ',
-        deleteHelper: 'Bạn có chắc chắn muốn xóa các tệp sau đây không? Theo mặc định, chúng sẽ vào thùng rác sau khi xóa',
-        fileHeper: 'Lưu ý: 1. Kết quả tìm kiếm không hỗ trợ sắp xếp. 2. Thư mục không thể được sắp xếp theo kích thước.',
+        deleteHelper:
+            'Bạn có chắc chắn muốn xóa các tệp sau đây không? Theo mặc định, chúng sẽ vào thùng rác sau khi xóa',
+        fileHeper:
+            'Lưu ý: 1. Kết quả tìm kiếm không hỗ trợ sắp xếp. 2. Thư mục không thể được sắp xếp theo kích thước.',
         forceDeleteHelper: 'Xóa vĩnh viễn tệp (không vào thùng rác, xóa trực tiếp)',
         recycleBin: 'Thùng rác',
         sourcePath: 'Đường dẫn gốc',
@@ -1095,7 +1138,8 @@ const message = {
         confirmReduce: 'Bạn có chắc chắn muốn khôi phục các tệp sau đây không?',
         reduceSuccess: 'Khôi phục thành công',
         reduce: 'Khôi phục',
-        reduceHelper: 'Nếu có tệp hoặc thư mục cùng tên trong đường dẫn gốc, nó sẽ bị ghi đè. Bạn có muốn tiếp tục không?',
+        reduceHelper:
+            'Nếu có tệp hoặc thư mục cùng tên trong đường dẫn gốc, nó sẽ bị ghi đè. Bạn có muốn tiếp tục không?',
         clearRecycleBin: 'Xóa',
         clearRecycleBinHelper: 'Bạn có muốn xóa thùng rác không?',
         favorite: 'Yêu thích',
@@ -1110,7 +1154,8 @@ const message = {
         wordWrap: 'Tự động xuống dòng',
         deleteHelper2: 'Bạn có chắc chắn muốn xóa tệp đã chọn không? Hành động xóa không thể hoàn tác',
         ignoreCertificate: 'Bỏ qua Chứng chỉ',
-        ignoreCertificateHelper: 'Bỏ qua chứng chỉ không đáng tin cậy trong quá trình tải xuống có thể dẫn đến rò rỉ dữ liệu hoặc bị can thiệp. Vui lòng sử dụng tùy chọn này với sự thận trọng, chỉ khi bạn tin tưởng nguồn tải xuống.',
+        ignoreCertificateHelper:
+            'Bỏ qua chứng chỉ không đáng tin cậy trong quá trình tải xuống có thể dẫn đến rò rỉ dữ liệu hoặc bị can thiệp. Vui lòng sử dụng tùy chọn này với sự thận trọng, chỉ khi bạn tin tưởng nguồn tải xuống.',
         uploadOverLimit: 'Số lượng tệp vượt quá 1000! Vui lòng nén và tải lên',
         clashDitNotSupport: 'Tên tệp không được chứa .1panel_clash',
         clashDeleteAlert: 'Thư mục thùng rác không thể bị xóa',
@@ -1133,12 +1178,15 @@ const message = {
         autoStart: 'Khởi động tự động',
         enable: 'Bật khởi động tự động',
         disable: 'Tắt khởi động tự động',
-        sshAlert: 'Dữ liệu danh sách được sắp xếp theo thời gian đăng nhập, nhưng xin lưu ý rằng việc thay đổi múi giờ hoặc các thao tác khác có thể gây sai lệch thời gian của nhật ký đăng nhập.',
-        sshAlert2: 'Bạn có thể sử dụng Fail2ban trong công cụ để chặn địa chỉ IP cố gắng tấn công brute force, từ đó nâng cao bảo mật cho máy chủ.',
+        sshAlert:
+            'Dữ liệu danh sách được sắp xếp theo thời gian đăng nhập, nhưng xin lưu ý rằng việc thay đổi múi giờ hoặc các thao tác khác có thể gây sai lệch thời gian của nhật ký đăng nhập.',
+        sshAlert2:
+            'Bạn có thể sử dụng Fail2ban trong công cụ để chặn địa chỉ IP cố gắng tấn công brute force, từ đó nâng cao bảo mật cho máy chủ.',
         sshOperate: 'Thao tác [{0}] trên dịch vụ SSH đã được thực hiện. Bạn có muốn tiếp tục không?',
         sshChange: 'Cài đặt SSH',
         sshChangeHelper: 'Hành động này đã thay đổi {0} thành [{1}]. Bạn có muốn tiếp tục không?',
-        sshFileChangeHelper: 'Việc sửa đổi tệp cấu hình có thể gây ảnh hưởng đến khả năng sử dụng dịch vụ. Hãy cẩn thận khi thực hiện thao tác này. Bạn có muốn tiếp tục không?',
+        sshFileChangeHelper:
+            'Việc sửa đổi tệp cấu hình có thể gây ảnh hưởng đến khả năng sử dụng dịch vụ. Hãy cẩn thận khi thực hiện thao tác này. Bạn có muốn tiếp tục không?',
         portHelper: 'Chỉ định số cổng mà dịch vụ SSH sẽ giám sát. Số cổng mặc định là 22.',
         listenAddress: 'Địa chỉ lắng nghe',
         allV4V6: '0.0.0.0:{0}(IPv4) và :::{0}(IPv6)',
@@ -1162,10 +1210,13 @@ const message = {
         reGenerate: 'Tạo lại khóa',
         keyAuthHelper: 'Có cho phép xác thực bằng khóa hay không. Tham số này được bật theo mặc định.',
         useDNS: 'sử dụng DNS',
-        dnsHelper: 'Điều khiển xem chức năng phân giải DNS có được bật trên máy chủ SSH để xác minh danh tính kết nối hay không.',
+        dnsHelper:
+            'Điều khiển xem chức năng phân giải DNS có được bật trên máy chủ SSH để xác minh danh tính kết nối hay không.',
         analysis: 'Thông tin thống kê',
-        denyHelper: "Thực hiện thao tác 'từ chối' trên các địa chỉ sau. Sau khi cài đặt, IP sẽ bị cấm truy cập vào máy chủ. Bạn có muốn tiếp tục không?",
-        acceptHelper: "Thực hiện thao tác 'chấp nhận' trên các địa chỉ sau. Sau khi cài đặt, IP sẽ lấy lại quyền truy cập bình thường. Bạn có muốn tiếp tục không?",
+        denyHelper:
+            "Thực hiện thao tác 'từ chối' trên các địa chỉ sau. Sau khi cài đặt, IP sẽ bị cấm truy cập vào máy chủ. Bạn có muốn tiếp tục không?",
+        acceptHelper:
+            "Thực hiện thao tác 'chấp nhận' trên các địa chỉ sau. Sau khi cài đặt, IP sẽ lấy lại quyền truy cập bình thường. Bạn có muốn tiếp tục không?",
         noAddrWarning: 'Hiện tại không có địa chỉ [{0}] nào được chọn. Vui lòng kiểm tra và thử lại!',
         successful: 'Thành công',
         failed: 'Thất bại',
@@ -1192,8 +1243,10 @@ const message = {
         emailHelper: 'Để khôi phục mật khẩu',
         title: 'Tên bảng điều khiển',
         panelPort: 'Cổng bảng điều khiển',
-        titleHelper: 'Hỗ trợ không bắt đầu bằng ký tự đặc biệt, tiếng Anh, tiếng Trung, số, khoảng trắng, .- và _, độ dài từ 3-30 ký tự',
-        portHelper: 'Phạm vi cổng được khuyến nghị là từ 8888 đến 65535. Lưu ý: Nếu máy chủ có nhóm bảo mật, hãy cho phép cổng mới từ nhóm bảo mật trước',
+        titleHelper:
+            'Hỗ trợ không bắt đầu bằng ký tự đặc biệt, tiếng Anh, tiếng Trung, số, khoảng trắng, .- và _, độ dài từ 3-30 ký tự',
+        portHelper:
+            'Phạm vi cổng được khuyến nghị là từ 8888 đến 65535. Lưu ý: Nếu máy chủ có nhóm bảo mật, hãy cho phép cổng mới từ nhóm bảo mật trước',
         portChange: 'Thay đổi cổng',
         portChangeHelper: 'Sửa đổi cổng dịch vụ và khởi động lại dịch vụ. Bạn có muốn tiếp tục không?',
         theme: 'Chủ đề',
@@ -1203,7 +1256,8 @@ const message = {
         light: 'Sáng',
         auto: 'Theo hệ thống',
         language: 'Ngôn ngữ',
-        languageHelper: 'Theo mặc định, ngôn ngữ sẽ theo trình duyệt. Tham số này chỉ có hiệu lực trên trình duyệt hiện tại',
+        languageHelper:
+            'Theo mặc định, ngôn ngữ sẽ theo trình duyệt. Tham số này chỉ có hiệu lực trên trình duyệt hiện tại',
         sessionTimeout: 'Hết thời gian chờ',
         sessionTimeoutError: 'Thời gian chờ tối thiểu là 300 giây',
         sessionTimeoutHelper: 'Nếu bạn không thao tác trong {0} giây, bảng điều khiển sẽ tự động đăng xuất',
@@ -1223,14 +1277,16 @@ const message = {
         syncTime: 'Thời gian máy chủ',
         timeZone: 'Múi giờ',
         timeZoneChangeHelper: 'Thay đổi múi giờ yêu cầu khởi động lại dịch vụ. Bạn có muốn tiếp tục không?',
-        timeZoneHelper: 'Việc thay đổi múi giờ phụ thuộc vào dịch vụ timedatectl của hệ thống. Sẽ có hiệu lực sau khi khởi động lại dịch vụ 1Panel.',
+        timeZoneHelper:
+            'Việc thay đổi múi giờ phụ thuộc vào dịch vụ timedatectl của hệ thống. Sẽ có hiệu lực sau khi khởi động lại dịch vụ 1Panel.',
         timeZoneCN: 'Bắc Kinh',
         timeZoneAM: 'Los Angeles',
         timeZoneNY: 'New York',
         ntpALi: 'Alibaba',
         ntpGoogle: 'Google',
         syncSite: 'Máy chủ Ntp',
-        syncSiteHelper: 'Thao tác này sẽ sử dụng {0} làm nguồn đồng bộ hóa thời gian hệ thống. Bạn có muốn tiếp tục không?',
+        syncSiteHelper:
+            'Thao tác này sẽ sử dụng {0} làm nguồn đồng bộ hóa thời gian hệ thống. Bạn có muốn tiếp tục không?',
         changePassword: 'Thay đổi mật khẩu',
         oldPassword: 'Mật khẩu cũ',
         newPassword: 'Mật khẩu mới',
@@ -1239,7 +1295,8 @@ const message = {
         duplicatePassword: 'Mật khẩu mới không thể giống với mật khẩu cũ, vui lòng nhập lại!',
         diskClean: 'Dọn dẹp bộ nhớ đệm',
         developerMode: 'Chương trình trải nghiệm xem trước',
-        developerModeHelper: 'Nhận phiên bản xem trước của 1Panel để cung cấp phản hồi về các tính năng và cập nhật mới',
+        developerModeHelper:
+            'Nhận phiên bản xem trước của 1Panel để cung cấp phản hồi về các tính năng và cập nhật mới',
         thirdParty: 'Tài khoản bên thứ ba',
         createBackupAccount: 'Thêm {0}',
         noTypeForCreate: 'Hiện không có loại sao lưu nào được tạo',
@@ -1262,7 +1319,8 @@ const message = {
         backupDir: 'Thư mục sao lưu',
         codeWarning: 'Định dạng mã xác thực hiện tại không chính xác, vui lòng xác nhận lại!',
         code: 'Mã xác thực',
-        codeHelper: 'Vui lòng nhấp vào nút "Lấy", sau đó đăng nhập vào OneDrive và sao chép nội dung sau "code" trong liên kết chuyển hướng. Dán nó vào ô nhập này. Để biết hướng dẫn cụ thể, vui lòng tham khảo tài liệu chính thức.',
+        codeHelper:
+            'Vui lòng nhấp vào nút "Lấy", sau đó đăng nhập vào OneDrive và sao chép nội dung sau "code" trong liên kết chuyển hướng. Dán nó vào ô nhập này. Để biết hướng dẫn cụ thể, vui lòng tham khảo tài liệu chính thức.',
         loadCode: 'Lấy',
         COS: 'Tencent COS',
         ap_beijing_1: 'Khu vực Bắc Kinh 1',
@@ -1293,12 +1351,16 @@ const message = {
         typeStandard_IA: 'Tiêu chuẩn_IA',
         typeArchive: 'Lưu trữ',
         typeDeep_Archive: 'Lưu trữ sâu',
-        scStandard: 'Lưu trữ tiêu chuẩn phù hợp với các kịch bản kinh doanh có số lượng tệp nóng lớn cần truy cập thời gian thực, tương tác dữ liệu thường xuyên, v.v.',
-        scStandard_IA: 'Lưu trữ tần suất thấp phù hợp với các kịch bản kinh doanh có tần suất truy cập tương đối thấp, và lưu trữ dữ liệu ít nhất 30 ngày.',
+        scStandard:
+            'Lưu trữ tiêu chuẩn phù hợp với các kịch bản kinh doanh có số lượng tệp nóng lớn cần truy cập thời gian thực, tương tác dữ liệu thường xuyên, v.v.',
+        scStandard_IA:
+            'Lưu trữ tần suất thấp phù hợp với các kịch bản kinh doanh có tần suất truy cập tương đối thấp, và lưu trữ dữ liệu ít nhất 30 ngày.',
         scArchive: 'Lưu trữ tài liệu phù hợp với các kịch bản kinh doanh có tần suất truy cập cực kỳ thấp.',
         scDeep_Archive: 'Lưu trữ lạnh bền bỉ phù hợp với các kịch bản kinh doanh có tần suất truy cập cực kỳ thấp.',
-        archiveHelper: 'Các tệp lưu trữ không thể tải xuống trực tiếp và phải được khôi phục trước qua trang web của nhà cung cấp dịch vụ đám mây tương ứng. Vui lòng sử dụng cẩn thận!',
-        backupAlert: "Về lý thuyết, chỉ cần nhà cung cấp đám mây tương thích với giao thức S3, các dịch vụ lưu trữ đám mây Amazon S3 hiện có có thể được sử dụng cho sao lưu. Để biết cấu hình cụ thể, vui lòng tham khảo <a target=“_blank” href='https://nextzenos.com'>tài liệu chính thức.</a>",
+        archiveHelper:
+            'Các tệp lưu trữ không thể tải xuống trực tiếp và phải được khôi phục trước qua trang web của nhà cung cấp dịch vụ đám mây tương ứng. Vui lòng sử dụng cẩn thận!',
+        backupAlert:
+            "Về lý thuyết, chỉ cần nhà cung cấp đám mây tương thích với giao thức S3, các dịch vụ lưu trữ đám mây Amazon S3 hiện có có thể được sử dụng cho sao lưu. Để biết cấu hình cụ thể, vui lòng tham khảo <a target=“_blank” href='https://nextzenos.com'>tài liệu chính thức.</a>",
         domain: 'Tên miền tăng tốc',
         backupAccount: 'Tài khoản sao lưu',
         loadBucket: 'Lấy bucket',
@@ -1309,12 +1371,14 @@ const message = {
         safe: 'Bảo mật',
         bindInfo: 'Thông tin liên kết',
         bindAll: 'Lắng nghe tất cả',
-        bindInfoHelper: 'Thay đổi địa chỉ lắng nghe dịch vụ hoặc giao thức có thể gây ra sự không khả dụng của dịch vụ. Bạn có muốn tiếp tục không?',
+        bindInfoHelper:
+            'Thay đổi địa chỉ lắng nghe dịch vụ hoặc giao thức có thể gây ra sự không khả dụng của dịch vụ. Bạn có muốn tiếp tục không?',
         ipv6: 'Lắng nghe IPv6',
         bindAddress: 'Địa chỉ lắng nghe',
         entrance: 'Cổng vào',
         showEntrance: 'Bật thông báo trang chủ chưa được bật',
-        entranceHelper: 'Bật cổng vào bảo mật chỉ cho phép đăng nhập vào bảng điều khiển thông qua cổng vào bảo mật đã chỉ định.',
+        entranceHelper:
+            'Bật cổng vào bảo mật chỉ cho phép đăng nhập vào bảng điều khiển thông qua cổng vào bảo mật đã chỉ định.',
         entranceError: 'Vui lòng nhập một điểm truy cập đăng nhập bảo mật từ 5-116 ký tự, chỉ hỗ trợ số hoặc chữ cái.',
         entranceInputHelper: 'Khi cổng vào bảo mật được đặt thành trắng, cổng vào bảo mật sẽ bị hủy bỏ.',
         randomGenerate: 'Ngẫu nhiên',
@@ -1326,29 +1390,39 @@ const message = {
         expiredHelper: 'Mật khẩu hiện tại đã hết hạn. Vui lòng thay đổi mật khẩu lần nữa.',
         timeoutHelper: '[ {0} ngày ] Mật khẩu bảng điều khiển sắp hết hạn. Sau khi hết hạn, bạn cần đặt lại mật khẩu',
         complexity: 'Xác minh độ phức tạp',
-        complexityHelper: 'Sau khi bật, mật khẩu phải có độ dài từ 8-30 ký tự, bao gồm chữ cái, số và ít nhất hai ký tự đặc biệt.',
+        complexityHelper:
+            'Sau khi bật, mật khẩu phải có độ dài từ 8-30 ký tự, bao gồm chữ cái, số và ít nhất hai ký tự đặc biệt.',
         bindDomain: 'Liên kết tên miền',
         unBindDomain: 'Hủy liên kết tên miền',
         panelSSL: 'SSL bảng điều khiển',
-        panelSSLHelper: 'Sau khi gia hạn tự động SSL bảng điều khiển, bạn cần khởi động lại dịch vụ 1Panel để các thay đổi có hiệu lực.',
-        unBindDomainHelper: 'Hành động hủy liên kết tên miền có thể gây ra sự không an toàn cho hệ thống. Bạn có muốn tiếp tục không?',
-        bindDomainHelper: 'Sau khi liên kết tên miền, chỉ tên miền trong cài đặt mới có thể được sử dụng để truy cập dịch vụ 1Panel',
+        panelSSLHelper:
+            'Sau khi gia hạn tự động SSL bảng điều khiển, bạn cần khởi động lại dịch vụ 1Panel để các thay đổi có hiệu lực.',
+        unBindDomainHelper:
+            'Hành động hủy liên kết tên miền có thể gây ra sự không an toàn cho hệ thống. Bạn có muốn tiếp tục không?',
+        bindDomainHelper:
+            'Sau khi liên kết tên miền, chỉ tên miền trong cài đặt mới có thể được sử dụng để truy cập dịch vụ 1Panel',
         bindDomainHelper1: 'Nếu tên miền liên kết là trống, việc liên kết tên miền sẽ bị hủy bỏ',
-        bindDomainWarning: 'Sau khi liên kết tên miền, bạn sẽ bị đăng xuất và chỉ có thể truy cập dịch vụ 1Panel thông qua tên miền được chỉ định trong cài đặt. Bạn có muốn tiếp tục không?',
+        bindDomainWarning:
+            'Sau khi liên kết tên miền, bạn sẽ bị đăng xuất và chỉ có thể truy cập dịch vụ 1Panel thông qua tên miền được chỉ định trong cài đặt. Bạn có muốn tiếp tục không?',
         allowIPs: 'IP được phép',
         unAllowIPs: 'IP không được phép',
-        unAllowIPsWarning: 'Cấp phép một IP trống sẽ cho phép tất cả IP truy cập vào hệ thống, điều này có thể gây ra sự không an toàn cho hệ thống. Bạn có muốn tiếp tục không?',
-        allowIPsHelper: 'Sau khi thiết lập địa chỉ IP được phép, chỉ địa chỉ IP trong cài đặt mới có thể truy cập dịch vụ 1Panel',
-        allowIPsWarning: 'Sau khi thiết lập địa chỉ IP được phép, chỉ địa chỉ IP trong cài đặt mới có thể truy cập dịch vụ 1Panel. Bạn có muốn tiếp tục không?',
+        unAllowIPsWarning:
+            'Cấp phép một IP trống sẽ cho phép tất cả IP truy cập vào hệ thống, điều này có thể gây ra sự không an toàn cho hệ thống. Bạn có muốn tiếp tục không?',
+        allowIPsHelper:
+            'Sau khi thiết lập địa chỉ IP được phép, chỉ địa chỉ IP trong cài đặt mới có thể truy cập dịch vụ 1Panel',
+        allowIPsWarning:
+            'Sau khi thiết lập địa chỉ IP được phép, chỉ địa chỉ IP trong cài đặt mới có thể truy cập dịch vụ 1Panel. Bạn có muốn tiếp tục không?',
         allowIPsHelper1: 'Nếu địa chỉ IP được phép là trống, địa chỉ IP được phép sẽ bị hủy bỏ',
         allowIPEgs: 'Nếu có nhiều IP được phép, cần hiển thị trên dòng mới. Ví dụ, \n172.16.10.111 \n172.16.10.0/24',
         mfa: 'MFA',
         mfaClose: 'Vô hiệu hóa MFA sẽ giảm độ an toàn của dịch vụ. Bạn có muốn tiếp tục không?',
         secret: 'Mật khẩu bí mật',
         mfaInterval: 'Khoảng thời gian làm mới (giây)',
-        mfaTitleHelper: 'Được sử dụng để phân biệt giữa các máy chủ 1Panel khác nhau. Sau khi sửa đổi, vui lòng quét lại hoặc thêm thông tin khóa thủ công!',
+        mfaTitleHelper:
+            'Được sử dụng để phân biệt giữa các máy chủ 1Panel khác nhau. Sau khi sửa đổi, vui lòng quét lại hoặc thêm thông tin khóa thủ công!',
         mfaIntervalHelper: 'Vui lòng quét lại hoặc thêm thông tin khóa thủ công sau khi sửa đổi thời gian làm mới.',
-        mfaAlert: 'Mật khẩu MFA được tạo dựa trên thời gian hiện tại. Vui lòng đảm bảo rằng thời gian của máy chủ đã được đồng bộ.',
+        mfaAlert:
+            'Mật khẩu MFA được tạo dựa trên thời gian hiện tại. Vui lòng đảm bảo rằng thời gian của máy chủ đã được đồng bộ.',
         mfaHelper: 'Sau khi chức năng này được bật, mã xác minh ứng dụng di động sẽ được xác minh',
         mfaHelper1: 'Tải xuống một ứng dụng xác minh MFA di động ví dụ:',
         mfaHelper2: 'Quét mã QR sau bằng ứng dụng di động để lấy mã xác minh 6 chữ số',
@@ -1356,9 +1430,11 @@ const message = {
         mfaCode: 'Mã',
         sslChangeHelper: 'Chỉnh sửa cài đặt https và khởi động lại dịch vụ. Bạn có muốn tiếp tục không?',
         sslDisable: 'Vô hiệu hóa',
-        sslDisableHelper: 'Nếu dịch vụ https bị vô hiệu hóa, bạn cần khởi động lại bảng điều khiển để nó có hiệu lực. Bạn có muốn tiếp tục không?',
+        sslDisableHelper:
+            'Nếu dịch vụ https bị vô hiệu hóa, bạn cần khởi động lại bảng điều khiển để nó có hiệu lực. Bạn có muốn tiếp tục không?',
         noAuthSetting: 'Cài đặt không được ủy quyền',
-        noAuthSettingHelper: 'Khi người dùng không đăng nhập và chưa nhập đúng cổng bảo mật, IP được ủy quyền hoặc tên miền đã liên kết, phản hồi này có thể ẩn các tính năng của bảng điều khiển.',
+        noAuthSettingHelper:
+            'Khi người dùng không đăng nhập và chưa nhập đúng cổng bảo mật, IP được ủy quyền hoặc tên miền đã liên kết, phản hồi này có thể ẩn các tính năng của bảng điều khiển.',
         responseSetting: 'Cài đặt phản hồi',
         help200: 'Trang trợ giúp',
         error400: 'Yêu cầu không hợp lệ',
@@ -1370,19 +1446,23 @@ const message = {
         https: 'Thiết lập truy cập giao thức HTTPS cho bảng điều khiển có thể nâng cao độ bảo mật khi truy cập bảng điều khiển.',
         certType: 'Loại chứng chỉ',
         selfSigned: 'Tự ký',
-        selfSignedHelper: 'Chứng chỉ tự ký thường không được trình duyệt tin tưởng và hiển thị cảnh báo bảo mật vì chứng chỉ không được cấp bởi bên thứ ba đáng tin cậy.',
+        selfSignedHelper:
+            'Chứng chỉ tự ký thường không được trình duyệt tin tưởng và hiển thị cảnh báo bảo mật vì chứng chỉ không được cấp bởi bên thứ ba đáng tin cậy.',
         select: 'Chọn',
         domainOrIP: 'Tên miền hoặc IP：',
         timeOut: 'Thời gian chờ',
         rootCrtDownload: 'Tải chứng chỉ gốc',
         primaryKey: 'Khóa chính',
         certificate: 'Chứng chỉ',
-        backupJump: 'Các tệp sao lưu không có trong danh sách sao lưu hiện tại, vui lòng thử tải xuống từ thư mục tệp và nhập để sao lưu.',
+        backupJump:
+            'Các tệp sao lưu không có trong danh sách sao lưu hiện tại, vui lòng thử tải xuống từ thư mục tệp và nhập để sao lưu.',
         snapshot: 'Ảnh chụp',
-        deleteHelper: 'Tất cả tệp sao lưu cho ảnh chụp, bao gồm cả các tệp trong tài khoản sao lưu bên thứ ba, sẽ bị xóa.',
+        deleteHelper:
+            'Tất cả tệp sao lưu cho ảnh chụp, bao gồm cả các tệp trong tài khoản sao lưu bên thứ ba, sẽ bị xóa.',
         status: 'Trạng thái ảnh chụp',
         ignoreRule: 'Bỏ qua quy tắc',
-        ignoreHelper: 'Quy tắc này sẽ được sử dụng để nén và sao lưu thư mục dữ liệu 1Panel trong quá trình ảnh chụp, vui lòng chỉnh sửa cẩn thận.',
+        ignoreHelper:
+            'Quy tắc này sẽ được sử dụng để nén và sao lưu thư mục dữ liệu 1Panel trong quá trình ảnh chụp, vui lòng chỉnh sửa cẩn thận.',
         ignoreHelper1: 'Một mục trên mỗi dòng, ví dụ: \n*.log\n/opt/nextweb/cache',
         panelInfo: 'Viết thông tin cơ bản về 1Panel',
         panelBin: 'Sao lưu tệp hệ thống 1Panel',
@@ -1406,13 +1486,17 @@ const message = {
         recoverErrSize: 'Phát hiện dung lượng đĩa không đủ, vui lòng kiểm tra hoặc dọn dẹp và thử lại!',
         recoverHelper: 'Bắt đầu phục hồi từ ảnh chụp {0}, vui lòng xác nhận thông tin sau trước khi tiếp tục:',
         recoverHelper1: 'Phục hồi yêu cầu khởi động lại dịch vụ Docker và 1Panel',
-        recoverHelper2: 'Vui lòng đảm bảo có đủ dung lượng đĩa trên máy chủ (Kích thước tệp ảnh chụp: {0}, Dung lượng khả dụng: {1})',
-        recoverHelper3: 'Vui lòng đảm bảo kiến trúc máy chủ tương thích với kiến trúc của máy chủ nơi ảnh chụp được tạo (Kiến trúc máy chủ hiện tại: {0})',
+        recoverHelper2:
+            'Vui lòng đảm bảo có đủ dung lượng đĩa trên máy chủ (Kích thước tệp ảnh chụp: {0}, Dung lượng khả dụng: {1})',
+        recoverHelper3:
+            'Vui lòng đảm bảo kiến trúc máy chủ tương thích với kiến trúc của máy chủ nơi ảnh chụp được tạo (Kiến trúc máy chủ hiện tại: {0})',
         rollback: 'Quay lại',
-        rollbackHelper: 'Quay lại lần phục hồi này sẽ thay thế tất cả các tệp từ lần phục hồi này và có thể yêu cầu khởi động lại dịch vụ Docker và 1Panel. Bạn có muốn tiếp tục không?',
+        rollbackHelper:
+            'Quay lại lần phục hồi này sẽ thay thế tất cả các tệp từ lần phục hồi này và có thể yêu cầu khởi động lại dịch vụ Docker và 1Panel. Bạn có muốn tiếp tục không?',
         upgradeHelper: 'Việc nâng cấp yêu cầu khởi động lại dịch vụ 1Panel. Bạn có muốn tiếp tục không?',
         noUpgrade: 'Hiện tại là phiên bản mới nhất',
-        versionHelper: 'Quy tắc đặt tên: [phiên bản chính].[phiên bản chức năng].[phiên bản sửa lỗi], như được hiển thị trong ví dụ sau:',
+        versionHelper:
+            'Quy tắc đặt tên: [phiên bản chính].[phiên bản chức năng].[phiên bản sửa lỗi], như được hiển thị trong ví dụ sau:',
         versionHelper1: 'v1.0.1 là một bản sửa lỗi sau v1.0.0',
         versionHelper2: 'v1.1.0 là một phiên bản phát hành tính năng sau v1.0.0',
         upgradeCheck: 'Kiểm tra cập nhật',
@@ -1438,7 +1522,7 @@ const message = {
         menu: 'Menu',
         confirmMessage: 'Trang sẽ được làm mới để cập nhật danh sách menu nâng cao. Bạn có muốn tiếp tục không?',
         compressPassword: 'Mật khẩu nén',
-        backupRecoverMessage: 'Vui lòng nhập mật khẩu nén hoặc giải nén (để trống nếu không đặt)', 
+        backupRecoverMessage: 'Vui lòng nhập mật khẩu nén hoặc giải nén (để trống nếu không đặt)',
     },
     license: {
         community: 'Phiên bản Cộng đồng: ',
@@ -1457,7 +1541,8 @@ const message = {
         Lost03: 'Mất',
         Enable: 'Đã kích hoạt',
         Disable: 'Đã tắt',
-        lostHelper: 'Giấy phép cần được đồng bộ định kỳ để có hiệu lực. Vui lòng đảm bảo kết nối mạng bên ngoài bình thường. Sau ba lần mất kết nối, việc ràng buộc giấy phép sẽ bị giải phóng.',
+        lostHelper:
+            'Giấy phép cần được đồng bộ định kỳ để có hiệu lực. Vui lòng đảm bảo kết nối mạng bên ngoài bình thường. Sau ba lần mất kết nối, việc ràng buộc giấy phép sẽ bị giải phóng.',
         quickUpdate: 'Cập nhật nhanh',
         import: 'Nhập khẩu',
         power: 'Cấp quyền',
@@ -1476,8 +1561,10 @@ const message = {
         waf: 'Nâng cấp lên phiên bản chuyên nghiệp có thể cung cấp các tính năng như bản đồ chặn, nhật ký, ghi lại chặn, chặn theo vị trí địa lý, quy tắc tùy chỉnh, trang chặn tùy chỉnh, v.v.',
         tamper: 'Nâng cấp lên phiên bản chuyên nghiệp có thể bảo vệ các trang web khỏi các thay đổi hoặc can thiệp không được phép.',
         gpu: 'Nâng cấp lên phiên bản chuyên nghiệp có thể giúp người dùng theo dõi trực quan các tham số quan trọng của GPU như tải công việc, nhiệt độ, mức sử dụng bộ nhớ theo thời gian thực.',
-        setting: 'Nâng cấp lên phiên bản chuyên nghiệp cho phép tùy chỉnh logo bảng điều khiển, thông điệp chào mừng và các thông tin khác.',
-        monitor: 'Nâng cấp lên phiên bản chuyên nghiệp để xem trạng thái thời gian thực của trang web, xu hướng khách truy cập, nguồn khách truy cập, nhật ký yêu cầu và các thông tin khác.',
+        setting:
+            'Nâng cấp lên phiên bản chuyên nghiệp cho phép tùy chỉnh logo bảng điều khiển, thông điệp chào mừng và các thông tin khác.',
+        monitor:
+            'Nâng cấp lên phiên bản chuyên nghiệp để xem trạng thái thời gian thực của trang web, xu hướng khách truy cập, nguồn khách truy cập, nhật ký yêu cầu và các thông tin khác.',
         alert: 'Nâng cấp lên phiên bản chuyên nghiệp để nhận thông tin cảnh báo qua SMS và xem nhật ký cảnh báo, hoàn toàn kiểm soát các sự kiện chính, đảm bảo hoạt động hệ thống không gặp rắc rối.',
     },
     clean: {
@@ -1485,7 +1572,8 @@ const message = {
         scanHelper: 'Dễ dàng dọn dẹp các tệp rác tích tụ trong quá trình chạy 1Panel',
         clean: 'Dọn dẹp Ngay',
         reScan: 'Quét lại',
-        cleanHelper: 'Sau khi kiểm tra các tệp và thư mục để dọn dẹp, không thể hoàn tác (dọn dẹp bộ nhớ cache hệ thống yêu cầu khởi động lại dịch vụ). Bạn có muốn tiếp tục không?',
+        cleanHelper:
+            'Sau khi kiểm tra các tệp và thư mục để dọn dẹp, không thể hoàn tác (dọn dẹp bộ nhớ cache hệ thống yêu cầu khởi động lại dịch vụ). Bạn có muốn tiếp tục không?',
         statusSuggest: '(Dọn dẹp được Khuyến nghị)',
         statusClean: '(Rất sạch)',
         statusEmpty: 'Rất sạch, không cần dọn dẹp!',
@@ -1498,7 +1586,8 @@ const message = {
         totalScan: 'Tổng số tệp rác cần dọn dẹp: ',
         selectScan: 'Tổng số tệp rác đã chọn: ',
         system: 'Rác hệ thống',
-        systemHelper: 'Các tệp tạm thời được tạo trong quá trình chụp ảnh, nâng cấp và nội dung tệp lỗi thời trong quá trình phát hành phiên bản',
+        systemHelper:
+            'Các tệp tạm thời được tạo trong quá trình chụp ảnh, nâng cấp và nội dung tệp lỗi thời trong quá trình phát hành phiên bản',
         panelOriginal: 'Tệp sao lưu phục hồi ảnh chụp hệ thống',
         upgrade: 'Tệp sao lưu nâng cấp hệ thống',
         upgradeHelper: '(Khuyến nghị giữ tệp sao lưu nâng cấp mới nhất để khôi phục hệ thống)',
@@ -1521,7 +1610,8 @@ const message = {
         database: 'Cơ sở dữ liệu',
         directory: 'Thư mục',
         systemLog: 'Tệp Nhật ký Hệ thống',
-        systemLogHelper: 'Thông tin nhật ký hệ thống, thông tin nhật ký xây dựng container hoặc kéo hình ảnh, và các tệp nhật ký được tạo trong các tác vụ theo lịch',
+        systemLogHelper:
+            'Thông tin nhật ký hệ thống, thông tin nhật ký xây dựng container hoặc kéo hình ảnh, và các tệp nhật ký được tạo trong các tác vụ theo lịch',
         dockerLog: 'Tệp nhật ký hoạt động của Container',
         taskLog: 'Tệp nhật ký thực thi tác vụ theo lịch',
         shell: 'Tác vụ theo lịch kịch bản Shell',
@@ -1553,7 +1643,8 @@ const message = {
         stop: 'Dừng',
         rebuild: 'Xây dựng lại',
         description: 'Mô tả',
-        deleteWarn: 'Thao tác xóa sẽ xóa tất cả dữ liệu và sao lưu cùng một lúc. Thao tác này không thể hoàn tác. Bạn có muốn tiếp tục không?',
+        deleteWarn:
+            'Thao tác xóa sẽ xóa tất cả dữ liệu và sao lưu cùng một lúc. Thao tác này không thể hoàn tác. Bạn có muốn tiếp tục không?',
         syncSuccess: 'Đồng bộ thành công',
         canUpgrade: 'Nâng cấp',
         backupName: 'Tên Tệp',
@@ -1573,7 +1664,8 @@ const message = {
         defaultConfig: 'Cấu hình Mặc định',
         defaultConfigHelper: 'Đã được khôi phục về cấu hình mặc định, sẽ có hiệu lực sau khi lưu',
         forceDelete: 'Xóa cưỡng bức',
-        forceDeleteHelper: 'Xóa cưỡng bức sẽ bỏ qua các lỗi phát sinh trong quá trình xóa và cuối cùng xóa siêu dữ liệu',
+        forceDeleteHelper:
+            'Xóa cưỡng bức sẽ bỏ qua các lỗi phát sinh trong quá trình xóa và cuối cùng xóa siêu dữ liệu',
         deleteBackup: 'Xóa sao lưu',
         deleteBackupHelper: 'Cũng xóa sao lưu ứng dụng',
         deleteDB: 'Xóa Cơ sở Dữ liệu',
@@ -1599,7 +1691,8 @@ const message = {
         containerNameHelper: 'Có thể để trống, sẽ được tự động tạo',
         allowPort: 'Cổng truy cập bên ngoài',
         allowPortHelper: 'Cho phép truy cập cổng bên ngoài sẽ giải phóng cổng tường lửa',
-        appInstallWarn: 'Ứng dụng không giải phóng cổng truy cập bên ngoài theo mặc định, bạn có thể chọn giải phóng nó trong cài đặt nâng cao',
+        appInstallWarn:
+            'Ứng dụng không giải phóng cổng truy cập bên ngoài theo mặc định, bạn có thể chọn giải phóng nó trong cài đặt nâng cao',
         upgradeStart: 'Bắt đầu nâng cấp! Vui lòng làm mới trang sau',
         toFolder: 'Mở thư mục cài đặt',
         editCompose: 'Chỉnh sửa tệp compose',
@@ -1608,23 +1701,29 @@ const message = {
         takeDown: 'Ngưng hoạt động',
         allReadyInstalled: 'Đã cài đặt',
         installHelper: 'Cấu hình tăng tốc hình ảnh có thể giải quyết vấn đề không tải được hình ảnh',
-        upgradeHelper: 'Các ứng dụng bất thường cần được đồng bộ hóa về trạng thái bình thường trước. Nếu việc nâng cấp thất bại, vui lòng kiểm tra lý do thất bại trong nhật ký audit-system log',
-        installWarn: 'Hiện tại, nếu cổng truy cập bên ngoài không được kiểm tra, nó sẽ không thể truy cập qua địa chỉ IP bên ngoài: cổng. Bạn có muốn tiếp tục không?',
+        upgradeHelper:
+            'Các ứng dụng bất thường cần được đồng bộ hóa về trạng thái bình thường trước. Nếu việc nâng cấp thất bại, vui lòng kiểm tra lý do thất bại trong nhật ký audit-system log',
+        installWarn:
+            'Hiện tại, nếu cổng truy cập bên ngoài không được kiểm tra, nó sẽ không thể truy cập qua địa chỉ IP bên ngoài: cổng. Bạn có muốn tiếp tục không?',
         showIgnore: 'Xem ứng dụng bị bỏ qua',
         cancelIgnore: 'Hủy bỏ bỏ qua',
         ignoreList: 'Danh sách bỏ qua',
         appHelper: 'Vui lòng xem hướng dẫn cài đặt của một số ứng dụng trên trang chi tiết ứng dụng',
         backupApp: 'Sao lưu ứng dụng trước khi nâng cấp',
-        backupAppHelper: 'Nếu việc nâng cấp thất bại, sao lưu sẽ tự động quay trở lại. Vui lòng kiểm tra lý do thất bại trong nhật ký audit-system log. Sao lưu sẽ giữ lại 3 bản sao mới nhất theo mặc định',
+        backupAppHelper:
+            'Nếu việc nâng cấp thất bại, sao lưu sẽ tự động quay trở lại. Vui lòng kiểm tra lý do thất bại trong nhật ký audit-system log. Sao lưu sẽ giữ lại 3 bản sao mới nhất theo mặc định',
         delete: 'Xóa',
-        openrestyDeleteHelper: 'Xóa cưỡng bức OpenResty sẽ xóa tất cả các trang web, vui lòng xác nhận rủi ro trước khi thực hiện',
+        openrestyDeleteHelper:
+            'Xóa cưỡng bức OpenResty sẽ xóa tất cả các trang web, vui lòng xác nhận rủi ro trước khi thực hiện',
         downloadLogHelper1: 'Tất cả nhật ký của ứng dụng {0} sắp được tải xuống. Bạn có muốn tiếp tục không?',
         downloadLogHelper2: 'Nhật ký mới nhất {1} của ứng dụng {0} sắp được tải xuống. Bạn có muốn tiếp tục không?',
         syncAllAppHelper: 'Tất cả ứng dụng sắp được đồng bộ hóa. Bạn có muốn tiếp tục không?',
-        hostModeHelper: 'Chế độ mạng của ứng dụng hiện tại là chế độ host. Nếu bạn cần mở cổng, vui lòng mở nó thủ công trên trang tường lửa.',
+        hostModeHelper:
+            'Chế độ mạng của ứng dụng hiện tại là chế độ host. Nếu bạn cần mở cổng, vui lòng mở nó thủ công trên trang tường lửa.',
         showLocal: 'Hiện ứng dụng cục bộ',
         reload: 'Tải lại',
-        upgradeWarn: 'Nâng cấp ứng dụng sẽ thay thế tệp docker-compose.yml. Nếu có bất kỳ thay đổi nào, bạn có thể nhấp để xem so sánh tệp',
+        upgradeWarn:
+            'Nâng cấp ứng dụng sẽ thay thế tệp docker-compose.yml. Nếu có bất kỳ thay đổi nào, bạn có thể nhấp để xem so sánh tệp',
         newVersion: 'Phiên bản mới',
         oldVersion: 'Phiên bản hiện tại',
         composeDiff: 'So sánh tệp',
@@ -1632,8 +1731,10 @@ const message = {
         useNew: 'Sử dụng phiên bản tùy chỉnh',
         useDefault: 'Sử dụng phiên bản mặc định',
         useCustom: 'Tùy chỉnh docker-compose.yml',
-        useCustomHelper: 'Sử dụng tệp docker-compose.yml tùy chỉnh có thể khiến việc nâng cấp ứng dụng thất bại. Nếu không cần thiết, không nên kiểm tra',
-        diffHelper: 'Phía bên trái là phiên bản cũ, phía bên phải là phiên bản mới. Sau khi chỉnh sửa, nhấp để lưu phiên bản tùy chỉnh',
+        useCustomHelper:
+            'Sử dụng tệp docker-compose.yml tùy chỉnh có thể khiến việc nâng cấp ứng dụng thất bại. Nếu không cần thiết, không nên kiểm tra',
+        diffHelper:
+            'Phía bên trái là phiên bản cũ, phía bên phải là phiên bản mới. Sau khi chỉnh sửa, nhấp để lưu phiên bản tùy chỉnh',
         pullImage: 'Kéo Hình ảnh',
         pullImageHelper: 'Thực hiện docker pull để kéo hình ảnh trước khi ứng dụng khởi động',
     },
@@ -1651,7 +1752,8 @@ const message = {
         enableFtp: 'FTP',
         ftpUser: 'Tài khoản FTP',
         ftpPassword: 'Mật khẩu FTP',
-        ftpHelper: 'Khi tạo một trang web, đồng thời tạo một tài khoản FTP tương ứng cho trang, với thư mục FTP trỏ đến thư mục của trang.',
+        ftpHelper:
+            'Khi tạo một trang web, đồng thời tạo một tài khoản FTP tương ứng cho trang, với thư mục FTP trỏ đến thư mục của trang.',
         remark: 'Ghi chú',
         group: 'Nhóm',
         groupSetting: 'Quản lý Nhóm',
@@ -1730,7 +1832,8 @@ const message = {
         forceDeleteHelper: 'Xóa bỏ cưỡng chế sẽ bỏ qua các lỗi phát sinh trong quá trình xóa và cuối cùng xóa metadata',
         deleteAppHelper: 'Xóa ứng dụng liên quan và sao lưu ứng dụng cùng lúc',
         deleteBackupHelper: 'Cũng xóa sao lưu website',
-        deleteConfirmHelper: 'Thao tác xóa không thể hoàn tác, vui lòng nhập <span style="color:red"> "{0}" </span> để xóa',
+        deleteConfirmHelper:
+            'Thao tác xóa không thể hoàn tác, vui lòng nhập <span style="color:red"> "{0}" </span> để xóa',
         staticPath: 'Thư mục chính tương ứng:',
         limit: 'Chương trình',
         blog: 'Diễn đàn/Blog',
@@ -1742,8 +1845,10 @@ const message = {
         videoSite: 'Video',
         errLog: 'Nhật ký Lỗi',
         accessLog: 'Nhật ký Website',
-        stopHelper: 'Sau khi dừng trang web, nó sẽ không thể truy cập bình thường, và người dùng sẽ hiển thị trang dừng của trang hiện tại khi truy cập. Bạn có muốn tiếp tục không?',
-        startHelper: 'Sau khi bật trang web, người dùng có thể truy cập nội dung của trang bình thường, bạn có muốn tiếp tục không?',
+        stopHelper:
+            'Sau khi dừng trang web, nó sẽ không thể truy cập bình thường, và người dùng sẽ hiển thị trang dừng của trang hiện tại khi truy cập. Bạn có muốn tiếp tục không?',
+        startHelper:
+            'Sau khi bật trang web, người dùng có thể truy cập nội dung của trang bình thường, bạn có muốn tiếp tục không?',
         sitePath: 'Thư mục',
         siteAlias: 'Bí danh Trang web',
         primaryPath: 'Thư mục gốc',
@@ -1766,13 +1871,15 @@ const message = {
         sslConfig: 'Tùy chọn SSL',
         disableHTTPS: 'Vô hiệu hóa HTTPS',
         disableHTTPSHelper: 'Vô hiệu hóa HTTPS sẽ xóa cấu hình liên quan đến chứng chỉ, bạn có muốn tiếp tục không?',
-        SSLHelper: 'Lưu ý: Không sử dụng chứng chỉ SSL cho các trang web bất hợp pháp \n Nếu truy cập HTTPS không hoạt động sau khi mở, vui lòng kiểm tra xem nhóm bảo mật đã giải phóng đúng cổng 443 chưa',
+        SSLHelper:
+            'Lưu ý: Không sử dụng chứng chỉ SSL cho các trang web bất hợp pháp \n Nếu truy cập HTTPS không hoạt động sau khi mở, vui lòng kiểm tra xem nhóm bảo mật đã giải phóng đúng cổng 443 chưa',
         SSLConfig: 'Cài đặt Chứng chỉ',
         SSLProConfig: 'Cài đặt Giao thức',
         supportProtocol: 'Phiên bản Giao thức',
         encryptionAlgorithm: 'Thuật toán Mã hóa',
         notSecurity: '(không an toàn)',
-        encryptHelper: 'Let\'s Encrypt có giới hạn tần suất phát hành chứng chỉ, nhưng đủ để đáp ứng nhu cầu bình thường. Các hoạt động quá thường xuyên sẽ gây ra lỗi phát hành. Để biết các hạn chế cụ thể, vui lòng xem <a target=\'_blank\' href=\'https://letsencrypt.org/zh-cn/docs/rate-limits/\'>tài liệu chính thức</a>',
+        encryptHelper:
+            "Let's Encrypt có giới hạn tần suất phát hành chứng chỉ, nhưng đủ để đáp ứng nhu cầu bình thường. Các hoạt động quá thường xuyên sẽ gây ra lỗi phát hành. Để biết các hạn chế cụ thể, vui lòng xem <a target='_blank' href='https://letsencrypt.org/zh-cn/docs/rate-limits/'>tài liệu chính thức</a>",
         ipValue: 'Giá trị',
         ext: 'định dạng tệp',
         wafInputHelper: 'Nhập dữ liệu theo dòng, một dòng',
@@ -1782,11 +1889,13 @@ const message = {
         noLog: 'Hiện tại không có nhật ký...',
         defaultServer: 'Trang chủ Mặc định',
         noDefaultServer: 'Chưa được thiết lập',
-        defaultServerHelper: 'Sau khi thiết lập trang mặc định, tất cả tên miền và IP không gán sẽ được chuyển hướng đến trang mặc định\n điều này có thể hiệu quả ngăn chặn phân tích độc hại',
+        defaultServerHelper:
+            'Sau khi thiết lập trang mặc định, tất cả tên miền và IP không gán sẽ được chuyển hướng đến trang mặc định\n điều này có thể hiệu quả ngăn chặn phân tích độc hại',
         restoreHelper: 'Bạn có chắc chắn muốn khôi phục bằng cách sử dụng bản sao lưu này không?',
         websiteDeploymentHelper: 'Tạo một trang web sử dụng ứng dụng được triển khai từ 1Panel',
         websiteStatictHelper: 'Tạo thư mục website trên máy chủ',
-        websiteProxyHelper: 'Proxy dịch vụ hiện có: Ví dụ, nếu có một dịch vụ Halo được cài đặt và đang chạy trên máy tính cục bộ sử dụng cổng 8080, thì địa chỉ proxy sẽ là http://127.0.0.1:8080',
+        websiteProxyHelper:
+            'Proxy dịch vụ hiện có: Ví dụ, nếu có một dịch vụ Halo được cài đặt và đang chạy trên máy tính cục bộ sử dụng cổng 8080, thì địa chỉ proxy sẽ là http://127.0.0.1:8080',
         runtimeProxyHelper: 'Sử dụng runtime được tạo từ 1Panel',
         runtime: 'Runtime',
         deleteRuntimeHelper: 'Ứng dụng Runtime cần được xóa cùng với trang web, vui lòng xử lý cẩn thận',
@@ -1801,9 +1910,11 @@ const message = {
         rewrite: 'Giả tĩnh',
         rewriteMode: 'Chương trình',
         current: 'Hiện tại',
-        rewriteHelper: 'Nếu cài đặt giả tĩnh khiến trang web không thể truy cập, vui lòng thử khôi phục về cài đặt mặc định',
+        rewriteHelper:
+            'Nếu cài đặt giả tĩnh khiến trang web không thể truy cập, vui lòng thử khôi phục về cài đặt mặc định',
         runDir: 'Thư mục Chạy',
-        runUserHelper: 'Đối với các trang web được triển khai thông qua môi trường runtime container PHP, bạn cần đặt quyền sở hữu và nhóm người dùng của tất cả các tệp và thư mục dưới thư mục chỉ mục và các thư mục con thành 1000. Đối với môi trường PHP cục bộ, tham khảo cài đặt người dùng và nhóm người dùng PHP-FPM cục bộ',
+        runUserHelper:
+            'Đối với các trang web được triển khai thông qua môi trường runtime container PHP, bạn cần đặt quyền sở hữu và nhóm người dùng của tất cả các tệp và thư mục dưới thư mục chỉ mục và các thư mục con thành 1000. Đối với môi trường PHP cục bộ, tham khảo cài đặt người dùng và nhóm người dùng PHP-FPM cục bộ',
         userGroup: 'Người dùng/Nhóm',
         uGroup: 'Nhóm',
         proxyPath: 'Đường dẫn Proxy',
@@ -1829,7 +1940,8 @@ const message = {
         replacedErr: 'Chuỗi Tìm kiếm không được để trống',
         replacedErr2: 'Chuỗi Tìm kiếm không được lặp lại',
         basicAuth: 'Xác thực Cơ bản',
-        editBasicAuthHelper: 'Mật khẩu được mã hóa bất đối xứng và không thể được hiển thị. Việc chỉnh sửa cần phải thiết lập lại mật khẩu',
+        editBasicAuthHelper:
+            'Mật khẩu được mã hóa bất đối xứng và không thể được hiển thị. Việc chỉnh sửa cần phải thiết lập lại mật khẩu',
         antiLeech: 'Chống tải xuống',
         extends: 'Phần mở rộng',
         browserCache: 'Bộ nhớ đệm',
@@ -1849,7 +1961,8 @@ const message = {
         localSSL: 'Chọn tệp máy chủ',
         privateKeyPath: 'Tệp khóa riêng',
         certificatePath: 'Tệp chứng chỉ',
-        ipWhiteListHelper: 'Vai trò của danh sách trắng IP: tất cả các quy tắc không có hiệu lực đối với danh sách trắng IP',
+        ipWhiteListHelper:
+            'Vai trò của danh sách trắng IP: tất cả các quy tắc không có hiệu lực đối với danh sách trắng IP',
         redirect: 'Chuyển hướng',
         sourceDomain: 'Tên miền Nguồn',
         targetURL: 'Địa chỉ URL Đích',
@@ -1861,19 +1974,24 @@ const message = {
         notKeep: 'Không giữ lại',
         redirectRoot: 'Chuyển hướng đến trang chính',
         redirectHelper: 'Chuyển hướng 301 vĩnh viễn, 302 chuyển hướng tạm thời',
-        changePHPVersionWarn: 'Chuyển đổi phiên bản PHP sẽ xóa container PHP ban đầu (mã trang web đã được gán sẽ không bị mất), tiếp tục?',
+        changePHPVersionWarn:
+            'Chuyển đổi phiên bản PHP sẽ xóa container PHP ban đầu (mã trang web đã được gán sẽ không bị mất), tiếp tục?',
         changeVersion: 'Chuyển đổi phiên bản',
         retainConfig: 'Có giữ lại các tệp php-fpm.conf và php.ini không?',
         runDirHelper2: 'Vui lòng đảm bảo rằng thư mục chạy phụ thuộc dưới thư mục chỉ mục',
-        openrestyHelper: 'Cổng HTTP mặc định của OpenResty: {0} cổng HTTPS: {1}, điều này có thể ảnh hưởng đến việc truy cập tên miền trang web và chuyển hướng HTTPS bắt buộc',
+        openrestyHelper:
+            'Cổng HTTP mặc định của OpenResty: {0} cổng HTTPS: {1}, điều này có thể ảnh hưởng đến việc truy cập tên miền trang web và chuyển hướng HTTPS bắt buộc',
         primaryDomainHelper: 'Hỗ trợ tên miền: cổng',
         acmeAccountType: 'Loại Tài khoản',
         keyType: 'Thuật toán Khóa',
         tencentCloud: 'Đám mây Tencent',
         containWarn: 'Tên miền chứa tên miền chính, vui lòng nhập lại',
-        rewriteHelper2: 'Các ứng dụng như WordPress cài đặt từ cửa hàng ứng dụng thường đi kèm với các cấu hình giả tĩnh được thiết lập trước. Cấu hình lại chúng một cách không cần thiết có thể dẫn đến lỗi',
-        websiteBackupWarn: 'Chỉ hỗ trợ nhập các bản sao lưu cục bộ, nhập bản sao lưu từ máy khác có thể gây ra lỗi khôi phục',
-        ipWebsiteWarn: 'Các trang web có IP làm tên miền cần được đặt làm trang mặc định để có thể truy cập bình thường',
+        rewriteHelper2:
+            'Các ứng dụng như WordPress cài đặt từ cửa hàng ứng dụng thường đi kèm với các cấu hình giả tĩnh được thiết lập trước. Cấu hình lại chúng một cách không cần thiết có thể dẫn đến lỗi',
+        websiteBackupWarn:
+            'Chỉ hỗ trợ nhập các bản sao lưu cục bộ, nhập bản sao lưu từ máy khác có thể gây ra lỗi khôi phục',
+        ipWebsiteWarn:
+            'Các trang web có IP làm tên miền cần được đặt làm trang mặc định để có thể truy cập bình thường',
         hstsHelper: 'Bật HSTS có thể tăng cường bảo mật cho trang web',
         defaultHtml: 'Trang mặc định',
         website404: 'Trang 404 lỗi của trang web',
@@ -1882,9 +2000,11 @@ const message = {
         stopHtml: 'Trang dừng của trang web',
         indexPHP: 'Trang mặc định của trang web PHP',
         sslExpireDate: 'Ngày hết hạn Chứng chỉ',
-        website404Helper: 'Trang 404 lỗi của trang web chỉ hỗ trợ các trang web môi trường runtime PHP và trang web tĩnh',
+        website404Helper:
+            'Trang 404 lỗi của trang web chỉ hỗ trợ các trang web môi trường runtime PHP và trang web tĩnh',
         sni: 'SNI gốc',
-        sniHelper: 'Khi proxy ngược phía sau là HTTPS, bạn có thể cần thiết lập SNI gốc. Vui lòng tham khảo tài liệu của nhà cung cấp dịch vụ CDN để biết chi tiết.',
+        sniHelper:
+            'Khi proxy ngược phía sau là HTTPS, bạn có thể cần thiết lập SNI gốc. Vui lòng tham khảo tài liệu của nhà cung cấp dịch vụ CDN để biết chi tiết.',
     },
     php: {
         short_open_tag: 'Hỗ trợ thẻ ngắn',
@@ -1901,9 +2021,11 @@ const message = {
         cgi_fix_pathinfo: 'Có mở pathinfo hay không',
         date_timezone: 'Múi giờ',
         disableFunction: 'Vô hiệu hóa chức năng',
-        disableFunctionHelper: 'Nhập tên chức năng cần vô hiệu hóa, ví dụ exec, vui lòng sử dụng nhiều chức năng, phân cách bằng dấu phẩy',
+        disableFunctionHelper:
+            'Nhập tên chức năng cần vô hiệu hóa, ví dụ exec, vui lòng sử dụng nhiều chức năng, phân cách bằng dấu phẩy',
         uploadMaxSize: 'Giới hạn tải lên',
-        indexHelper: 'Để đảm bảo hoạt động bình thường của trang web PHP, vui lòng đặt mã trong thư mục chỉ mục và tránh đổi tên',
+        indexHelper:
+            'Để đảm bảo hoạt động bình thường của trang web PHP, vui lòng đặt mã trong thư mục chỉ mục và tránh đổi tên',
         extensions: 'Mẫu phần mở rộng',
         extension: 'Phần mở rộng',
         extensionHelper: 'Vui lòng sử dụng nhiều phần mở rộng, phân cách bằng dấu phẩy',
@@ -1929,7 +2051,8 @@ const message = {
         configResource: 'Cấu hình',
         saveAndReload: 'Lưu và tải lại',
         clearProxyCache: 'Xóa bộ nhớ đệm proxy ngược',
-        clearProxyCacheWarn: 'Xóa bộ nhớ đệm proxy ngược sẽ ảnh hưởng đến tất cả các trang web được cấu hình với bộ nhớ đệm và yêu cầu khởi động lại OpenResty. Bạn có muốn tiếp tục không?',
+        clearProxyCacheWarn:
+            'Xóa bộ nhớ đệm proxy ngược sẽ ảnh hưởng đến tất cả các trang web được cấu hình với bộ nhớ đệm và yêu cầu khởi động lại OpenResty. Bạn có muốn tiếp tục không?',
     },
     ssl: {
         create: 'Áp dụng',
@@ -1950,7 +2073,8 @@ const message = {
         autoRenew: 'Gia hạn tự động',
         autoRenewHelper: 'Tự động gia hạn 30 ngày trước khi hết hạn',
         renewSuccess: 'Gia hạn thành công',
-        renewWebsite: 'Chứng chỉ này đã được liên kết với các trang web sau và việc đăng ký sẽ được áp dụng cho các trang web này cùng lúc',
+        renewWebsite:
+            'Chứng chỉ này đã được liên kết với các trang web sau và việc đăng ký sẽ được áp dụng cho các trang web này cùng lúc',
         createAcme: 'Tạo tài khoản',
         acmeHelper: 'Tài khoản Acme được sử dụng để đăng ký chứng chỉ miễn phí',
         upload: 'Tải lên',
@@ -1976,17 +2100,20 @@ const message = {
         pushDirHelper: 'Hai tệp sẽ được tạo trong thư mục này, tệp chứng chỉ: fullchain.pem và tệp khóa: privkey.pem',
         organizationDetail: 'Chi tiết tổ chức',
         fromWebsite: 'Từ các trang web',
-        dnsMauanlHelper: 'Trong chế độ giải quyết thủ công, bạn cần nhấn nút áp dụng sau khi tạo để lấy giá trị giải quyết DNS',
+        dnsMauanlHelper:
+            'Trong chế độ giải quyết thủ công, bạn cần nhấn nút áp dụng sau khi tạo để lấy giá trị giải quyết DNS',
         httpHelper: 'Chế độ HTTP yêu cầu OpenResty được cài đặt',
         buypassHelper: 'Buypass không thể truy cập được ở Trung Quốc đại lục',
         googleHelper: 'Cách lấy EAB HmacKey và EAB kid',
         googleCloudHelper: 'Google Cloud API không thể truy cập được ở hầu hết các khu vực của Trung Quốc đại lục',
         httpHelper2: 'Không thể đăng ký chứng chỉ tên miền chung trong chế độ HTTP',
         skipDNSCheck: 'Bỏ qua kiểm tra DNS',
-        skipDNSCheckHelper: 'Nếu có vấn đề về thời gian chờ ứng dụng, vui lòng kiểm tra ở đây, nếu không thì không nên kiểm tra',
+        skipDNSCheckHelper:
+            'Nếu có vấn đề về thời gian chờ ứng dụng, vui lòng kiểm tra ở đây, nếu không thì không nên kiểm tra',
         cfHelper: 'Không sử dụng Global API Key',
         deprecated: 'sẽ bị ngừng hỗ trợ',
-        deprecatedHelper: 'Bảo trì đã dừng và có thể bị từ bỏ trong phiên bản tương lai. Vui lòng sử dụng phương pháp Tencent Cloud để phân tích',
+        deprecatedHelper:
+            'Bảo trì đã dừng và có thể bị từ bỏ trong phiên bản tương lai. Vui lòng sử dụng phương pháp Tencent Cloud để phân tích',
         disableCNAME: 'Vô hiệu hóa CNAME',
         disableCNAMEHelper: 'Tên miền có cấu hình CNAME, nếu ứng dụng thất bại, bạn có thể kiểm tra ở đây',
         nameserver: 'Máy chủ DNS',
@@ -1994,12 +2121,14 @@ const message = {
         edit: 'Chỉnh sửa chứng chỉ',
         execShell: 'Thực hiện kịch bản sau khi đăng ký chứng chỉ',
         shell: 'Nội dung kịch bản',
-        shellHelper: 'Thư mục thực hiện mặc định của kịch bản là thư mục cài đặt 1Panel. Nếu chứng chỉ được đẩy, thư mục thực hiện là thư mục đẩy chứng chỉ. Thời gian chờ mặc định là 30 phút',
+        shellHelper:
+            'Thư mục thực hiện mặc định của kịch bản là thư mục cài đặt 1Panel. Nếu chứng chỉ được đẩy, thư mục thực hiện là thư mục đẩy chứng chỉ. Thời gian chờ mặc định là 30 phút',
     },
     firewall: {
         create: 'Tạo Quy tắc',
         edit: 'Chỉnh sửa quy tắc',
-        notSupport: 'Không phát hiện thấy tường lửa hệ thống (firewalld hoặc ufw). Vui lòng tham khảo tài liệu chính thức để cài đặt.',
+        notSupport:
+            'Không phát hiện thấy tường lửa hệ thống (firewalld hoặc ufw). Vui lòng tham khảo tài liệu chính thức để cài đặt.',
         ccDeny: 'Bảo vệ CC',
         ipWhiteList: 'Danh sách trắng IP',
         ipBlockList: 'Danh sách đen IP',
@@ -2011,29 +2140,38 @@ const message = {
         cookieBlockList: 'Danh sách đen Cookie',
 
         firewall: 'Tường lửa',
-        dockerHelper: 'Tường lửa Linux {0} không thể vô hiệu hóa ánh xạ cổng Docker, ứng dụng có thể chỉnh sửa các tham số trên trang [Đã cài đặt] để kiểm soát xem cổng có được mở hay không.',
+        dockerHelper:
+            'Tường lửa Linux {0} không thể vô hiệu hóa ánh xạ cổng Docker, ứng dụng có thể chỉnh sửa các tham số trên trang [Đã cài đặt] để kiểm soát xem cổng có được mở hay không.',
         quickJump: 'Nhảy nhanh',
         used: 'Đã sử dụng',
         unUsed: 'Chưa sử dụng',
         firewallHelper: 'Tường lửa hệ thống {0}',
         firewallNotStart: 'Tường lửa hệ thống hiện chưa được bật, vui lòng bật nó lên trước!',
         restartFirewallHelper: 'Thao tác này sẽ khởi động lại tường lửa hiện tại. Bạn có muốn tiếp tục không?',
-        stopFirewallHelper: 'Sau khi tường lửa hệ thống bị vô hiệu hóa, máy chủ sẽ mất đi bảo vệ an ninh. Bạn có muốn tiếp tục không?',
-        startFirewallHelper: 'Sau khi tường lửa được bật, an ninh máy chủ sẽ được bảo vệ tốt hơn. Bạn có muốn tiếp tục không?',
+        stopFirewallHelper:
+            'Sau khi tường lửa hệ thống bị vô hiệu hóa, máy chủ sẽ mất đi bảo vệ an ninh. Bạn có muốn tiếp tục không?',
+        startFirewallHelper:
+            'Sau khi tường lửa được bật, an ninh máy chủ sẽ được bảo vệ tốt hơn. Bạn có muốn tiếp tục không?',
         noPing: 'Vô hiệu hóa ping',
         noPingTitle: 'Vô hiệu hóa ping',
         noPingHelper: 'Nếu chức năng ping bị vô hiệu hóa, máy chủ sẽ không thể được ping. Bạn có muốn tiếp tục không?',
-        onPingHelper: 'Nếu bạn vô hiệu hóa ping, tin tặc có thể phát hiện ra máy chủ của bạn. Bạn có muốn tiếp tục không?',
+        onPingHelper:
+            'Nếu bạn vô hiệu hóa ping, tin tặc có thể phát hiện ra máy chủ của bạn. Bạn có muốn tiếp tục không?',
         changeStrategy: 'Thay đổi chiến lược {0}',
-        changeStrategyIPHelper1: 'Thay đổi chiến lược địa chỉ IP thành [deny]. Sau khi địa chỉ IP được thiết lập, việc truy cập vào máy chủ sẽ bị cấm. Bạn có muốn tiếp tục không?',
-        changeStrategyIPHelper2: 'Thay đổi chiến lược địa chỉ IP thành [allow]. Sau khi địa chỉ IP được thiết lập, quyền truy cập bình thường sẽ được phục hồi. Bạn có muốn tiếp tục không?',
-        changeStrategyPortHelper1: 'Thay đổi chính sách cổng thành [drop]. Sau khi chính sách cổng được thiết lập, quyền truy cập bên ngoài sẽ bị từ chối. Bạn có muốn tiếp tục không?',
-        changeStrategyPortHelper2: 'Thay đổi chính sách cổng thành [accept]. Sau khi chính sách cổng được thiết lập, quyền truy cập cổng bình thường sẽ được phục hồi. Bạn có muốn tiếp tục không?',
+        changeStrategyIPHelper1:
+            'Thay đổi chiến lược địa chỉ IP thành [deny]. Sau khi địa chỉ IP được thiết lập, việc truy cập vào máy chủ sẽ bị cấm. Bạn có muốn tiếp tục không?',
+        changeStrategyIPHelper2:
+            'Thay đổi chiến lược địa chỉ IP thành [allow]. Sau khi địa chỉ IP được thiết lập, quyền truy cập bình thường sẽ được phục hồi. Bạn có muốn tiếp tục không?',
+        changeStrategyPortHelper1:
+            'Thay đổi chính sách cổng thành [drop]. Sau khi chính sách cổng được thiết lập, quyền truy cập bên ngoài sẽ bị từ chối. Bạn có muốn tiếp tục không?',
+        changeStrategyPortHelper2:
+            'Thay đổi chính sách cổng thành [accept]. Sau khi chính sách cổng được thiết lập, quyền truy cập cổng bình thường sẽ được phục hồi. Bạn có muốn tiếp tục không?',
         stop: 'Dừng',
         portFormatError: 'Vui lòng nhập thông tin cổng chính xác!',
         portHelper1: 'Nhiều cổng, ví dụ: 8080 và 8081',
         portHelper2: 'Cổng trong khoảng, ví dụ: 8080-8089',
-        changeStrategyHelper: 'Thay đổi chiến lược [{1}] {0} thành [{2}]. Sau khi thiết lập, {0} sẽ truy cập {2} bên ngoài. Bạn có muốn tiếp tục không?',
+        changeStrategyHelper:
+            'Thay đổi chiến lược [{1}] {0} thành [{2}]. Sau khi thiết lập, {0} sẽ truy cập {2} bên ngoài. Bạn có muốn tiếp tục không?',
         portHelper: 'Có thể nhập nhiều cổng, ví dụ: 80,81, hoặc cổng trong khoảng, ví dụ: 80-88',
         strategy: 'Chiến lược',
         accept: 'Chấp nhận',
@@ -2071,11 +2209,13 @@ const message = {
         localHelper: 'Môi trường hoạt động cục bộ cần được cài đặt bởi chính bạn',
         version: 'Phiên bản',
         versionHelper: 'Phiên bản PHP, ví dụ: v8.0',
-        buildHelper: 'Số lượng tiện ích mở rộng bạn chọn càng nhiều, CPU sẽ bị chiếm dụng nhiều hơn trong quá trình tạo hình ảnh, vì vậy hãy tránh chọn tất cả tiện ích mở rộng. Nếu không có tiện ích mở rộng nào bạn muốn, bạn có thể nhập tay và chọn.',
+        buildHelper:
+            'Số lượng tiện ích mở rộng bạn chọn càng nhiều, CPU sẽ bị chiếm dụng nhiều hơn trong quá trình tạo hình ảnh, vì vậy hãy tránh chọn tất cả tiện ích mở rộng. Nếu không có tiện ích mở rộng nào bạn muốn, bạn có thể nhập tay và chọn.',
         openrestyWarn: 'PHP cần được nâng cấp lên OpenResty phiên bản 1.21.4.1 hoặc cao hơn để sử dụng.',
         toupgrade: 'Để nâng cấp',
         edit: 'Chỉnh sửa thời gian chạy',
-        extendHelper: 'Các tiện ích mở rộng không có trong danh sách có thể được chọn sau khi nhập tay, ví dụ: nhập sockets, sau đó chọn mục đầu tiên trong danh sách thả xuống.',
+        extendHelper:
+            'Các tiện ích mở rộng không có trong danh sách có thể được chọn sau khi nhập tay, ví dụ: nhập sockets, sau đó chọn mục đầu tiên trong danh sách thả xuống.',
         rebuildHelper: 'Sau khi chỉnh sửa tiện ích mở rộng, bạn cần xây dựng lại ứng dụng PHP để có hiệu lực.',
         rebuild: 'Xây dựng lại ứng dụng PHP',
         source: 'Nguồn tiện ích mở rộng PHP',
@@ -2098,17 +2238,20 @@ const message = {
         open: 'Mở',
         close: 'Đóng',
         operatorHelper: 'Thao tác {0} sẽ được thực hiện trên môi trường hoạt động đã chọn. Bạn có muốn tiếp tục không?',
-        statusHelper: 'Mô tả trạng thái: Đang khởi động - container đã được khởi động, nhưng ứng dụng đang khởi động; bất thường - container đã được khởi động, nhưng trạng thái ứng dụng bất thường',
+        statusHelper:
+            'Mô tả trạng thái: Đang khởi động - container đã được khởi động, nhưng ứng dụng đang khởi động; bất thường - container đã được khởi động, nhưng trạng thái ứng dụng bất thường',
         taobao: 'Taobao',
         tencent: 'Tencent',
         imageSource: 'Nguồn hình ảnh',
         moduleManager: 'Quản lý mô-đun',
         module: 'Mô-đun',
-        nodeOperatorHelper: 'Có phải {0} là mô-đun {1}? Thao tác này có thể gây bất thường cho môi trường hoạt động, vui lòng xác nhận trước khi tiến hành',
+        nodeOperatorHelper:
+            'Có phải {0} là mô-đun {1}? Thao tác này có thể gây bất thường cho môi trường hoạt động, vui lòng xác nhận trước khi tiến hành',
         customScript: 'Lệnh khởi động tùy chỉnh',
         customScriptHelper: 'Vui lòng điền vào lệnh khởi động đầy đủ, ví dụ: npm run start',
         portError: 'Không thể điền cổng giống nhau',
-        systemRestartHelper: 'Mô tả trạng thái: Ngắt - việc thu thập trạng thái không thành công do khởi động lại hệ thống',
+        systemRestartHelper:
+            'Mô tả trạng thái: Ngắt - việc thu thập trạng thái không thành công do khởi động lại hệ thống',
         javaScriptHelper: 'Vui lòng điền vào lệnh khởi động đầy đủ, ví dụ: java -jar halo.jar -Xmx1024M -Xms256M',
         javaDirHelper: 'Thư mục phải chứa các tệp jar, các thư mục con cũng được chấp nhận',
         goHelper: 'Vui lòng cung cấp lệnh khởi động đầy đủ, ví dụ: go run main.go hoặc ./main',
@@ -2160,13 +2303,16 @@ const message = {
             command: 'Lệnh',
             dir: 'Thư mục',
             numprocs: 'Số quy trình',
-            initWarn: 'Quá trình khởi tạo cần sửa đổi tham số [include] trong tệp cấu hình, thư mục chứa tệp cấu hình dịch vụ đã sửa: thư mục cài đặt 1panel/1panel/tools/supervisord/supervisor.d/',
+            initWarn:
+                'Quá trình khởi tạo cần sửa đổi tham số [include] trong tệp cấu hình, thư mục chứa tệp cấu hình dịch vụ đã sửa: thư mục cài đặt 1panel/1panel/tools/supervisord/supervisor.d/',
             operatorHelper: 'Hành động {1} sẽ được thực hiện trên {0}, tiếp tục?',
             uptime: 'Thời gian hoạt động',
             notStartWarn: 'Supervisor chưa được khởi động, vui lòng khởi động trước',
             serviceName: 'Tên dịch vụ',
-            initHelper: 'Quá trình khởi tạo sẽ sửa đổi tệp cấu hình, khiến tất cả các quy trình hiện tại dừng lại, vui lòng xác nhận rủi ro trước',
-            serviceNameHelper: 'Tên dịch vụ Supervisor được quản lý bởi systemctl, thường là supervisor hoặc supervisord',
+            initHelper:
+                'Quá trình khởi tạo sẽ sửa đổi tệp cấu hình, khiến tất cả các quy trình hiện tại dừng lại, vui lòng xác nhận rủi ro trước',
+            serviceNameHelper:
+                'Tên dịch vụ Supervisor được quản lý bởi systemctl, thường là supervisor hoặc supervisord',
             restartHelper: 'Khởi tạo sẽ khởi động lại dịch vụ, khiến tất cả các quy trình daemon ban đầu đóng lại',
             msg: 'Thông điệp',
             RUNNING: 'Đang chạy',

@@ -61,11 +61,6 @@
                     @search="search()"
                     :class="{ mask: nginxStatus != 'Running' }"
                 >
-                    <el-table-column :label="$t('SSL')" min-width="100px" :width="mobile ? 220 : 'auto'">
-                        <template #default="{ row }">
-                            <el-switch v-model="row.id" style="--el-switch-on-color: #13ce66" />
-                        </template>
-                    </el-table-column>
                     <el-table-column
                         :label="$t('commons.table.name')"
                         fix
@@ -301,9 +296,9 @@ const changeSort = ({ prop, order }) => {
 };
 
 const search = async () => {
+    debugger;
     req.page = paginationConfig.currentPage;
     req.pageSize = paginationConfig.pageSize;
-
     loading.value = true;
     data.value = [];
     await SearchWebsites(req)
@@ -408,6 +403,7 @@ const buttons = [
     {
         label: i18n.global.t('website.config'),
         click: function (row: Website.Website) {
+            debugger;
             openConfig(row.id);
         },
     },
