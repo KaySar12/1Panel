@@ -4,10 +4,10 @@ services:
     container_name: nextweb
     restart: always
     ports:
-      - 10086:10086
+      - 13000:10086
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /var/lib/docker/volumes:/var/lib/docker/volumes:rslave
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
       - /opt:/opt
       - /root:/root
     environment:
