@@ -68,7 +68,7 @@ const checkOpenRestry = async () => {
     });
     // console.log(res.data);
     if (res.data.total != 0) {
-        const openRes = res.data.items.find((item) => item.appID === 29);
+        const openRes = res.data.items.find((item) => item.name === 'openresty');
         // console.log(openRes);
         if (openRes) {
             isOpenRestry.value = true;
@@ -116,6 +116,8 @@ onMounted(() => {
         intervalId = setInterval(get, 3000); // Lặp lại việc lấy dữ liệu mỗi 3 giây
     }
 });
+
+// abc
 
 watch(isOpenRestry, (newValue) => {
     if (newValue) {
