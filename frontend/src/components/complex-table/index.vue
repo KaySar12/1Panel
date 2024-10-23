@@ -11,7 +11,7 @@
             <fu-table v-bind="$attrs" ref="tableRef" @selection-change="handleSelectionChange">
                 <slot></slot>
                 <template #empty>
-                    <slot name="empty"></slot>
+                    <slot name="empty">{{ $t('commons.msg.noneData') }}</slot>
                 </template>
             </fu-table>
         </div>
@@ -27,6 +27,7 @@
                     @current-change="currentChange"
                     :small="mobile"
                     :layout="mobile ? 'total, prev, pager, next' : 'total, sizes, prev, pager, next, jumper'"
+                    :total-formatter="totalFormatter"
                 />
             </slot>
         </div>
@@ -35,6 +36,13 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import { GlobalStore } from '@/store';
+import { useI18n } from 'vue-i18n'; // Import useI18n
+
+const { t } = useI18n();
+
+function totalFormatter(total: number) {
+    return t('commons.table.total', { total });
+}
 
 defineOptions({ name: 'ComplexTable' });
 const props = defineProps({

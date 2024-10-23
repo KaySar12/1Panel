@@ -9,6 +9,7 @@ import { reactive, computed, ref, nextTick, provide } from 'vue';
 import { GlobalStore } from '@/store';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
 import en from 'element-plus/es/locale/lang/en';
+import vi from 'element-plus/es/locale/lang/vi';
 import { useTheme } from '@/hooks/use-theme';
 useTheme();
 
@@ -20,7 +21,8 @@ const config = reactive({
 const i18nLocale = computed(() => {
     if (globalStore.language === 'zh') return zhCn;
     if (globalStore.language === 'en') return en;
-    return zhCn;
+    if (globalStore.language === 'vi') return vi;
+    return en;
 });
 
 const isRouterAlive = ref(true);

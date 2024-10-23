@@ -6,13 +6,13 @@ import vi from './modules/vi';
 
 const i18n = createI18n({
     legacy: false,
-    locale: localStorage.getItem('lang') || 'en' || 'zh',
+    locale: localStorage.getItem('lang') || 'en',
     globalInjection: true,
     messages: {
+        vi,
         zh,
         tw,
         en,
-        vi,
     },
     warnHtmlMessage: false,
 });
