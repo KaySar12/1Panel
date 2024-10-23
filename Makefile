@@ -21,9 +21,7 @@ IMAGE_TAG=1.1
 DOCKER_USERNAME=kaysar12
 ASSERT_PATH= $(BASE_PATH)/cmd/server/web/assets
 DETACH ?= false
-NEXTZEN_REGISTRY=git.nextzenos.com
-NEXTZEN_USERNAME=nextweb
-NEXTZEN_REPO=nextweb-official
+NEXTZEN_REGISTRY=hub.c14soft.com
 clean_assets:
 	rm -rf $(ASSERT_PATH) &&\
     if [ -f "$(DEPLOY_PATH)/$(APP_NAME)" ]; then \
@@ -61,7 +59,7 @@ build_image_nextzen:
 	fi
 	cp $(BUILD_PATH)/$(APP_NAME) $(DEPLOY_PATH) && \
 	cd $(DEPLOY_PATH) && \
-	$(DOCKERBUILD) --build-arg PANELVER=$(APP_VERSION) -t ${NEXTZEN_REGISTRY}/${NEXTZEN_USERNAME}/$(NEXTZEN_REPO):$(IMAGE_TAG) .
+	$(DOCKERBUILD) --build-arg PANELVER=$(APP_VERSION) -t ${NEXTZEN_REGISTRY}/${NEXTZEN_ORG}/$(APP_NAME):$(IMAGE_TAG) .
 remove_image:
 	@if [ -n "$(shell $(DOCKERIMAGE) ls -q "${DOCKER_USERNAME}/${APP_NAME}:${IMAGE_TAG}")" ]; then \
 		$(DOCKERIMAGE) rm ${DOCKER_USERNAME}/$(APP_NAME):$(IMAGE_TAG); \
@@ -71,7 +69,7 @@ remove_image:
 push_image:
 	$(DOCKERPUSH) ${DOCKER_USERNAME}/$(APP_NAME):$(IMAGE_TAG)
 push_image_nextzen:
-	$(DOCKERPUSH) ${NEXTZEN_REGISTRY}/${NEXTZEN_USERNAME}/$(NEXTZEN_REPO):$(IMAGE_TAG)
+	$(DOCKERPUSH) ${NEXTZEN_REGISTRY}/${NEXTZEN_ORG}/$(APP_NAME):$(IMAGE_TAG)
 quick_run:
 	cd $(DEPLOY_PATH)  && \
 	$(DOCKERCOMPOSE) up $(if $(DETACH),--detach)
